@@ -54,19 +54,25 @@ async function main(): Promise<void> {
   );
 
   // Step 4: Change detection
+  // In CI, always write since public/api/ doesn't persist between runs.
+  // Change detection only prevents unnecessary deploys via the CACHE_STATUS output.
   const serialized = JSON.stringify(computed);
   const currentHash = computeHash(serialized);
   const lastHash = await readLastHash();
+  const isCI = !!process.env.GITHUB_ACTIONS;
 
-  if (currentHash === lastHash) {
+  if (!isCI && currentHash === lastHash) {
     console.log("✅ No changes detected — skipping write");
     console.log(`⏱️  Total: ${elapsed(buildStart)}`);
-    // Output for CI to detect no-change state
-    console.log("::set-output name=CACHE_STATUS::NO_CHANGES");
     return;
   }
 
-  console.log("📝 Changes detected — writing files");
+  const hasChanges = currentHash !== lastHash;
+  if (!hasChanges) {
+    console.log("ℹ️  No data changes (but writing files for CI artifact)");
+  } else {
+    console.log("📝 Changes detected — writing files");
+  }
 
   // Step 5: Write
   const writeStart = performance.now();
