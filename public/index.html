@@ -336,7 +336,7 @@
 
     <h3>Fetch a single Pokémon (JavaScript)</h3>
     <div class="code-block">
-      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"/api/pokemon/25.json"</span>);
+      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"api/pokemon/25.json"</span>);
 <span class="keyword">const</span> pikachu = <span class="keyword">await</span> response.<span class="function">json</span>();
 
 console.<span class="function">log</span>(pikachu.name);           <span class="comment">// "Pikachu"</span>
@@ -346,7 +346,7 @@ console.<span class="function">log</span>(pikachu.quickMoves[<span class="number
 
     <h3>Get the full index</h3>
     <div class="code-block">
-      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"/api/pokemon/index.json"</span>);
+      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"api/pokemon/index.json"</span>);
 <span class="keyword">const</span> allPokemon = <span class="keyword">await</span> response.<span class="function">json</span>();
 
 <span class="comment">// allPokemon = [{ dexNr: 1, name: "Bulbasaur", id: "BULBASAUR" }, ...]</span>
@@ -355,7 +355,7 @@ console.<span class="function">log</span>(<span class="string">`Total: ${</span>
 
     <h3>Find the best DPS quick move for a Pokémon</h3>
     <div class="code-block">
-      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"/api/pokemon/150.json"</span>);
+      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"api/pokemon/150.json"</span>);
 <span class="keyword">const</span> mewtwo = <span class="keyword">await</span> response.<span class="function">json</span>();
 
 <span class="keyword">const</span> bestMove = mewtwo.quickMoves
@@ -464,7 +464,7 @@ curl -s http://localhost:3000/api/pokemon/6.json | jq '.quickMoves[] | {name, dp
       output.textContent = "// Fetching...";
 
       try {
-        const response = await fetch(`/api/pokemon/${dexNr}.json`);
+        const response = await fetch(`api/pokemon/${dexNr}.json`);
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
