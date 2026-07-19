@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pogo DB API</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2a2d3a;
+      --text: #e1e4eb;
+      --text-muted: #8b8fa3;
+      --accent: #6c63ff;
+      --accent-hover: #857dff;
+      --success: #4caf50;
+      --code-bg: #12141c;
+      --tag-bg: #2a2d3a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 1.5rem 0 0.75rem;
+      color: var(--text);
+    }
+
+    p { margin-bottom: 0.75rem; }
+
+    .endpoint-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .endpoint-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .method {
+      background: var(--success);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+    }
+
+    .endpoint-path {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+
+    .endpoint-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .try-it {
+      margin-top: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .try-it-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: var(--code-bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .try-it-header span {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .try-it-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .try-it-btn:hover { background: var(--accent-hover); }
+    .try-it-btn:disabled { opacity: 0.5; cursor: wait; }
+
+    .try-it-input {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .try-it-input label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .try-it-input input {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.85rem;
+      width: 80px;
+    }
+
+    .try-it-input input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .response-area {
+      padding: 1rem;
+      max-height: 400px;
+      overflow: auto;
+    }
+
+    .response-area pre {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--text-muted);
+    }
+
+    .response-area pre.loaded { color: var(--text); }
+
+    code {
+      font-family: "SF Mono", "Fira Code", monospace;
+      background: var(--code-bg);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.85em;
+    }
+
+    .code-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .code-block .comment { color: #6a737d; }
+    .code-block .keyword { color: #c678dd; }
+    .code-block .string { color: #98c379; }
+    .code-block .function { color: #61afef; }
+    .code-block .number { color: #d19a66; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .field-name {
+      font-family: "SF Mono", "Fira Code", monospace;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .type-tag {
+      background: var(--tag-bg);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      font-family: "SF Mono", "Fira Code", monospace;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .container { padding: 1rem; }
+      header h1 { font-size: 1.6rem; }
+      .endpoint-header { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Pogo DB API <span class="badge">v1.0</span></h1>
+      <p>A static JSON API for Pokémon GO data with pre-computed DPS and STAB stats. Updated automatically every 6 hours.</p>
+    </header>
+
+    <h2>Endpoints</h2>
+
+    <div class="endpoint-card">
+      <div class="endpoint-header">
+        <span class="method">GET</span>
+        <span class="endpoint-path">/api/pokemon/index.json</span>
+      </div>
+      <p class="endpoint-desc">Returns a manifest of all available Pokémon with their dex number, name, and ID.</p>
+    </div>
+
+    <div class="endpoint-card">
+      <div class="endpoint-header">
+        <span class="method">GET</span>
+        <span class="endpoint-path">/api/pokemon/{dexNr}.json</span>
+      </div>
+      <p class="endpoint-desc">Returns full data for a specific Pokémon by Pokédex number, including stats, moves, and computed DPS values.</p>
+    </div>
+
+    <h2>Try It</h2>
+
+    <p>Enter a Pokédex number to fetch a Pokémon. These calls hit the API directly from your browser.</p>
+
+    <div class="try-it">
+      <div class="try-it-header">
+        <span>GET /api/pokemon/<span id="url-preview">25</span>.json</span>
+        <button class="try-it-btn" id="fetch-btn" onclick="fetchPokemon()">Send Request</button>
+      </div>
+      <div class="try-it-input">
+        <label for="dex-input">Pokédex #:</label>
+        <input type="number" id="dex-input" value="25" min="1" max="1025" oninput="updatePreview()">
+      </div>
+      <div class="response-area">
+        <pre id="response-output">// Click "Send Request" to see the response</pre>
+      </div>
+    </div>
+
+    <h2>Quick Start</h2>
+
+    <h3>Fetch a single Pokémon (JavaScript)</h3>
+    <div class="code-block">
+      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"/api/pokemon/25.json"</span>);
+<span class="keyword">const</span> pikachu = <span class="keyword">await</span> response.<span class="function">json</span>();
+
+console.<span class="function">log</span>(pikachu.name);           <span class="comment">// "Pikachu"</span>
+console.<span class="function">log</span>(pikachu.stats.attack);    <span class="comment">// 112</span>
+console.<span class="function">log</span>(pikachu.quickMoves[<span class="number">0</span>].computed.dps); <span class="comment">// DPS value</span></pre>
+    </div>
+
+    <h3>Get the full index</h3>
+    <div class="code-block">
+      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"/api/pokemon/index.json"</span>);
+<span class="keyword">const</span> allPokemon = <span class="keyword">await</span> response.<span class="function">json</span>();
+
+<span class="comment">// allPokemon = [{ dexNr: 1, name: "Bulbasaur", id: "BULBASAUR" }, ...]</span>
+console.<span class="function">log</span>(<span class="string">`Total: ${</span>allPokemon.length<span class="string">} Pokémon`</span>);</pre>
+    </div>
+
+    <h3>Find the best DPS quick move for a Pokémon</h3>
+    <div class="code-block">
+      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"/api/pokemon/150.json"</span>);
+<span class="keyword">const</span> mewtwo = <span class="keyword">await</span> response.<span class="function">json</span>();
+
+<span class="keyword">const</span> bestMove = mewtwo.quickMoves
+  .<span class="function">sort</span>((a, b) => b.computed.stabDps - a.computed.stabDps)[<span class="number">0</span>];
+
+console.<span class="function">log</span>(<span class="string">`Best quick move: ${</span>bestMove.name<span class="string">} (${</span>bestMove.computed.stabDps<span class="string">} STAB DPS)`</span>);</pre>
+    </div>
+
+    <h3>Using with cURL</h3>
+    <div class="code-block">
+      <pre><span class="comment"># Get Pikachu</span>
+curl http://localhost:3000/api/pokemon/25.json
+
+<span class="comment"># Get the full index</span>
+curl http://localhost:3000/api/pokemon/index.json
+
+<span class="comment"># Pretty-print with jq</span>
+curl -s http://localhost:3000/api/pokemon/6.json | jq '.quickMoves[] | {name, dps: .computed.dps, stabDps: .computed.stabDps}'</pre>
+    </div>
+
+    <h2>Response Schema</h2>
+
+    <h3>Pokémon Object</h3>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="field-name">id</td><td><span class="type-tag">string</span></td><td>Internal Pokémon GO identifier</td></tr>
+        <tr><td class="field-name">formId</td><td><span class="type-tag">string</span></td><td>Form-specific identifier</td></tr>
+        <tr><td class="field-name">dexNr</td><td><span class="type-tag">number</span></td><td>National Pokédex number</td></tr>
+        <tr><td class="field-name">generation</td><td><span class="type-tag">number</span></td><td>Generation number</td></tr>
+        <tr><td class="field-name">name</td><td><span class="type-tag">string</span></td><td>English display name</td></tr>
+        <tr><td class="field-name">stats</td><td><span class="type-tag">object|null</span></td><td><code>{ stamina, attack, defense }</code></td></tr>
+        <tr><td class="field-name">primaryType</td><td><span class="type-tag">object</span></td><td><code>{ type, name }</code></td></tr>
+        <tr><td class="field-name">secondaryType</td><td><span class="type-tag">object|null</span></td><td><code>{ type, name }</code> or null</td></tr>
+        <tr><td class="field-name">quickMoves</td><td><span class="type-tag">Move[]</span></td><td>Fast attacks</td></tr>
+        <tr><td class="field-name">cinematicMoves</td><td><span class="type-tag">Move[]</span></td><td>Charged attacks</td></tr>
+        <tr><td class="field-name">eliteQuickMoves</td><td><span class="type-tag">Move[]</span></td><td>Elite TM fast attacks</td></tr>
+        <tr><td class="field-name">eliteCinematicMoves</td><td><span class="type-tag">Move[]</span></td><td>Elite TM charged attacks</td></tr>
+        <tr><td class="field-name">assets</td><td><span class="type-tag">object|null</span></td><td><code>{ image, shinyImage }</code> URLs</td></tr>
+        <tr><td class="field-name">evolutions</td><td><span class="type-tag">array</span></td><td>Evolution paths with candy costs</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Move Object</h3>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="field-name">id</td><td><span class="type-tag">string</span></td><td>Move identifier</td></tr>
+        <tr><td class="field-name">name</td><td><span class="type-tag">string</span></td><td>English display name</td></tr>
+        <tr><td class="field-name">power</td><td><span class="type-tag">number</span></td><td>Base damage</td></tr>
+        <tr><td class="field-name">energy</td><td><span class="type-tag">number</span></td><td>Energy cost/gain</td></tr>
+        <tr><td class="field-name">durationMs</td><td><span class="type-tag">number</span></td><td>Animation duration in milliseconds</td></tr>
+        <tr><td class="field-name">type</td><td><span class="type-tag">object</span></td><td><code>{ type, name }</code> — move element type</td></tr>
+        <tr><td class="field-name">combat</td><td><span class="type-tag">object|null</span></td><td>PvP stats: <code>{ energy, power, turns, buffs }</code></td></tr>
+        <tr><td class="field-name">computed.dps</td><td><span class="type-tag">number</span></td><td>Damage Per Second: <code>power / (durationMs / 1000)</code></td></tr>
+        <tr><td class="field-name">computed.stabDps</td><td><span class="type-tag">number</span></td><td>STAB DPS: <code>dps × 1.2</code> if move type matches Pokémon type</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Computed Fields</h2>
+    <p>Every move includes a <code>computed</code> object calculated at build time:</p>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Formula</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="field-name">dps</td>
+          <td><code>power / (durationMs / 1000)</code></td>
+          <td>Raw damage per second for PvE (gym/raid) battles</td>
+        </tr>
+        <tr>
+          <td class="field-name">stabDps</td>
+          <td><code>dps × 1.2</code> (if type matches)</td>
+          <td>Same Type Attack Bonus — applied when move type matches the Pokémon's primary or secondary type</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <p>
+        Data sourced from <a href="https://pokemon-go-api.github.io/pokemon-go-api/">pokemon-go-api</a> · 
+        <a href="https://github.com/S-Tier-Devs/pogo-db-api">GitHub</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function updatePreview() {
+      const val = document.getElementById("dex-input").value || "25";
+      document.getElementById("url-preview").textContent = val;
+    }
+
+    async function fetchPokemon() {
+      const dexNr = document.getElementById("dex-input").value || "25";
+      const btn = document.getElementById("fetch-btn");
+      const output = document.getElementById("response-output");
+
+      btn.disabled = true;
+      btn.textContent = "Loading...";
+      output.className = "";
+      output.textContent = "// Fetching...";
+
+      try {
+        const response = await fetch(`/api/pokemon/${dexNr}.json`);
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        const data = await response.json();
+        output.textContent = JSON.stringify(data, null, 2);
+        output.className = "loaded";
+      } catch (err) {
+        output.textContent = `// Error: ${err.message}\n// Make sure the API files exist (run: npm run build)`;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Send Request";
+      }
+    }
+  </script>
+</body>
+</html>
