@@ -448,6 +448,12 @@ curl -s http://localhost:3000/api/pokemon/6.json | jq '.quickMoves[] | {name, dp
   </div>
 
   <script>
+    function getBaseUrl() {
+      // Get the directory of the current page, ensuring trailing slash
+      const path = window.location.pathname;
+      return path.endsWith('/') ? path : path + '/';
+    }
+
     function updatePreview() {
       const val = document.getElementById("dex-input").value || "25";
       document.getElementById("url-preview").textContent = val;
@@ -464,7 +470,7 @@ curl -s http://localhost:3000/api/pokemon/6.json | jq '.quickMoves[] | {name, dp
       output.textContent = "// Fetching...";
 
       try {
-        const response = await fetch(`api/pokemon/${dexNr}.json`);
+        const response = await fetch(`${getBaseUrl()}api/pokemon/${dexNr}.json`);
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
