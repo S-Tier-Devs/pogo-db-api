@@ -1,0 +1,6 @@
+node_modules/
+dist/
+public/api/
+data/last-hash.txt
+*.tsbuildinfo
+.DS_Store
