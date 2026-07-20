@@ -1,0 +1,85 @@
+{
+  "id": "TOXEL",
+  "formId": "TOXEL",
+  "dexNr": 848,
+  "generation": 8,
+  "name": "Toxel",
+  "stats": {
+    "stamina": 120,
+    "attack": 97,
+    "defense": 65
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_ELECTRIC",
+    "name": "Electric"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_POISON",
+    "name": "Poison"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "ACID_FAST",
+      "name": "Acid",
+      "power": 11,
+      "energy": 10,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 6,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "POWER_UP_PUNCH",
+      "name": "Power-Up Punch",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 20,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": 1,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm848.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm848.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "TOXTRICITY",
+      "formId": "TOXTRICITY_LOW_KEY",
+      "candies": 400
+    },
+    {
+      "id": "TOXTRICITY",
+      "formId": "TOXTRICITY_AMPED",
+      "candies": 400
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}
