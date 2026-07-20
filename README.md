@@ -1,6 +1,6 @@
 # pogo-db-api
 
-A custom-tailored static JSON API for Pokémon GO data. Fetches upstream data from [pokemon-go-api](https://pokemon-go-api.github.io/pokemon-go-api/), trims it to English-only essentials, computes DPS/STAB stats at build time, and deploys as individual per-Pokémon JSON files to GitHub Pages.
+A custom-tailored static JSON API for Pokémon GO data. Stores Pokémon data as a local database of JSON files, computes DPS/STAB stats at build time, and deploys individual per-Pokémon JSON files to GitHub Pages.
 
 ## API Usage
 
@@ -49,16 +49,21 @@ Each move includes a `computed` object with:
 ## Architecture
 
 ```
-Upstream API → fetch → transform → compute → write → GitHub Pages
+data/pokemon/*.json → read → compute → write → GitHub Pages
 ```
 
 | Stage | Module | Description |
 |-------|--------|-------------|
-| Fetch | `src/fetcher.ts` | Downloads full Pokédex from upstream |
-| Transform | `src/transformer.ts` | Trims to English-only, flattens structure |
+| Store | `data/pokemon/` | Local database of per-Pokémon JSON files (committed) |
+| Read | `src/reader.ts` | Loads stored data, flattens forms, initializes computed fields |
 | Compute | `src/calculators/` | Extensible pipeline of stat calculators |
-| Write | `src/writer.ts` | Outputs individual JSON files per dexNr |
-| Orchestrate | `src/index.ts` | Wires everything together with change detection |
+| Write | `src/writer.ts` | Outputs individual JSON files per dexNr to `public/api/` |
+| Orchestrate | `src/index.ts` | Wires read → compute → write |
+
+### Adding New Pokémon
+
+1. Create or edit `data/pokemon/{dexNr}.json` with the Pokémon's base data (no `computed` fields on moves — those are calculated at build time).
+2. Push to `main` — the build pipeline computes DPS/STAB and deploys automatically.
 
 ### Adding New Calculators
 
@@ -94,7 +99,8 @@ const calculators = [dpsCalculator, myCalculator];
 
 ```bash
 npm install          # Install dependencies
-npm run build        # Fetch data, compute stats, write JSON files
+npm run build        # Read data, compute stats, write JSON API files
+npm run seed         # Re-seed data/pokemon/ from upstream API (overwrites existing)
 npm run typecheck    # Run TypeScript type checking
 npm test             # Run unit tests
 npm run test:watch   # Run tests in watch mode
@@ -103,20 +109,23 @@ npm run test:watch   # Run tests in watch mode
 ### Project Structure
 
 ```
+data/pokemon/             # Local database — one JSON file per dexNr (committed)
 src/
-├── index.ts              # Build pipeline entry point
+├── index.ts              # Build pipeline: read → compute → write
 ├── types.ts              # TypeScript type definitions
-├── fetcher.ts            # Upstream API data fetcher
-├── transformer.ts        # Raw → trimmed English transformer
-├── writer.ts             # JSON file writer
+├── reader.ts             # Reads data/pokemon/ into Pokemon[]
+├── seed.ts              # Seed script: fetch upstream → write data/pokemon/
+├── fetcher.ts            # HTTP fetch from upstream (used by seed)
+├── transformer.ts        # Raw → trimmed English (used by seed)
+├── writer.ts             # JSON file writer for public/api/
 └── calculators/
     ├── index.ts          # Calculator interface + pipeline runner
     └── dps.ts            # DPS/STAB computation
-public/api/pokemon/       # Generated output (gitignored)
-data/
-└── last-hash.txt         # Change detection hash (gitignored)
+public/
+├── index.html            # API documentation landing page
+└── api/pokemon/          # Generated output (gitignored)
 .github/workflows/
-├── build-and-deploy.yml  # Scheduled build + GitHub Pages deploy
+├── build-and-deploy.yml  # Build + GitHub Pages deploy
 └── ci.yml                # PR/push test runner
 ```
 
@@ -124,16 +133,14 @@ data/
 
 Automated via GitHub Actions:
 
-- **Scheduled**: Rebuilds every 6 hours to pick up upstream data changes
 - **On push**: Deploys on every push to `main`
 - **Manual**: Can be triggered via `workflow_dispatch`
-- **Change detection**: Only deploys when upstream data has actually changed (SHA-256 hash comparison)
 
-The API is served from the `gh-pages` branch via GitHub Pages.
+The build reads from committed `data/pokemon/` files, computes stats, and writes to `public/api/`. The API is served from the `gh-pages` branch via GitHub Pages.
 
 ## Data Source
 
-All Pokémon data is sourced from [pokemon-go-api](https://github.com/pokemon-go-api/pokemon-go-api), which in turn parses the Pokémon GO GameMaster files from PokeMiners.
+Initial data was seeded from [pokemon-go-api](https://github.com/pokemon-go-api/pokemon-go-api), which parses the Pokémon GO GameMaster files from PokeMiners. The data now lives locally in this repository and can be updated manually or re-seeded with `npm run seed`.
 
 ## License
 
