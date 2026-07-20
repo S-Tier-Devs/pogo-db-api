@@ -14,6 +14,7 @@ Base URL: `https://<username>.github.io/pogo-db-api/api/pokemon/`
 | `api/pokemon/{dexNr}.json` | Individual Pokémon data (e.g., `api/pokemon/25.json` for Pikachu) |
 | `api/rankings/index.json` | List of available type rankings |
 | `api/rankings/{type}.json` | Top attackers for a type (e.g., `api/rankings/fire.json`) |
+| `api/raids/current.json` | Current raid bosses (scraped from Leek Duck, updated daily) |
 
 ### Example Response (`api/pokemon/1.json`)
 
@@ -141,6 +142,11 @@ src/
 ├── transformer.ts        # Raw → trimmed English (used by seed)
 ├── writer.ts             # JSON file writer for public/api/pokemon/
 ├── rankings-writer.ts    # Per-type TDO rankings writer for public/api/rankings/
+├── raids-writer.ts       # Orchestrates raid boss fetch → parse → match → write
+├── raids/
+│   ├── fetcher.ts        # Fetches Leek Duck HTML (with timeout, silent fail)
+│   ├── parser.ts         # Cheerio-based HTML parser for raid boss data
+│   └── matcher.ts        # Name matcher: display names → dexNr
 └── calculators/
     ├── index.ts          # Calculator interface + pipeline runner
     ├── dps.ts            # DPS/STAB computation (per-move)
@@ -149,9 +155,10 @@ public/
 ├── index.html            # API documentation + methodology (with sidebar nav)
 └── api/                  # Generated output (gitignored)
     ├── pokemon/          # Per-Pokémon JSON files
-    └── rankings/         # Per-type TDO ranking files
+    ├── rankings/         # Per-type TDO ranking files
+    └── raids/            # Current raid bosses (scraped from Leek Duck)
 .github/workflows/
-├── build-and-deploy.yml  # Build + GitHub Pages deploy
+├── build-and-deploy.yml  # Build + GitHub Pages deploy (daily cron + push)
 └── ci.yml                # PR/push test runner
 ```
 
@@ -160,6 +167,7 @@ public/
 Automated via GitHub Actions:
 
 - **On push**: Deploys on every push to `main`
+- **Daily cron**: Runs at 7AM EST to refresh raid boss data from Leek Duck
 - **Manual**: Can be triggered via `workflow_dispatch`
 
 The build reads from committed `data/pokemon/` files, computes stats, and writes to `public/api/`. The API is served from the `gh-pages` branch via GitHub Pages.
