@@ -4,6 +4,7 @@ import { dpsCalculator } from "./calculators/dps.js";
 import { tdoCalculator } from "./calculators/tdo.js";
 import { writePokedex } from "./writer.js";
 import { writeRankings } from "./rankings-writer.js";
+import { writeRaids } from "./raids-writer.js";
 
 function elapsed(start: number): string {
   return ((performance.now() - start) / 1000).toFixed(2) + "s";
@@ -39,6 +40,15 @@ async function main(): Promise<void> {
   console.log(
     `🏆 Wrote ${rankingsWritten} ranking files in ${elapsed(rankingsStart)}`
   );
+
+  // Step 5: Fetch and write current raid bosses
+  const raidsStart = performance.now();
+  const raidsWritten = await writeRaids();
+  if (raidsWritten) {
+    console.log(`🥊 Wrote raid bosses in ${elapsed(raidsStart)}`);
+  } else {
+    console.log(`🥊 Skipped raid bosses (fetch unavailable) in ${elapsed(raidsStart)}`);
+  }
 
   console.log(`✅ Build complete in ${elapsed(buildStart)}`);
 }
