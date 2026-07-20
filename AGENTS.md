@@ -32,6 +32,10 @@ data/pokemon/*.json (committed) → read → compute → write → GitHub Pages
 | `src/calculators/tdo.ts` | TDO computation (moveset combos, real stats, rankings) |
 | `src/writer.ts` | JSON file output to public/api/pokemon/ |
 | `src/rankings-writer.ts` | Per-type TDO ranking files to public/api/rankings/ |
+| `src/raids-writer.ts` | Orchestrates raid boss fetch → parse → match → write |
+| `src/raids/fetcher.ts` | Fetches Leek Duck HTML (with timeout, silent fail) |
+| `src/raids/parser.ts` | Cheerio-based HTML parser for raid boss data |
+| `src/raids/matcher.ts` | Name matcher: display names → dexNr |
 | `public/index.html` | API documentation + methodology page (with sidebar nav) |
 
 ## Commands

@@ -514,6 +514,14 @@
           <p class="endpoint-desc">Returns Pokémon ranked by TDO for a specific type (e.g., <code>fire.json</code>). Each entry includes the Pokémon's best moveset for that damage type.</p>
         </div>
 
+        <div class="endpoint-card">
+          <div class="endpoint-row">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/raids/current.json</span>
+          </div>
+          <p class="endpoint-desc">Returns current raid bosses scraped from Leek Duck. Includes tier, types, CP ranges, weather boosts, and cross-referenced <code>dexNr</code>. Updated daily.</p>
+        </div>
+
         <h2>Try It</h2>
 
         <p>Enter a Pokédex number to fetch a Pokémon. These calls hit the API directly from your browser.</p>
@@ -587,6 +595,9 @@ curl http://localhost:3000/api/pokemon/index.json
 
 <span class="comment"># Get Fire-type rankings</span>
 curl http://localhost:3000/api/rankings/fire.json
+
+<span class="comment"># Get current raid bosses</span>
+curl http://localhost:3000/api/raids/current.json
 
 <span class="comment"># Pretty-print with jq</span>
 curl -s http://localhost:3000/api/pokemon/6.json | jq '.computed.movesets.regular[0]'</pre>
