@@ -36,6 +36,7 @@ function makePokemonFixture(overrides: Partial<Pokemon> = {}): Pokemon {
     evolutions: [],
     hasMegaEvolution: false,
     megaEvolutions: [],
+    computed: null,
     ...overrides,
   };
 }

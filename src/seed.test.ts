@@ -38,6 +38,7 @@ function makePokemon(overrides: Partial<Pokemon> = {}): Pokemon {
     evolutions: [{ id: "IVYSAUR", formId: "IVYSAUR", candies: 25 }],
     hasMegaEvolution: false,
     megaEvolutions: [],
+    computed: null,
     ...overrides,
   };
 }
