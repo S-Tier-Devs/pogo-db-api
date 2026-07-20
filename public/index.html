@@ -16,6 +16,7 @@
       --success: #4caf50;
       --code-bg: #12141c;
       --tag-bg: #2a2d3a;
+      --sidebar-width: 240px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,11 +28,105 @@
       line-height: 1.6;
     }
 
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--sidebar-width);
+      height: 100vh;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 0;
+      z-index: 100;
+      overflow-y: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-logo {
+      padding: 0 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .sidebar-logo h2 {
+      font-size: 1.1rem;
+      border: none;
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+    }
+
+    .sidebar-logo span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .sidebar nav {
+      padding: 0 0.75rem;
+    }
+
+    .sidebar nav a {
+      display: block;
+      padding: 0.6rem 1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .sidebar nav a:hover {
+      background: var(--border);
+      color: var(--text);
+    }
+
+    .sidebar nav a.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 200;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.6rem;
+      cursor: pointer;
+      color: var(--text);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    /* Overlay */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 90;
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: var(--sidebar-width);
+      min-height: 100vh;
+    }
+
     .container {
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
     }
+
+    .page { display: none; }
+    .page.active { display: block; }
 
     header {
       text-align: center;
@@ -75,6 +170,12 @@
     h3 {
       font-size: 1.1rem;
       margin: 1.5rem 0 0.75rem;
+      color: var(--text);
+    }
+
+    h4 {
+      font-size: 1rem;
+      margin: 1.25rem 0 0.5rem;
       color: var(--text);
     }
 
@@ -266,6 +367,49 @@
       font-family: "SF Mono", "Fira Code", monospace;
     }
 
+    .formula-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+
+    .formula-block .var { color: #61afef; }
+    .formula-block .op { color: #c678dd; }
+    .formula-block .num { color: #d19a66; }
+    .formula-block .fn { color: #e5c07b; }
+
+    .credit-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .credit-box a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .credit-box a:hover { text-decoration: underline; }
+
+    .note-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--success);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
     footer {
       margin-top: 4rem;
       padding-top: 2rem;
@@ -282,174 +426,433 @@
 
     footer a:hover { text-decoration: underline; }
 
-    @media (max-width: 600px) {
-      .container { padding: 1rem; }
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .sidebar-overlay.open {
+        display: block;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      .container { padding: 1rem; padding-top: 4rem; }
       header h1 { font-size: 1.6rem; }
       .endpoint-header { flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Pogo DB API <span class="badge">v1.0</span></h1>
-      <p>A static JSON API for Pokémon GO data with pre-computed DPS and STAB stats. Updated automatically every 6 hours.</p>
-    </header>
+  <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">&#9776;</button>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <h2>Endpoints</h2>
-
-    <div class="endpoint-card">
-      <div class="endpoint-header">
-        <span class="method">GET</span>
-        <span class="endpoint-path">/api/pokemon/index.json</span>
-      </div>
-      <p class="endpoint-desc">Returns a manifest of all available Pokémon with their dex number, name, and ID.</p>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <h2>Pogo DB API</h2>
+      <span>Pokémon GO Data</span>
     </div>
+    <nav>
+      <a href="#api" class="active" data-page="api">API Documentation</a>
+      <a href="#methodology" data-page="methodology">Methodology</a>
+    </nav>
+  </aside>
 
-    <div class="endpoint-card">
-      <div class="endpoint-header">
-        <span class="method">GET</span>
-        <span class="endpoint-path">/api/pokemon/{dexNr}.json</span>
-      </div>
-      <p class="endpoint-desc">Returns full data for a specific Pokémon by Pokédex number, including stats, moves, and computed DPS values.</p>
-    </div>
+  <div class="main-content">
+    <div class="container">
 
-    <h2>Try It</h2>
+      <!-- API Documentation Page -->
+      <div class="page active" id="page-api">
+        <header>
+          <h1>Pogo DB API <span class="badge">v1.0</span></h1>
+          <p>A static JSON API for Pokémon GO data with pre-computed DPS, STAB stats, and TDO rankings. Built and deployed automatically on every push.</p>
+        </header>
 
-    <p>Enter a Pokédex number to fetch a Pokémon. These calls hit the API directly from your browser.</p>
+        <h2>Pokémon Endpoints</h2>
 
-    <div class="try-it">
-      <div class="try-it-header">
-        <span>GET /api/pokemon/<span id="url-preview">25</span>.json</span>
-        <button class="try-it-btn" id="fetch-btn" onclick="fetchPokemon()">Send Request</button>
-      </div>
-      <div class="try-it-input">
-        <label for="dex-input">Pokédex #:</label>
-        <input type="number" id="dex-input" value="25" min="1" max="1025" oninput="updatePreview()">
-      </div>
-      <div class="response-area">
-        <pre id="response-output">// Click "Send Request" to see the response</pre>
-      </div>
-    </div>
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/pokemon/index.json</span>
+          </div>
+          <p class="endpoint-desc">Returns a manifest of all available Pokémon with their dex number, name, and ID.</p>
+        </div>
 
-    <h2>Quick Start</h2>
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/pokemon/{dexNr}.json</span>
+          </div>
+          <p class="endpoint-desc">Returns full data for a specific Pokémon by Pokédex number, including stats, moves, computed DPS values, and TDO-ranked movesets.</p>
+        </div>
 
-    <h3>Fetch a single Pokémon (JavaScript)</h3>
-    <div class="code-block">
-      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"api/pokemon/25.json"</span>);
+        <h2>Rankings Endpoints</h2>
+
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/rankings/index.json</span>
+          </div>
+          <p class="endpoint-desc">Returns a manifest of all available ranking types.</p>
+        </div>
+
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method">GET</span>
+            <span class="endpoint-path">/api/rankings/{type}.json</span>
+          </div>
+          <p class="endpoint-desc">Returns Pokémon ranked by TDO for a specific type (e.g., <code>fire.json</code>). Each entry includes the Pokémon's best moveset for that damage type.</p>
+        </div>
+
+        <h2>Try It</h2>
+
+        <p>Enter a Pokédex number to fetch a Pokémon. These calls hit the API directly from your browser.</p>
+
+        <div class="try-it">
+          <div class="try-it-header">
+            <span>GET /api/pokemon/<span id="url-preview">25</span>.json</span>
+            <button class="try-it-btn" id="fetch-btn" onclick="fetchPokemon()">Send Request</button>
+          </div>
+          <div class="try-it-input">
+            <label for="dex-input">Pokédex #:</label>
+            <input type="number" id="dex-input" value="25" min="1" max="1025" oninput="updatePreview()">
+          </div>
+          <div class="response-area">
+            <pre id="response-output">// Click "Send Request" to see the response</pre>
+          </div>
+        </div>
+
+        <h2>Quick Start</h2>
+
+        <h3>Fetch a single Pokémon (JavaScript)</h3>
+        <div class="code-block">
+          <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"api/pokemon/25.json"</span>);
 <span class="keyword">const</span> pikachu = <span class="keyword">await</span> response.<span class="function">json</span>();
 
 console.<span class="function">log</span>(pikachu.name);           <span class="comment">// "Pikachu"</span>
 console.<span class="function">log</span>(pikachu.stats.attack);    <span class="comment">// 112</span>
 console.<span class="function">log</span>(pikachu.quickMoves[<span class="number">0</span>].computed.dps); <span class="comment">// DPS value</span></pre>
-    </div>
+        </div>
 
-    <h3>Get the full index</h3>
-    <div class="code-block">
-      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"api/pokemon/index.json"</span>);
+        <h3>Get the best TDO moveset for a Pokémon</h3>
+        <div class="code-block">
+          <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"api/pokemon/150.json"</span>);
+<span class="keyword">const</span> mewtwo = <span class="keyword">await</span> response.<span class="function">json</span>();
+
+<span class="comment">// Get best regular moveset by TDO</span>
+<span class="keyword">const</span> best = mewtwo.computed.movesets.regular
+  .<span class="function">sort</span>((a, b) => b.tdo - a.tdo)[<span class="number">0</span>];
+
+console.<span class="function">log</span>(<span class="string">`Best moveset: ${</span>best.quickMove<span class="string">} + ${</span>best.cinematicMove<span class="string">}`</span>);
+console.<span class="function">log</span>(<span class="string">`TDO: ${</span>best.tdo<span class="string">}, Combo DPS: ${</span>best.comboDps<span class="string">}`</span>);</pre>
+        </div>
+
+        <h3>Get the full index</h3>
+        <div class="code-block">
+          <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"api/pokemon/index.json"</span>);
 <span class="keyword">const</span> allPokemon = <span class="keyword">await</span> response.<span class="function">json</span>();
 
 <span class="comment">// allPokemon = [{ dexNr: 1, name: "Bulbasaur", id: "BULBASAUR" }, ...]</span>
 console.<span class="function">log</span>(<span class="string">`Total: ${</span>allPokemon.length<span class="string">} Pokémon`</span>);</pre>
-    </div>
+        </div>
 
-    <h3>Find the best DPS quick move for a Pokémon</h3>
-    <div class="code-block">
-      <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"api/pokemon/150.json"</span>);
+        <h3>Find the best DPS quick move for a Pokémon</h3>
+        <div class="code-block">
+          <pre><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">"api/pokemon/150.json"</span>);
 <span class="keyword">const</span> mewtwo = <span class="keyword">await</span> response.<span class="function">json</span>();
 
 <span class="keyword">const</span> bestMove = mewtwo.quickMoves
   .<span class="function">sort</span>((a, b) => b.computed.stabDps - a.computed.stabDps)[<span class="number">0</span>];
 
 console.<span class="function">log</span>(<span class="string">`Best quick move: ${</span>bestMove.name<span class="string">} (${</span>bestMove.computed.stabDps<span class="string">} STAB DPS)`</span>);</pre>
-    </div>
+        </div>
 
-    <h3>Using with cURL</h3>
-    <div class="code-block">
-      <pre><span class="comment"># Get Pikachu</span>
+        <h3>Using with cURL</h3>
+        <div class="code-block">
+          <pre><span class="comment"># Get Pikachu</span>
 curl http://localhost:3000/api/pokemon/25.json
 
 <span class="comment"># Get the full index</span>
 curl http://localhost:3000/api/pokemon/index.json
 
+<span class="comment"># Get Fire-type rankings</span>
+curl http://localhost:3000/api/rankings/fire.json
+
 <span class="comment"># Pretty-print with jq</span>
-curl -s http://localhost:3000/api/pokemon/6.json | jq '.quickMoves[] | {name, dps: .computed.dps, stabDps: .computed.stabDps}'</pre>
+curl -s http://localhost:3000/api/pokemon/6.json | jq '.computed.movesets.regular[0]'</pre>
+        </div>
+
+        <h2>Response Schema</h2>
+
+        <h3>Pokémon Object</h3>
+        <table>
+          <thead>
+            <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="field-name">id</td><td><span class="type-tag">string</span></td><td>Internal Pokémon GO identifier</td></tr>
+            <tr><td class="field-name">formId</td><td><span class="type-tag">string</span></td><td>Form-specific identifier</td></tr>
+            <tr><td class="field-name">dexNr</td><td><span class="type-tag">number</span></td><td>National Pokédex number</td></tr>
+            <tr><td class="field-name">generation</td><td><span class="type-tag">number</span></td><td>Generation number</td></tr>
+            <tr><td class="field-name">name</td><td><span class="type-tag">string</span></td><td>English display name</td></tr>
+            <tr><td class="field-name">stats</td><td><span class="type-tag">object|null</span></td><td><code>{ stamina, attack, defense }</code></td></tr>
+            <tr><td class="field-name">primaryType</td><td><span class="type-tag">object</span></td><td><code>{ type, name }</code></td></tr>
+            <tr><td class="field-name">secondaryType</td><td><span class="type-tag">object|null</span></td><td><code>{ type, name }</code> or null</td></tr>
+            <tr><td class="field-name">quickMoves</td><td><span class="type-tag">Move[]</span></td><td>Fast attacks</td></tr>
+            <tr><td class="field-name">cinematicMoves</td><td><span class="type-tag">Move[]</span></td><td>Charged attacks</td></tr>
+            <tr><td class="field-name">eliteQuickMoves</td><td><span class="type-tag">Move[]</span></td><td>Elite TM fast attacks</td></tr>
+            <tr><td class="field-name">eliteCinematicMoves</td><td><span class="type-tag">Move[]</span></td><td>Elite TM charged attacks</td></tr>
+            <tr><td class="field-name">assets</td><td><span class="type-tag">object|null</span></td><td><code>{ image, shinyImage }</code> URLs</td></tr>
+            <tr><td class="field-name">evolutions</td><td><span class="type-tag">array</span></td><td>Evolution paths with candy costs</td></tr>
+            <tr><td class="field-name">computed.pokemon</td><td><span class="type-tag">object</span></td><td>Pokémon-level computed stats (see below)</td></tr>
+            <tr><td class="field-name">computed.movesets</td><td><span class="type-tag">object</span></td><td>TDO-ranked moveset combinations (see below)</td></tr>
+          </tbody>
+        </table>
+
+        <h3>computed.pokemon Object</h3>
+        <table>
+          <thead>
+            <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="field-name">atkReal</td><td><span class="type-tag">number</span></td><td>Real attack stat: <code>(base_attack + 15) × 0.84029999</code></td></tr>
+            <tr><td class="field-name">defReal</td><td><span class="type-tag">number</span></td><td>Real defense stat: <code>(base_defense + 15) × 0.84029999</code></td></tr>
+            <tr><td class="field-name">hpReal</td><td><span class="type-tag">number</span></td><td>Real HP stat: <code>floor((base_stamina + 15) × 0.84029999)</code></td></tr>
+          </tbody>
+        </table>
+
+        <h3>computed.movesets Object</h3>
+        <p>Contains <code>regular[]</code> and <code>elite[]</code> arrays. Regular movesets use only standard moves; elite movesets include at least one Elite TM move.</p>
+        <table>
+          <thead>
+            <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="field-name">quickMove</td><td><span class="type-tag">string</span></td><td>Name of the fast move in this combination</td></tr>
+            <tr><td class="field-name">cinematicMove</td><td><span class="type-tag">string</span></td><td>Name of the charged move in this combination</td></tr>
+            <tr><td class="field-name">comboDps</td><td><span class="type-tag">number</span></td><td>Combo DPS for the full energy cycle</td></tr>
+            <tr><td class="field-name">comboDpsAtk</td><td><span class="type-tag">number</span></td><td>Combo DPS × real attack stat</td></tr>
+            <tr><td class="field-name">tdo</td><td><span class="type-tag">number</span></td><td>Total Damage Output: comboDpsAtk × hpReal × defReal</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Move Object</h3>
+        <table>
+          <thead>
+            <tr><th>Field</th><th>Type</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="field-name">id</td><td><span class="type-tag">string</span></td><td>Move identifier</td></tr>
+            <tr><td class="field-name">name</td><td><span class="type-tag">string</span></td><td>English display name</td></tr>
+            <tr><td class="field-name">power</td><td><span class="type-tag">number</span></td><td>Base damage</td></tr>
+            <tr><td class="field-name">energy</td><td><span class="type-tag">number</span></td><td>Energy cost/gain</td></tr>
+            <tr><td class="field-name">durationMs</td><td><span class="type-tag">number</span></td><td>Animation duration in milliseconds</td></tr>
+            <tr><td class="field-name">type</td><td><span class="type-tag">object</span></td><td><code>{ type, name }</code> — move element type</td></tr>
+            <tr><td class="field-name">combat</td><td><span class="type-tag">object|null</span></td><td>PvP stats: <code>{ energy, power, turns, buffs }</code></td></tr>
+            <tr><td class="field-name">computed.dps</td><td><span class="type-tag">number</span></td><td>Damage Per Second: <code>power / (durationMs / 1000)</code></td></tr>
+            <tr><td class="field-name">computed.stabDps</td><td><span class="type-tag">number</span></td><td>STAB DPS: <code>dps × 1.2</code> if move type matches Pokémon type</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Computed Fields</h2>
+        <p>Every move includes a <code>computed</code> object calculated at build time:</p>
+        <table>
+          <thead>
+            <tr><th>Field</th><th>Formula</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="field-name">dps</td>
+              <td><code>power / (durationMs / 1000)</code></td>
+              <td>Raw damage per second for PvE (gym/raid) battles</td>
+            </tr>
+            <tr>
+              <td class="field-name">stabDps</td>
+              <td><code>dps × 1.2</code> (if type matches)</td>
+              <td>Same Type Attack Bonus — applied when move type matches the Pokémon's primary or secondary type</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <footer>
+          <p>
+            Seed data (initial) from <a href="https://pokemon-go-api.github.io/pokemon-go-api/">pokemon-go-api</a> · 
+            <a href="https://github.com/S-Tier-Devs/pogo-db-api">GitHub</a>
+          </p>
+        </footer>
+      </div>
+
+      <!-- Methodology Page -->
+      <div class="page" id="page-methodology">
+        <header>
+          <h1>Methodology</h1>
+          <p>How TDO rankings and computed stats are calculated in the Pogo DB API build pipeline.</p>
+        </header>
+
+        <div class="credit-box">
+          <p><strong>Credit:</strong> The TDO ranking methodology is based on the work of <strong>Dr. Gogochi</strong> as documented on <a href="https://doctorpokegogo.com/en/rating-methodology/">Doctor Pokegogo</a>. We implement their formulas to produce boss-agnostic Total Damage Output rankings for every Pokémon and moveset combination.</p>
+        </div>
+
+        <h2>Overview</h2>
+        <p>The API computes two levels of stats at build time:</p>
+        <ul style="margin: 0.75rem 0 0.75rem 1.5rem; color: var(--text-muted);">
+          <li><strong>Per-move DPS</strong> — simple power/duration for individual move reference</li>
+          <li><strong>TDO Rankings</strong> — full energy-cycle simulation for every moveset combination</li>
+        </ul>
+
+        <h2>Real Stats (Level 50, Perfect IVs)</h2>
+        <p>All calculations assume a Level 50 Pokémon with 15/15/15 IVs. The CP Multiplier for Level 50 is:</p>
+        <div class="formula-block">
+<span class="var">CPM_50</span> <span class="op">=</span> <span class="num">0.84029999</span>
+        </div>
+        <p>Real stats are derived from base stats:</p>
+        <div class="formula-block">
+<span class="var">ATK_real</span> <span class="op">=</span> (<span class="var">base_attack</span> <span class="op">+</span> <span class="num">15</span>) <span class="op">×</span> <span class="var">CPM_50</span>
+<span class="var">DEF_real</span> <span class="op">=</span> (<span class="var">base_defense</span> <span class="op">+</span> <span class="num">15</span>) <span class="op">×</span> <span class="var">CPM_50</span>
+<span class="var">HP_real</span>  <span class="op">=</span> <span class="fn">floor</span>((<span class="var">base_stamina</span> <span class="op">+</span> <span class="num">15</span>) <span class="op">×</span> <span class="var">CPM_50</span>)
+        </div>
+        <p>These are output in the API as <code>computed.pokemon.atkReal</code>, <code>computed.pokemon.defReal</code>, and <code>computed.pokemon.hpReal</code>.</p>
+
+        <h2>STAB (Same Type Attack Bonus)</h2>
+        <p>When a move's element type matches the Pokémon's primary or secondary type, the move receives a <strong>1.2× damage multiplier</strong>. This is applied in both the per-move DPS and the TDO combo calculations.</p>
+        <div class="formula-block">
+<span class="var">stab</span> <span class="op">=</span> <span class="num">1.2</span> <span class="keyword">if</span> <span class="var">move.type</span> <span class="op">∈</span> {<span class="var">primaryType</span>, <span class="var">secondaryType</span>} <span class="keyword">else</span> <span class="num">1.0</span>
+        </div>
+
+        <h2>Per-Move DPS</h2>
+        <p>Each individual move has a simple DPS calculation, kept for quick reference when comparing moves in isolation:</p>
+        <div class="formula-block">
+<span class="var">dps</span>     <span class="op">=</span> <span class="var">power</span> <span class="op">/</span> (<span class="var">durationMs</span> <span class="op">/</span> <span class="num">1000</span>)
+<span class="var">stabDps</span> <span class="op">=</span> <span class="var">dps</span> <span class="op">×</span> <span class="num">1.2</span>  <span class="comment">// only if STAB applies</span>
+        </div>
+        <p>This does <em>not</em> account for energy cycles or charged moves — it's purely the raw damage rate of a single move animation.</p>
+
+        <h2>Energy Cycle Calculation</h2>
+        <p>To compare full movesets (fast + charged move combos), we calculate how many fast moves are needed to accumulate enough energy for one charged move, then compute the overall DPS of that complete cycle.</p>
+
+        <h3>Step 1: Energy Per Second</h3>
+        <div class="formula-block">
+<span class="var">eps</span> <span class="op">=</span> <span class="var">fast_energy</span> <span class="op">/</span> <span class="var">fast_duration</span>
+        </div>
+        <p>Where <code>fast_energy</code> is the energy gained per fast move use, and <code>fast_duration</code> is in seconds.</p>
+
+        <h3>Step 2: Number of Fast Moves per Cycle</h3>
+        <div class="formula-block">
+<span class="var">energy_cost</span> <span class="op">=</span> <span class="fn">abs</span>(<span class="var">charge_energy</span>)
+<span class="var">n_fast</span>      <span class="op">=</span> <span class="fn">ceil</span>(<span class="var">energy_cost</span> <span class="op">/</span> (<span class="var">eps</span> <span class="op">×</span> <span class="var">fast_duration</span>))
+        </div>
+        <p>We round up because you can't use a fractional fast move.</p>
+
+        <h3>Step 3: Cycle Time</h3>
+        <div class="formula-block">
+<span class="var">cycle_time</span> <span class="op">=</span> <span class="var">n_fast</span> <span class="op">×</span> <span class="var">fast_duration</span> <span class="op">+</span> <span class="var">charge_duration</span>
+        </div>
+        <p>The total time for one complete energy cycle: all the fast moves plus one charged move.</p>
+
+        <h3>Step 4: Combo DPS</h3>
+        <div class="formula-block">
+<span class="var">combo_dps</span> <span class="op">=</span> (<span class="var">n_fast</span> <span class="op">×</span> <span class="var">fast_power</span> <span class="op">×</span> <span class="var">fast_stab</span> <span class="op">+</span> <span class="var">charge_power</span> <span class="op">×</span> <span class="var">charge_stab</span>) <span class="op">/</span> <span class="var">cycle_time</span>
+        </div>
+        <p>This gives the effective damage rate across a full energy cycle, incorporating STAB bonuses for both moves.</p>
+
+        <h2>TDO (Total Damage Output)</h2>
+        <p>TDO combines offensive output (combo DPS × attack) with the Pokémon's bulk (HP × defense) to produce a single ranking metric:</p>
+        <div class="formula-block">
+<span class="var">combo_dps_atk</span> <span class="op">=</span> <span class="var">combo_dps</span> <span class="op">×</span> <span class="var">ATK_real</span>
+<span class="var">TDO</span>           <span class="op">=</span> <span class="var">combo_dps_atk</span> <span class="op">×</span> <span class="var">HP_real</span> <span class="op">×</span> <span class="var">DEF_real</span>
+        </div>
+        <p>Higher TDO means the Pokémon deals more total damage before fainting. This is the primary ranking metric used in the <code>/api/rankings/</code> endpoints.</p>
+
+        <h2>Regular vs Elite Movesets</h2>
+        <p>Every moveset combination is classified into two categories:</p>
+        <ul style="margin: 0.75rem 0 0.75rem 1.5rem; color: var(--text-muted);">
+          <li><strong>Regular</strong> — both the fast move and charged move are available through normal gameplay (TMs, leveling, etc.)</li>
+          <li><strong>Elite</strong> — at least one of the moves requires an Elite TM (Community Day moves, legacy moves, etc.)</li>
+        </ul>
+        <p>This separation allows users to see the best achievable moveset with and without Elite TMs. Both arrays are sorted by TDO descending in the API output.</p>
+
+        <h2>Boss-Agnostic Rankings</h2>
+        <div class="note-box">
+          <strong>Note:</strong> These rankings do <em>not</em> apply type effectiveness multipliers. No specific raid boss or defender is assumed. The TDO metric represents raw offensive + bulk potential without any type advantage or disadvantage applied. This makes the rankings useful as a general-purpose "how good is this Pokémon's moveset?" reference.
+        </div>
+        <p>If you need type-matchup-aware rankings (e.g., "best counters for Mewtwo"), you would apply the relevant type effectiveness multipliers on top of the <code>comboDps</code> values from the API.</p>
+
+        <h2>Summary of Output Fields</h2>
+        <table>
+          <thead>
+            <tr><th>API Field</th><th>Formula</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="field-name">computed.pokemon.atkReal</td><td><code>(base_attack + 15) × 0.84029999</code></td></tr>
+            <tr><td class="field-name">computed.pokemon.defReal</td><td><code>(base_defense + 15) × 0.84029999</code></td></tr>
+            <tr><td class="field-name">computed.pokemon.hpReal</td><td><code>floor((base_stamina + 15) × 0.84029999)</code></td></tr>
+            <tr><td class="field-name">movesets[].comboDps</td><td><code>(n_fast × fast_power × fast_stab + charge_power × charge_stab) / cycle_time</code></td></tr>
+            <tr><td class="field-name">movesets[].comboDpsAtk</td><td><code>comboDps × atkReal</code></td></tr>
+            <tr><td class="field-name">movesets[].tdo</td><td><code>comboDpsAtk × hpReal × defReal</code></td></tr>
+            <tr><td class="field-name">moves[].computed.dps</td><td><code>power / (durationMs / 1000)</code></td></tr>
+            <tr><td class="field-name">moves[].computed.stabDps</td><td><code>dps × 1.2</code> (if STAB)</td></tr>
+          </tbody>
+        </table>
+
+        <footer>
+          <p>
+            Methodology based on <a href="https://doctorpokegogo.com/en/rating-methodology/">Doctor Pokegogo</a> by Dr. Gogochi · 
+            <a href="https://github.com/S-Tier-Devs/pogo-db-api">GitHub</a>
+          </p>
+        </footer>
+      </div>
+
     </div>
-
-    <h2>Response Schema</h2>
-
-    <h3>Pokémon Object</h3>
-    <table>
-      <thead>
-        <tr><th>Field</th><th>Type</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="field-name">id</td><td><span class="type-tag">string</span></td><td>Internal Pokémon GO identifier</td></tr>
-        <tr><td class="field-name">formId</td><td><span class="type-tag">string</span></td><td>Form-specific identifier</td></tr>
-        <tr><td class="field-name">dexNr</td><td><span class="type-tag">number</span></td><td>National Pokédex number</td></tr>
-        <tr><td class="field-name">generation</td><td><span class="type-tag">number</span></td><td>Generation number</td></tr>
-        <tr><td class="field-name">name</td><td><span class="type-tag">string</span></td><td>English display name</td></tr>
-        <tr><td class="field-name">stats</td><td><span class="type-tag">object|null</span></td><td><code>{ stamina, attack, defense }</code></td></tr>
-        <tr><td class="field-name">primaryType</td><td><span class="type-tag">object</span></td><td><code>{ type, name }</code></td></tr>
-        <tr><td class="field-name">secondaryType</td><td><span class="type-tag">object|null</span></td><td><code>{ type, name }</code> or null</td></tr>
-        <tr><td class="field-name">quickMoves</td><td><span class="type-tag">Move[]</span></td><td>Fast attacks</td></tr>
-        <tr><td class="field-name">cinematicMoves</td><td><span class="type-tag">Move[]</span></td><td>Charged attacks</td></tr>
-        <tr><td class="field-name">eliteQuickMoves</td><td><span class="type-tag">Move[]</span></td><td>Elite TM fast attacks</td></tr>
-        <tr><td class="field-name">eliteCinematicMoves</td><td><span class="type-tag">Move[]</span></td><td>Elite TM charged attacks</td></tr>
-        <tr><td class="field-name">assets</td><td><span class="type-tag">object|null</span></td><td><code>{ image, shinyImage }</code> URLs</td></tr>
-        <tr><td class="field-name">evolutions</td><td><span class="type-tag">array</span></td><td>Evolution paths with candy costs</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Move Object</h3>
-    <table>
-      <thead>
-        <tr><th>Field</th><th>Type</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="field-name">id</td><td><span class="type-tag">string</span></td><td>Move identifier</td></tr>
-        <tr><td class="field-name">name</td><td><span class="type-tag">string</span></td><td>English display name</td></tr>
-        <tr><td class="field-name">power</td><td><span class="type-tag">number</span></td><td>Base damage</td></tr>
-        <tr><td class="field-name">energy</td><td><span class="type-tag">number</span></td><td>Energy cost/gain</td></tr>
-        <tr><td class="field-name">durationMs</td><td><span class="type-tag">number</span></td><td>Animation duration in milliseconds</td></tr>
-        <tr><td class="field-name">type</td><td><span class="type-tag">object</span></td><td><code>{ type, name }</code> — move element type</td></tr>
-        <tr><td class="field-name">combat</td><td><span class="type-tag">object|null</span></td><td>PvP stats: <code>{ energy, power, turns, buffs }</code></td></tr>
-        <tr><td class="field-name">computed.dps</td><td><span class="type-tag">number</span></td><td>Damage Per Second: <code>power / (durationMs / 1000)</code></td></tr>
-        <tr><td class="field-name">computed.stabDps</td><td><span class="type-tag">number</span></td><td>STAB DPS: <code>dps × 1.2</code> if move type matches Pokémon type</td></tr>
-      </tbody>
-    </table>
-
-    <h2>Computed Fields</h2>
-    <p>Every move includes a <code>computed</code> object calculated at build time:</p>
-    <table>
-      <thead>
-        <tr><th>Field</th><th>Formula</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="field-name">dps</td>
-          <td><code>power / (durationMs / 1000)</code></td>
-          <td>Raw damage per second for PvE (gym/raid) battles</td>
-        </tr>
-        <tr>
-          <td class="field-name">stabDps</td>
-          <td><code>dps × 1.2</code> (if type matches)</td>
-          <td>Same Type Attack Bonus — applied when move type matches the Pokémon's primary or secondary type</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <footer>
-      <p>
-        Data sourced from <a href="https://pokemon-go-api.github.io/pokemon-go-api/">pokemon-go-api</a> · 
-        <a href="https://github.com/S-Tier-Devs/pogo-db-api">GitHub</a>
-      </p>
-    </footer>
   </div>
 
   <script>
+    // Hash-based routing
+    function navigateTo(page) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.sidebar nav a').forEach(a => a.classList.remove('active'));
+
+      const target = document.getElementById('page-' + page);
+      const link = document.querySelector(`[data-page="${page}"]`);
+
+      if (target) target.classList.add('active');
+      if (link) link.classList.add('active');
+
+      // Close sidebar on mobile
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').classList.remove('open');
+    }
+
+    function handleHash() {
+      const hash = window.location.hash.slice(1) || 'api';
+      navigateTo(hash);
+    }
+
+    window.addEventListener('hashchange', handleHash);
+    window.addEventListener('DOMContentLoaded', handleHash);
+
+    // Sidebar toggle for mobile
+    document.getElementById('hamburger-btn').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebar-overlay').classList.toggle('open');
+    });
+
+    document.getElementById('sidebar-overlay').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').classList.remove('open');
+    });
+
+    // API Try-It functionality
     function getBaseUrl() {
-      // Get the directory of the current page, ensuring trailing slash
       const path = window.location.pathname;
       return path.endsWith('/') ? path : path + '/';
     }

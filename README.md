@@ -12,6 +12,8 @@ Base URL: `https://<username>.github.io/pogo-db-api/api/pokemon/`
 |----------|-------------|
 | `api/pokemon/index.json` | Manifest of all available Pokémon (dexNr, name, id) |
 | `api/pokemon/{dexNr}.json` | Individual Pokémon data (e.g., `api/pokemon/25.json` for Pikachu) |
+| `api/rankings/index.json` | List of available type rankings |
+| `api/rankings/{type}.json` | Top attackers for a type (e.g., `api/rankings/fire.json`) |
 
 ### Example Response (`api/pokemon/1.json`)
 
@@ -45,6 +47,14 @@ Each move includes a `computed` object with:
 
 - **dps** — Damage Per Second: `power / (durationMs / 1000)`
 - **stabDps** — STAB-adjusted DPS: `dps × 1.2` when the move type matches the Pokémon's primary or secondary type
+
+Each Pokémon includes a top-level `computed` object (if stats are available) with:
+
+- **pokemon** — Real stats at Level 50, 15/15/15 IVs: `{ atkReal, defReal, hpReal }`
+- **movesets.regular** — All fast × charge combos ranked by TDO (regular moves only)
+- **movesets.elite** — Combos requiring at least one Elite TM move, ranked by TDO
+
+TDO (Total Damage Output) = `combo_dps_atk × HP_real × DEF_real` — a boss-agnostic composite blending damage output and bulk. See the frontend's Methodology page for the full formula.
 
 ## Architecture
 
@@ -129,13 +139,17 @@ src/
 ├── seed.ts              # Seed script: fetch upstream → write data/pokemon/
 ├── fetcher.ts            # HTTP fetch from upstream (used by seed)
 ├── transformer.ts        # Raw → trimmed English (used by seed)
-├── writer.ts             # JSON file writer for public/api/
+├── writer.ts             # JSON file writer for public/api/pokemon/
+├── rankings-writer.ts    # Per-type TDO rankings writer for public/api/rankings/
 └── calculators/
     ├── index.ts          # Calculator interface + pipeline runner
-    └── dps.ts            # DPS/STAB computation
+    ├── dps.ts            # DPS/STAB computation (per-move)
+    └── tdo.ts            # TDO computation (moveset combos + rankings)
 public/
-├── index.html            # API documentation landing page
-└── api/pokemon/          # Generated output (gitignored)
+├── index.html            # API documentation + methodology (with sidebar nav)
+└── api/                  # Generated output (gitignored)
+    ├── pokemon/          # Per-Pokémon JSON files
+    └── rankings/         # Per-type TDO ranking files
 .github/workflows/
 ├── build-and-deploy.yml  # Build + GitHub Pages deploy
 └── ci.yml                # PR/push test runner
