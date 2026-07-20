@@ -104,7 +104,19 @@ npm run seed         # Re-seed data/pokemon/ from upstream API (overwrites exist
 npm run typecheck    # Run TypeScript type checking
 npm test             # Run unit tests
 npm run test:watch   # Run tests in watch mode
+npx serve public     # Serve the frontend locally at http://localhost:3000
 ```
+
+### Running Locally
+
+To view the API documentation frontend and browse the API locally:
+
+```bash
+npm run build        # Generate the API files in public/api/
+npx serve public     # Start a local server at http://localhost:3000
+```
+
+The frontend (`public/index.html`) is an interactive API documentation page. It requires `public/api/` to be populated first via `npm run build`.
 
 ### Project Structure
 

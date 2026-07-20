@@ -44,6 +44,8 @@ npm run test:watch   # Tests in watch mode
 npx serve public     # Local server at http://localhost:3000
 ```
 
+Note: The frontend (`public/index.html`) requires `public/api/` to be populated first. Run `npm run build` before serving locally.
+
 ## Running Tests
 
 Tests use vitest. No network calls in the main test suite — reader/seed tests use OS temp directories, fetcher tests mock `global.fetch`.
