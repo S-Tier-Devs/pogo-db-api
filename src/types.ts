@@ -82,6 +82,39 @@ export interface Pokemon {
   megaEvolutions: MegaEvolution[];
 }
 
+/** Stored data types (local database files in data/pokemon/) */
+
+export interface StoredMove {
+  id: string;
+  name: string;
+  power: number;
+  energy: number;
+  durationMs: number;
+  type: PokemonType;
+  combat: MoveCombatStats | null;
+}
+
+export interface StoredPokemon {
+  id: string;
+  formId: string;
+  dexNr: number;
+  generation: number;
+  name: string;
+  stats: PokemonStats | null;
+  primaryType: PokemonType;
+  secondaryType: PokemonType | null;
+  pokemonClass: string | null;
+  quickMoves: StoredMove[];
+  cinematicMoves: StoredMove[];
+  eliteQuickMoves: StoredMove[];
+  eliteCinematicMoves: StoredMove[];
+  assets: Assets | null;
+  evolutions: Evolution[];
+  hasMegaEvolution: boolean;
+  megaEvolutions: MegaEvolution[];
+  forms?: StoredPokemon[];
+}
+
 /** Raw upstream types (for typing the fetcher response) */
 export interface RawUpstreamPokemon {
   id: string;
