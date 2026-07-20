@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsx src/index.ts",
+    "seed": "tsx src/seed.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"
