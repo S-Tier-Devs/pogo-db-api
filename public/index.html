@@ -511,7 +511,7 @@
             <span class="method">GET</span>
             <span class="endpoint-path">/api/rankings/{type}.json</span>
           </div>
-          <p class="endpoint-desc">Returns Pokémon ranked by TDO for a specific type (e.g., <code>POKEMON_TYPE_FIRE.json</code>). Each entry includes the Pokémon's best moveset against that type context.</p>
+          <p class="endpoint-desc">Returns Pokémon ranked by TDO for a specific type (e.g., <code>fire.json</code>). Each entry includes the Pokémon's best moveset for that damage type.</p>
         </div>
 
         <h2>Try It</h2>
@@ -586,7 +586,7 @@ curl http://localhost:3000/api/pokemon/25.json
 curl http://localhost:3000/api/pokemon/index.json
 
 <span class="comment"># Get Fire-type rankings</span>
-curl http://localhost:3000/api/rankings/POKEMON_TYPE_FIRE.json
+curl http://localhost:3000/api/rankings/fire.json
 
 <span class="comment"># Pretty-print with jq</span>
 curl -s http://localhost:3000/api/pokemon/6.json | jq '.computed.movesets.regular[0]'</pre>
