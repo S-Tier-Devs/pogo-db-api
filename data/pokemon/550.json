@@ -1,0 +1,122 @@
+{
+  "id": "BASCULIN",
+  "formId": "BASCULIN",
+  "dexNr": 550,
+  "generation": 5,
+  "name": "Basculin",
+  "stats": {
+    "stamina": 172,
+    "attack": 189,
+    "defense": 129
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "TACKLE_FAST",
+      "name": "Tackle",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WATER_GUN_FAST",
+      "name": "Water Gun",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "AQUA_JET",
+      "name": "Aqua Jet",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "AQUA_TAIL",
+      "name": "Aqua Tail",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "MUDDY_WATER",
+      "name": "Muddy Water",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 35,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 30,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm550.fRED_STRIPED.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm550.fRED_STRIPED.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

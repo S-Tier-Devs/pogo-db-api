@@ -1,0 +1,148 @@
+{
+  "id": "THUNDURUS",
+  "formId": "THUNDURUS",
+  "dexNr": 642,
+  "generation": 5,
+  "name": "Thundurus",
+  "stats": {
+    "stamina": 188,
+    "attack": 266,
+    "defense": 164
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_ELECTRIC",
+    "name": "Electric"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_FLYING",
+    "name": "Flying"
+  },
+  "pokemonClass": "POKEMON_CLASS_LEGENDARY",
+  "quickMoves": [
+    {
+      "id": "ASTONISH_FAST",
+      "name": "Astonish",
+      "power": 7,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 12,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "THUNDER_SHOCK_FAST",
+      "name": "Thunder Shock",
+      "power": 4,
+      "energy": 7,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 4,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "CRUNCH",
+      "name": "Crunch",
+      "power": 65,
+      "energy": -33,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 70,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 20,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "THUNDER",
+      "name": "Thunder",
+      "power": 100,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BRICK_BREAK",
+      "name": "Brick Break",
+      "power": 40,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 50,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "THUNDER_PUNCH",
+      "name": "Thunder Punch",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm642.fINCARNATE.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm642.fINCARNATE.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

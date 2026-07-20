@@ -1,0 +1,200 @@
+{
+  "id": "YVELTAL",
+  "formId": "YVELTAL",
+  "dexNr": 717,
+  "generation": 6,
+  "name": "Yveltal",
+  "stats": {
+    "stamina": 246,
+    "attack": 250,
+    "defense": 185
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_DARK",
+    "name": "Dark"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_FLYING",
+    "name": "Flying"
+  },
+  "pokemonClass": "POKEMON_CLASS_LEGENDARY",
+  "quickMoves": [
+    {
+      "id": "SUCKER_PUNCH_FAST",
+      "name": "Sucker Punch",
+      "power": 5,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": 7,
+        "power": 8,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SNARL_FAST",
+      "name": "Snarl",
+      "power": 11,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": 13,
+        "power": 5,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "GUST_FAST",
+      "name": "Gust",
+      "power": 25,
+      "energy": 20,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": 14,
+        "power": 16,
+        "turns": 4,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "DARK_PULSE",
+      "name": "Dark Pulse",
+      "power": 80,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HURRICANE",
+      "name": "Hurricane",
+      "power": 105,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FOCUS_BLAST",
+      "name": "Focus Blast",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HYPER_BEAM",
+      "name": "Hyper Beam",
+      "power": 150,
+      "energy": -100,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -80,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "PSYCHIC",
+      "name": "Psychic",
+      "power": 95,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 75,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [
+    {
+      "id": "OBLIVION_WING",
+      "name": "Oblivion Wing",
+      "power": 85,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 85,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": 1,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm717.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm717.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

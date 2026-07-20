@@ -1,0 +1,159 @@
+{
+  "id": "DIGGERSBY",
+  "formId": "DIGGERSBY",
+  "dexNr": 660,
+  "generation": 6,
+  "name": "Diggersby",
+  "stats": {
+    "stamina": 198,
+    "attack": 112,
+    "defense": 155
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_NORMAL",
+    "name": "Normal"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_GROUND",
+    "name": "Ground"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "MUD_SHOT_FAST",
+      "name": "Mud Shot",
+      "power": 4,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 3,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "QUICK_ATTACK_FAST",
+      "name": "Quick Attack",
+      "power": 10,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "DIG",
+      "name": "Dig",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 4500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HYPER_BEAM",
+      "name": "Hyper Beam",
+      "power": 150,
+      "energy": -100,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -80,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "EARTHQUAKE",
+      "name": "Earthquake",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -65,
+        "power": 120,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FIRE_PUNCH",
+      "name": "Fire Punch",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SCORCHING_SANDS",
+      "name": "Scorching Sands",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm660.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm660.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

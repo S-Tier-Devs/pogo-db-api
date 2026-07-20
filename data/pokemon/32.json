@@ -1,0 +1,122 @@
+{
+  "id": "NIDORAN_MALE",
+  "formId": "NIDORAN",
+  "dexNr": 32,
+  "generation": 1,
+  "name": "Nidoran♂",
+  "stats": {
+    "stamina": 130,
+    "attack": 105,
+    "defense": 76
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_POISON",
+    "name": "Poison"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "PECK_FAST",
+      "name": "Peck",
+      "power": 10,
+      "energy": 10,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 6,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "POISON_STING_FAST",
+      "name": "Poison Sting",
+      "power": 4,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 4,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "HORN_ATTACK",
+      "name": "Horn Attack",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 40,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BODY_SLAM",
+      "name": "Body Slam",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SLUDGE_BOMB",
+      "name": "Sludge Bomb",
+      "power": 85,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm32.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm32.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "NIDORINO",
+      "formId": "NIDORINO_NORMAL",
+      "candies": 25
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

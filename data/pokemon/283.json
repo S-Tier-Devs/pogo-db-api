@@ -1,0 +1,137 @@
+{
+  "id": "SURSKIT",
+  "formId": "SURSKIT",
+  "dexNr": 283,
+  "generation": 3,
+  "name": "Surskit",
+  "stats": {
+    "stamina": 120,
+    "attack": 93,
+    "defense": 87
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_BUG",
+    "name": "Bug"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "BUBBLE_FAST",
+      "name": "Bubble",
+      "power": 10,
+      "energy": 12,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 11,
+        "power": 8,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BUG_BITE_FAST",
+      "name": "Bug Bite",
+      "power": 5,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 4,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "AQUA_JET",
+      "name": "Aqua Jet",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BUBBLE_BEAM",
+      "name": "Bubble Beam",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 25,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "SIGNAL_BEAM",
+      "name": "Signal Beam",
+      "power": 75,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 75,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 20,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm283.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm283.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "MASQUERAIN",
+      "formId": "MASQUERAIN",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

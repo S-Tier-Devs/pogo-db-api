@@ -1,0 +1,136 @@
+{
+  "id": "PELIPPER",
+  "formId": "PELIPPER",
+  "dexNr": 279,
+  "generation": 3,
+  "name": "Pelipper",
+  "stats": {
+    "stamina": 155,
+    "attack": 175,
+    "defense": 174
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_FLYING",
+    "name": "Flying"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "WATER_GUN_FAST",
+      "name": "Water Gun",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WING_ATTACK_FAST",
+      "name": "Wing Attack",
+      "power": 10,
+      "energy": 11,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "HYDRO_PUMP",
+      "name": "Hydro Pump",
+      "power": 135,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 130,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HURRICANE",
+      "name": "Hurricane",
+      "power": 105,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BLIZZARD",
+      "name": "Blizzard",
+      "power": 130,
+      "energy": -100,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 140,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WEATHER_BALL_WATER",
+      "name": "Weather Ball",
+      "power": 55,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm279.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm279.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

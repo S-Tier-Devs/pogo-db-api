@@ -1,0 +1,145 @@
+{
+  "id": "VELUZA",
+  "formId": "VELUZA",
+  "dexNr": 976,
+  "generation": 9,
+  "name": "Veluza",
+  "stats": {
+    "stamina": 207,
+    "attack": 196,
+    "defense": 139
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_PSYCHIC",
+    "name": "Psychic"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "ICE_FANG_FAST",
+      "name": "Ice Fang",
+      "power": 12,
+      "energy": 20,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": 6,
+        "power": 8,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ZEN_HEADBUTT_FAST",
+      "name": "Zen Headbutt",
+      "power": 11,
+      "energy": 9,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": 6,
+        "power": 8,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "WATER_PULSE",
+      "name": "Water Pulse",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "PSYCHIC_FANGS",
+      "name": "Psychic Fangs",
+      "power": 25,
+      "energy": -33,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 40,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "DRILL_RUN",
+      "name": "Drill Run",
+      "power": 85,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "CRUNCH",
+      "name": "Crunch",
+      "power": 65,
+      "energy": -33,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 70,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 20,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": null,
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

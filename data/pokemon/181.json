@@ -1,0 +1,236 @@
+{
+  "id": "AMPHAROS",
+  "formId": "AMPHAROS",
+  "dexNr": 181,
+  "generation": 2,
+  "name": "Ampharos",
+  "stats": {
+    "stamina": 207,
+    "attack": 211,
+    "defense": 169
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_ELECTRIC",
+    "name": "Electric"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "CHARGE_BEAM_FAST",
+      "name": "Charge Beam",
+      "power": 7,
+      "energy": 14,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": 11,
+        "power": 5,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "VOLT_SWITCH_FAST",
+      "name": "Volt Switch",
+      "power": 13,
+      "energy": 20,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": 16,
+        "power": 14,
+        "turns": 4,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "ZAP_CANNON",
+      "name": "Zap Cannon",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -80,
+        "power": 150,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 33,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "FOCUS_BLAST",
+      "name": "Focus Blast",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "THUNDER",
+      "name": "Thunder",
+      "power": 100,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "POWER_GEM",
+      "name": "Power Gem",
+      "power": 80,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 85,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "THUNDER_PUNCH",
+      "name": "Thunder Punch",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BRUTAL_SWING",
+      "name": "Brutal Swing",
+      "power": 65,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "TRAILBLAZE",
+      "name": "Trailblaze",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 65,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": 1,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [
+    {
+      "id": "DRAGON_PULSE",
+      "name": "Dragon Pulse",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm181.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm181.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": true,
+  "megaEvolutions": [
+    {
+      "id": "AMPHAROS_MEGA",
+      "name": "Mega Ampharos",
+      "stats": {
+        "stamina": 207,
+        "attack": 294,
+        "defense": 203
+      },
+      "primaryType": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "secondaryType": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "assets": {
+        "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm181.fMEGA.icon.png",
+        "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm181.fMEGA.s.icon.png"
+      }
+    }
+  ]
+}

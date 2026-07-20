@@ -1,0 +1,143 @@
+{
+  "id": "SPINARAK",
+  "formId": "SPINARAK",
+  "dexNr": 167,
+  "generation": 2,
+  "name": "Spinarak",
+  "stats": {
+    "stamina": 120,
+    "attack": 105,
+    "defense": 73
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_BUG",
+    "name": "Bug"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_POISON",
+    "name": "Poison"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "POISON_STING_FAST",
+      "name": "Poison Sting",
+      "power": 4,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 4,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BUG_BITE_FAST",
+      "name": "Bug Bite",
+      "power": 5,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 4,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "NIGHT_SLASH",
+      "name": "Night Slash",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 50,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 12,
+          "attackerAttackStatsChange": 1,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "SIGNAL_BEAM",
+      "name": "Signal Beam",
+      "power": 75,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 75,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 20,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "CROSS_POISON",
+      "name": "Cross Poison",
+      "power": 40,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 50,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 12,
+          "attackerAttackStatsChange": 2,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm167.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm167.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "ARIADOS",
+      "formId": "ARIADOS",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

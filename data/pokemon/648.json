@@ -1,0 +1,142 @@
+{
+  "id": "MELOETTA",
+  "formId": "MELOETTA",
+  "dexNr": 648,
+  "generation": 5,
+  "name": "Meloetta",
+  "stats": {
+    "stamina": 225,
+    "attack": 250,
+    "defense": 225
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_NORMAL",
+    "name": "Normal"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_PSYCHIC",
+    "name": "Psychic"
+  },
+  "pokemonClass": "POKEMON_CLASS_MYTHIC",
+  "quickMoves": [
+    {
+      "id": "QUICK_ATTACK_FAST",
+      "name": "Quick Attack",
+      "power": 10,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "LOW_KICK_FAST",
+      "name": "Low Kick",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "CLOSE_COMBAT",
+      "name": "Close Combat",
+      "power": 105,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 100,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": -2,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "FIRE_PUNCH",
+      "name": "Fire Punch",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ICE_PUNCH",
+      "name": "Ice Punch",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HYPER_BEAM",
+      "name": "Hyper Beam",
+      "power": 150,
+      "energy": -100,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -80,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm648.fARIA.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm648.fARIA.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

@@ -1,0 +1,160 @@
+{
+  "id": "TINKATON",
+  "formId": "TINKATON",
+  "dexNr": 959,
+  "generation": 9,
+  "name": "Tinkaton",
+  "stats": {
+    "stamina": 198,
+    "attack": 155,
+    "defense": 196
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_FAIRY",
+    "name": "Fairy"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_STEEL",
+    "name": "Steel"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "FAIRY_WIND_FAST",
+      "name": "Fairy Wind",
+      "power": 9,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FAIRY",
+        "name": "Fairy"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 4,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ROCK_SMASH_FAST",
+      "name": "Rock Smash",
+      "power": 17,
+      "energy": 12,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": 7,
+        "power": 9,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "PLAY_ROUGH",
+      "name": "Play Rough",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_FAIRY",
+        "name": "Fairy"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FLASH_CANNON",
+      "name": "Flash Cannon",
+      "power": 100,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": -65,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BULLDOZE",
+      "name": "Bulldoze",
+      "power": 80,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 45,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 50,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "HEAVY_SLAM",
+      "name": "Heavy Slam",
+      "power": 70,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [
+    {
+      "id": "GIGATON_HAMMER",
+      "name": "Gigaton Hammer",
+      "power": 300,
+      "energy": -100,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 130,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm959.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm959.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

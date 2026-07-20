@@ -1,0 +1,210 @@
+{
+  "id": "STEELIX",
+  "formId": "STEELIX",
+  "dexNr": 208,
+  "generation": 2,
+  "name": "Steelix",
+  "stats": {
+    "stamina": 181,
+    "attack": 148,
+    "defense": 272
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_STEEL",
+    "name": "Steel"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_GROUND",
+    "name": "Ground"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "IRON_TAIL_FAST",
+      "name": "Iron Tail",
+      "power": 14,
+      "energy": 6,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": 7,
+        "power": 10,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "DRAGON_TAIL_FAST",
+      "name": "Dragon Tail",
+      "power": 14,
+      "energy": 8,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": 12,
+        "power": 9,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "THUNDER_FANG_FAST",
+      "name": "Thunder Fang",
+      "power": 10,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": 6,
+        "power": 8,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "EARTHQUAKE",
+      "name": "Earthquake",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -65,
+        "power": 120,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HEAVY_SLAM",
+      "name": "Heavy Slam",
+      "power": 70,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "CRUNCH",
+      "name": "Crunch",
+      "power": 65,
+      "energy": -33,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 70,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 20,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "PSYCHIC_FANGS",
+      "name": "Psychic Fangs",
+      "power": 25,
+      "energy": -33,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 40,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "BREAKING_SWIPE",
+      "name": "Breaking Swipe",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 50,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm208.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm208.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": true,
+  "megaEvolutions": [
+    {
+      "id": "STEELIX_MEGA",
+      "name": "Mega Steelix",
+      "stats": {
+        "stamina": 181,
+        "attack": 212,
+        "defense": 327
+      },
+      "primaryType": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "secondaryType": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "assets": {
+        "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm208.fMEGA.icon.png",
+        "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm208.fMEGA.s.icon.png"
+      }
+    }
+  ]
+}

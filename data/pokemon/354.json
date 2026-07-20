@@ -1,0 +1,135 @@
+{
+  "id": "BANETTE",
+  "formId": "BANETTE",
+  "dexNr": 354,
+  "generation": 3,
+  "name": "Banette",
+  "stats": {
+    "stamina": 162,
+    "attack": 218,
+    "defense": 126
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GHOST",
+    "name": "Ghost"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "HEX_FAST",
+      "name": "Hex",
+      "power": 8,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 13,
+        "power": 7,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SHADOW_CLAW_FAST",
+      "name": "Shadow Claw",
+      "power": 6,
+      "energy": 4,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 6,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "SHADOW_BALL",
+      "name": "Shadow Ball",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "DAZZLING_GLEAM",
+      "name": "Dazzling Gleam",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_FAIRY",
+        "name": "Fairy"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "THUNDER",
+      "name": "Thunder",
+      "power": 100,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm354.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm354.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": true,
+  "megaEvolutions": [
+    {
+      "id": "BANETTE_MEGA",
+      "name": "Mega Banette",
+      "stats": {
+        "stamina": 162,
+        "attack": 312,
+        "defense": 160
+      },
+      "primaryType": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "secondaryType": null,
+      "assets": {
+        "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm354.fMEGA.icon.png",
+        "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm354.fMEGA.s.icon.png"
+      }
+    }
+  ]
+}

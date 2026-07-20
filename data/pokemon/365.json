@@ -1,0 +1,155 @@
+{
+  "id": "WALREIN",
+  "formId": "WALREIN",
+  "dexNr": 365,
+  "generation": 3,
+  "name": "Walrein",
+  "stats": {
+    "stamina": 242,
+    "attack": 182,
+    "defense": 176
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_ICE",
+    "name": "Ice"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "WATERFALL_FAST",
+      "name": "Waterfall",
+      "power": 13,
+      "energy": 7,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 11,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FROST_BREATH_FAST",
+      "name": "Frost Breath",
+      "power": 11,
+      "energy": 9,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": 5,
+        "power": 7,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "BLIZZARD",
+      "name": "Blizzard",
+      "power": 130,
+      "energy": -100,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 140,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "EARTHQUAKE",
+      "name": "Earthquake",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -65,
+        "power": 120,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WATER_PULSE",
+      "name": "Water Pulse",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [
+    {
+      "id": "POWDER_SNOW_FAST",
+      "name": "Powder Snow",
+      "power": 6,
+      "energy": 15,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 6,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteCinematicMoves": [
+    {
+      "id": "ICICLE_SPEAR",
+      "name": "Icicle Spear",
+      "power": 55,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm365.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm365.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

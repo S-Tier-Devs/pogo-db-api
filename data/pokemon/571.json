@@ -1,0 +1,133 @@
+{
+  "id": "ZOROARK",
+  "formId": "ZOROARK",
+  "dexNr": 571,
+  "generation": 5,
+  "name": "Zoroark",
+  "stats": {
+    "stamina": 155,
+    "attack": 250,
+    "defense": 127
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_DARK",
+    "name": "Dark"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "SHADOW_CLAW_FAST",
+      "name": "Shadow Claw",
+      "power": 6,
+      "energy": 4,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 6,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SNARL_FAST",
+      "name": "Snarl",
+      "power": 11,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": 13,
+        "power": 5,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "FOUL_PLAY",
+      "name": "Foul Play",
+      "power": 70,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 65,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SLUDGE_BOMB",
+      "name": "Sludge Bomb",
+      "power": 85,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FLAMETHROWER",
+      "name": "Flamethrower",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "NIGHT_SHADE",
+      "name": "Night Shade",
+      "power": 60,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm571.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm571.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

@@ -1,0 +1,145 @@
+{
+  "id": "CHIKORITA",
+  "formId": "CHIKORITA",
+  "dexNr": 152,
+  "generation": 2,
+  "name": "Chikorita",
+  "stats": {
+    "stamina": 128,
+    "attack": 92,
+    "defense": 122
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GRASS",
+    "name": "Grass"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "VINE_WHIP_FAST",
+      "name": "Vine Whip",
+      "power": 6,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "TACKLE_FAST",
+      "name": "Tackle",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "MAGICAL_LEAF_FAST",
+      "name": "Magical Leaf",
+      "power": 17,
+      "energy": 17,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 10,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "ENERGY_BALL",
+      "name": "Energy Ball",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 80,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "GRASS_KNOT",
+      "name": "Grass Knot",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BODY_SLAM",
+      "name": "Body Slam",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm152.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm152.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "BAYLEEF",
+      "formId": "BAYLEEF",
+      "candies": 25
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

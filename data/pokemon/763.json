@@ -1,0 +1,203 @@
+{
+  "id": "TSAREENA",
+  "formId": "TSAREENA",
+  "dexNr": 763,
+  "generation": 7,
+  "name": "Tsareena",
+  "stats": {
+    "stamina": 176,
+    "attack": 222,
+    "defense": 195
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GRASS",
+    "name": "Grass"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "RAZOR_LEAF_FAST",
+      "name": "Razor Leaf",
+      "power": 13,
+      "energy": 7,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 4,
+        "power": 9,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "CHARM_FAST",
+      "name": "Charm",
+      "power": 20,
+      "energy": 11,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_FAIRY",
+        "name": "Fairy"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 12,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "MAGICAL_LEAF_FAST",
+      "name": "Magical Leaf",
+      "power": 17,
+      "energy": 17,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 10,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "ENERGY_BALL",
+      "name": "Energy Ball",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 80,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "DRAINING_KISS",
+      "name": "Draining Kiss",
+      "power": 60,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FAIRY",
+        "name": "Fairy"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "GRASS_KNOT",
+      "name": "Grass Knot",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "STOMP",
+      "name": "Stomp",
+      "power": 50,
+      "energy": -50,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "TRIPLE_AXEL",
+      "name": "Triple Axel",
+      "power": 60,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 60,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": 1,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [
+    {
+      "id": "HIGH_JUMP_KICK",
+      "name": "High Jump Kick",
+      "power": 90,
+      "energy": -100,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 110,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": -4,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm763.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm763.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

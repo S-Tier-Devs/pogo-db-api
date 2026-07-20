@@ -1,0 +1,157 @@
+{
+  "id": "SHELLDER",
+  "formId": "SHELLDER",
+  "dexNr": 90,
+  "generation": 1,
+  "name": "Shellder",
+  "stats": {
+    "stamina": 102,
+    "attack": 116,
+    "defense": 134
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "ICE_SHARD_FAST",
+      "name": "Ice Shard",
+      "power": 10,
+      "energy": 10,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 9,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "TACKLE_FAST",
+      "name": "Tackle",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "BUBBLE_BEAM",
+      "name": "Bubble Beam",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 25,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "WATER_PULSE",
+      "name": "Water Pulse",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ICY_WIND",
+      "name": "Icy Wind",
+      "power": 65,
+      "energy": -33,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 60,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "RAZOR_SHELL",
+      "name": "Razor Shell",
+      "power": 55,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 35,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 50,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm90.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm90.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "CLOYSTER",
+      "formId": "CLOYSTER_NORMAL",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

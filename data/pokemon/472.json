@@ -1,0 +1,182 @@
+{
+  "id": "GLISCOR",
+  "formId": "GLISCOR",
+  "dexNr": 472,
+  "generation": 4,
+  "name": "Gliscor",
+  "stats": {
+    "stamina": 181,
+    "attack": 185,
+    "defense": 222
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GROUND",
+    "name": "Ground"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_FLYING",
+    "name": "Flying"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "FURY_CUTTER_FAST",
+      "name": "Fury Cutter",
+      "power": 4,
+      "energy": 8,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": 4,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WING_ATTACK_FAST",
+      "name": "Wing Attack",
+      "power": 10,
+      "energy": 11,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SAND_ATTACK_FAST",
+      "name": "Sand Attack",
+      "power": 4,
+      "energy": 7,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": 4,
+        "power": 2,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "EARTHQUAKE",
+      "name": "Earthquake",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -65,
+        "power": 120,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "AERIAL_ACE",
+      "name": "Aerial Ace",
+      "power": 55,
+      "energy": -33,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "NIGHT_SLASH",
+      "name": "Night Slash",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 50,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 12,
+          "attackerAttackStatsChange": 1,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "SAND_TOMB",
+      "name": "Sand Tomb",
+      "power": 60,
+      "energy": -33,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 40,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "ACROBATICS",
+      "name": "Acrobatics",
+      "power": 100,
+      "energy": -100,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm472.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm472.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

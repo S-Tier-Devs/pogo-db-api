@@ -1,0 +1,116 @@
+{
+  "id": "LUVDISC",
+  "formId": "LUVDISC",
+  "dexNr": 370,
+  "generation": 3,
+  "name": "Luvdisc",
+  "stats": {
+    "stamina": 125,
+    "attack": 81,
+    "defense": 128
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "WATER_GUN_FAST",
+      "name": "Water Gun",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SPLASH_FAST",
+      "name": "Splash",
+      "power": 0,
+      "energy": 17,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 12,
+        "power": 0,
+        "turns": 4,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "DRAINING_KISS",
+      "name": "Draining Kiss",
+      "power": 60,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FAIRY",
+        "name": "Fairy"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WATER_PULSE",
+      "name": "Water Pulse",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "AQUA_JET",
+      "name": "Aqua Jet",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm370.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm370.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

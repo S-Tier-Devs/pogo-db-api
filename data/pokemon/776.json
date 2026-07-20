@@ -1,0 +1,193 @@
+{
+  "id": "TURTONATOR",
+  "formId": "TURTONATOR",
+  "dexNr": 776,
+  "generation": 7,
+  "name": "Turtonator",
+  "stats": {
+    "stamina": 155,
+    "attack": 165,
+    "defense": 215
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_FIRE",
+    "name": "Fire"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_DRAGON",
+    "name": "Dragon"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "EMBER_FAST",
+      "name": "Ember",
+      "power": 10,
+      "energy": 10,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 4,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FIRE_SPIN_FAST",
+      "name": "Fire Spin",
+      "power": 13,
+      "energy": 9,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 11,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "INCINERATE_FAST",
+      "name": "Incinerate",
+      "power": 32,
+      "energy": 22,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": 20,
+        "power": 20,
+        "turns": 5,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "OVERHEAT",
+      "name": "Overheat",
+      "power": 160,
+      "energy": -100,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 130,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": -2,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "FLAMETHROWER",
+      "name": "Flamethrower",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "DRAGON_PULSE",
+      "name": "Dragon Pulse",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FLASH_CANNON",
+      "name": "Flash Cannon",
+      "power": 100,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": -65,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BRUTAL_SWING",
+      "name": "Brutal Swing",
+      "power": 65,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "DRAGON_CLAW",
+      "name": "Dragon Claw",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm776.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm776.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

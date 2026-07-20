@@ -1,0 +1,110 @@
+{
+  "id": "CLAMPERL",
+  "formId": "CLAMPERL",
+  "dexNr": 366,
+  "generation": 3,
+  "name": "Clamperl",
+  "stats": {
+    "stamina": 111,
+    "attack": 133,
+    "defense": 135
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "WATER_GUN_FAST",
+      "name": "Water Gun",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "BODY_SLAM",
+      "name": "Body Slam",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ICE_BEAM",
+      "name": "Ice Beam",
+      "power": 95,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WATER_PULSE",
+      "name": "Water Pulse",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm366.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm366.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "HUNTAIL",
+      "formId": "HUNTAIL",
+      "candies": 50
+    },
+    {
+      "id": "GOREBYSS",
+      "formId": "GOREBYSS",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

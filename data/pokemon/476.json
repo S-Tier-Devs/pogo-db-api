@@ -1,0 +1,142 @@
+{
+  "id": "PROBOPASS",
+  "formId": "PROBOPASS",
+  "dexNr": 476,
+  "generation": 4,
+  "name": "Probopass",
+  "stats": {
+    "stamina": 155,
+    "attack": 135,
+    "defense": 275
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_ROCK",
+    "name": "Rock"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_STEEL",
+    "name": "Steel"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "ROCK_THROW_FAST",
+      "name": "Rock Throw",
+      "power": 13,
+      "energy": 8,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": 5,
+        "power": 8,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SPARK_FAST",
+      "name": "Spark",
+      "power": 4,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": 7,
+        "power": 5,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "MAGNET_BOMB",
+      "name": "Magnet Bomb",
+      "power": 75,
+      "energy": -33,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ROCK_SLIDE",
+      "name": "Rock Slide",
+      "power": 75,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 75,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "THUNDERBOLT",
+      "name": "Thunderbolt",
+      "power": 80,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ZAP_CANNON",
+      "name": "Zap Cannon",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -80,
+        "power": 150,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 33,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm476.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm476.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

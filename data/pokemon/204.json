@@ -1,0 +1,134 @@
+{
+  "id": "PINECO",
+  "formId": "PINECO",
+  "dexNr": 204,
+  "generation": 2,
+  "name": "Pineco",
+  "stats": {
+    "stamina": 137,
+    "attack": 108,
+    "defense": 122
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_BUG",
+    "name": "Bug"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "TACKLE_FAST",
+      "name": "Tackle",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BUG_BITE_FAST",
+      "name": "Bug Bite",
+      "power": 5,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 4,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "GYRO_BALL",
+      "name": "Gyro Ball",
+      "power": 85,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ROCK_TOMB",
+      "name": "Rock Tomb",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 75,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "SAND_TOMB",
+      "name": "Sand Tomb",
+      "power": 60,
+      "energy": -33,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 40,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm204.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm204.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "FORRETRESS",
+      "formId": "FORRETRESS_NORMAL",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

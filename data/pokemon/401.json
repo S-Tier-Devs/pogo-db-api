@@ -1,0 +1,88 @@
+{
+  "id": "KRICKETOT",
+  "formId": "KRICKETOT",
+  "dexNr": 401,
+  "generation": 4,
+  "name": "Kricketot",
+  "stats": {
+    "stamina": 114,
+    "attack": 45,
+    "defense": 74
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_BUG",
+    "name": "Bug"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "STRUGGLE_BUG_FAST",
+      "name": "Struggle Bug",
+      "power": 15,
+      "energy": 15,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 9,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BUG_BITE_FAST",
+      "name": "Bug Bite",
+      "power": 5,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 4,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "STRUGGLE",
+      "name": "Struggle",
+      "power": 35,
+      "energy": 0,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -100,
+        "power": 35,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm401.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm401.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "KRICKETUNE",
+      "formId": "KRICKETUNE",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

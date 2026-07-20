@@ -1,0 +1,130 @@
+{
+  "id": "COPPERAJAH",
+  "formId": "COPPERAJAH",
+  "dexNr": 879,
+  "generation": 8,
+  "name": "Copperajah",
+  "stats": {
+    "stamina": 263,
+    "attack": 226,
+    "defense": 126
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_STEEL",
+    "name": "Steel"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "TACKLE_FAST",
+      "name": "Tackle",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ROCK_SMASH_FAST",
+      "name": "Rock Smash",
+      "power": 17,
+      "energy": 12,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": 7,
+        "power": 9,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "IRON_HEAD",
+      "name": "Iron Head",
+      "power": 60,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "DIG",
+      "name": "Dig",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 4500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "PLAY_ROUGH",
+      "name": "Play Rough",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_FAIRY",
+        "name": "Fairy"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HEAVY_SLAM",
+      "name": "Heavy Slam",
+      "power": 70,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": null,
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

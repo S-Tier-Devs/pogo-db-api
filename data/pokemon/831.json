@@ -1,0 +1,128 @@
+{
+  "id": "WOOLOO",
+  "formId": "WOOLOO",
+  "dexNr": 831,
+  "generation": 8,
+  "name": "Wooloo",
+  "stats": {
+    "stamina": 123,
+    "attack": 76,
+    "defense": 97
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_NORMAL",
+    "name": "Normal"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "TACKLE_FAST",
+      "name": "Tackle",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "TAKE_DOWN_FAST",
+      "name": "Take Down",
+      "power": 7,
+      "energy": 8,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "WILD_CHARGE",
+      "name": "Wild Charge",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 100,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": -2,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "PAYBACK",
+      "name": "Payback",
+      "power": 95,
+      "energy": -100,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "STOMP",
+      "name": "Stomp",
+      "power": 50,
+      "energy": -50,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm831.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm831.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "DUBWOOL",
+      "formId": "DUBWOOL",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

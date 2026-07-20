@@ -1,0 +1,139 @@
+{
+  "id": "GARBODOR",
+  "formId": "GARBODOR",
+  "dexNr": 569,
+  "generation": 5,
+  "name": "Garbodor",
+  "stats": {
+    "stamina": 190,
+    "attack": 181,
+    "defense": 164
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_POISON",
+    "name": "Poison"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "INFESTATION_FAST",
+      "name": "Infestation",
+      "power": 9,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": 12,
+        "power": 6,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "TAKE_DOWN_FAST",
+      "name": "Take Down",
+      "power": 7,
+      "energy": 8,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "ACID_SPRAY",
+      "name": "Acid Spray",
+      "power": 20,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 20,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -2
+        }
+      }
+    },
+    {
+      "id": "SEED_BOMB",
+      "name": "Seed Bomb",
+      "power": 55,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "GUNK_SHOT",
+      "name": "Gunk Shot",
+      "power": 130,
+      "energy": -100,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 130,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BODY_SLAM",
+      "name": "Body Slam",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm569.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm569.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

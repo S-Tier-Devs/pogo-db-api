@@ -1,0 +1,128 @@
+{
+  "id": "SPRIGATITO",
+  "formId": "SPRIGATITO",
+  "dexNr": 906,
+  "generation": 9,
+  "name": "Sprigatito",
+  "stats": {
+    "stamina": 120,
+    "attack": 116,
+    "defense": 99
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GRASS",
+    "name": "Grass"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "LEAFAGE_FAST",
+      "name": "Leafage",
+      "power": 6,
+      "energy": 4,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 6,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "CHARM_FAST",
+      "name": "Charm",
+      "power": 20,
+      "energy": 11,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_FAIRY",
+        "name": "Fairy"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 12,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "GRASS_KNOT",
+      "name": "Grass Knot",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "PLAY_ROUGH",
+      "name": "Play Rough",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_FAIRY",
+        "name": "Fairy"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ENERGY_BALL",
+      "name": "Energy Ball",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 80,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm906.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm906.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "FLORAGATO",
+      "formId": "FLORAGATO",
+      "candies": 25
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

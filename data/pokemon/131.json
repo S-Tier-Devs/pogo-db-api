@@ -1,0 +1,229 @@
+{
+  "id": "LAPRAS",
+  "formId": "LAPRAS",
+  "dexNr": 131,
+  "generation": 1,
+  "name": "Lapras",
+  "stats": {
+    "stamina": 277,
+    "attack": 165,
+    "defense": 174
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_ICE",
+    "name": "Ice"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "FROST_BREATH_FAST",
+      "name": "Frost Breath",
+      "power": 11,
+      "energy": 9,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": 5,
+        "power": 7,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WATER_GUN_FAST",
+      "name": "Water Gun",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "PSYWAVE_FAST",
+      "name": "Psywave",
+      "power": 4,
+      "energy": 7,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": 4,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "HYDRO_PUMP",
+      "name": "Hydro Pump",
+      "power": 135,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 130,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SURF",
+      "name": "Surf",
+      "power": 60,
+      "energy": -50,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 75,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BLIZZARD",
+      "name": "Blizzard",
+      "power": 130,
+      "energy": -100,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 140,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SKULL_BASH",
+      "name": "Skull Bash",
+      "power": 130,
+      "energy": -100,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 130,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": 1,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "SPARKLING_ARIA",
+      "name": "Sparkling Aria",
+      "power": 85,
+      "energy": -33,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [
+    {
+      "id": "ICE_SHARD_FAST",
+      "name": "Ice Shard",
+      "power": 10,
+      "energy": 10,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 9,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteCinematicMoves": [
+    {
+      "id": "DRAGON_PULSE",
+      "name": "Dragon Pulse",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ICE_BEAM",
+      "name": "Ice Beam",
+      "power": 95,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm131.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm131.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

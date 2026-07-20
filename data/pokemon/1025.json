@@ -1,0 +1,99 @@
+{
+  "id": "PECHARUNT",
+  "formId": "PECHARUNT",
+  "dexNr": 1025,
+  "generation": 9,
+  "name": "Pecharunt",
+  "stats": {
+    "stamina": 186,
+    "attack": 164,
+    "defense": 248
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_POISON",
+    "name": "Poison"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_GHOST",
+    "name": "Ghost"
+  },
+  "pokemonClass": "POKEMON_CLASS_MYTHIC",
+  "quickMoves": [
+    {
+      "id": "ASTONISH_FAST",
+      "name": "Astonish",
+      "power": 7,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 12,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "SHADOW_BALL",
+      "name": "Shadow Ball",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "GUNK_SHOT",
+      "name": "Gunk Shot",
+      "power": 130,
+      "energy": -100,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 130,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "POLTERGEIST",
+      "name": "Poltergeist",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": null,
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

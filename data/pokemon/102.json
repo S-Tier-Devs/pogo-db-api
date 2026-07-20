@@ -1,0 +1,137 @@
+{
+  "id": "EXEGGCUTE",
+  "formId": "EXEGGCUTE",
+  "dexNr": 102,
+  "generation": 1,
+  "name": "Exeggcute",
+  "stats": {
+    "stamina": 155,
+    "attack": 107,
+    "defense": 125
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GRASS",
+    "name": "Grass"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_PSYCHIC",
+    "name": "Psychic"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "CONFUSION_FAST",
+      "name": "Confusion",
+      "power": 19,
+      "energy": 14,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": 14,
+        "power": 16,
+        "turns": 4,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BULLET_SEED_FAST",
+      "name": "Bullet Seed",
+      "power": 7,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 13,
+        "power": 5,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "SEED_BOMB",
+      "name": "Seed Bomb",
+      "power": 55,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "PSYCHIC",
+      "name": "Psychic",
+      "power": 95,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 75,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "ANCIENT_POWER",
+      "name": "Ancient Power",
+      "power": 70,
+      "energy": -33,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 60,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": 1,
+          "attackerDefenseStatsChange": 1,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm102.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm102.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "EXEGGUTOR",
+      "formId": "EXEGGUTOR_NORMAL",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

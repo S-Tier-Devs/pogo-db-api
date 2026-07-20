@@ -1,0 +1,125 @@
+{
+  "id": "PUMPKABOO",
+  "formId": "PUMPKABOO",
+  "dexNr": 710,
+  "generation": 6,
+  "name": "Pumpkaboo",
+  "stats": {
+    "stamina": 127,
+    "attack": 122,
+    "defense": 124
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GHOST",
+    "name": "Ghost"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_GRASS",
+    "name": "Grass"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "ASTONISH_FAST",
+      "name": "Astonish",
+      "power": 7,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 12,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "RAZOR_LEAF_FAST",
+      "name": "Razor Leaf",
+      "power": 13,
+      "energy": 7,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 4,
+        "power": 9,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "GRASS_KNOT",
+      "name": "Grass Knot",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SHADOW_SNEAK",
+      "name": "Shadow Sneak",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 75,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FOUL_PLAY",
+      "name": "Foul Play",
+      "power": 70,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 65,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm710.fSMALL.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm710.fSMALL.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "GOURGEIST",
+      "formId": "GOURGEIST_SMALL",
+      "candies": 200
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

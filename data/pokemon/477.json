@@ -1,0 +1,197 @@
+{
+  "id": "DUSKNOIR",
+  "formId": "DUSKNOIR",
+  "dexNr": 477,
+  "generation": 4,
+  "name": "Dusknoir",
+  "stats": {
+    "stamina": 128,
+    "attack": 180,
+    "defense": 254
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GHOST",
+    "name": "Ghost"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "HEX_FAST",
+      "name": "Hex",
+      "power": 8,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 13,
+        "power": 7,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ASTONISH_FAST",
+      "name": "Astonish",
+      "power": 7,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 12,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "OMINOUS_WIND",
+      "name": "Ominous Wind",
+      "power": 55,
+      "energy": -33,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 45,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": 1,
+          "attackerDefenseStatsChange": 1,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "PSYCHIC",
+      "name": "Psychic",
+      "power": 95,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 75,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "DARK_PULSE",
+      "name": "Dark Pulse",
+      "power": 80,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "POLTERGEIST",
+      "name": "Poltergeist",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SHADOW_PUNCH",
+      "name": "Shadow Punch",
+      "power": 35,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "DYNAMIC_PUNCH",
+      "name": "Dynamic Punch",
+      "power": 85,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [
+    {
+      "id": "SHADOW_BALL",
+      "name": "Shadow Ball",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm477.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm477.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

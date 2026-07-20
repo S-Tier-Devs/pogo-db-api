@@ -1,0 +1,211 @@
+{
+  "id": "ALAKAZAM",
+  "formId": "ALAKAZAM",
+  "dexNr": 65,
+  "generation": 1,
+  "name": "Alakazam",
+  "stats": {
+    "stamina": 146,
+    "attack": 271,
+    "defense": 167
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_PSYCHIC",
+    "name": "Psychic"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "PSYCHO_CUT_FAST",
+      "name": "Psycho Cut",
+      "power": 4,
+      "energy": 7,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 4,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "CONFUSION_FAST",
+      "name": "Confusion",
+      "power": 19,
+      "energy": 14,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": 14,
+        "power": 16,
+        "turns": 4,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "FUTURESIGHT",
+      "name": "Future Sight",
+      "power": 115,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": -65,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FOCUS_BLAST",
+      "name": "Focus Blast",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SHADOW_BALL",
+      "name": "Shadow Ball",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FIRE_PUNCH",
+      "name": "Fire Punch",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [
+    {
+      "id": "COUNTER_FAST",
+      "name": "Counter",
+      "power": 13,
+      "energy": 9,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": 6,
+        "power": 8,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteCinematicMoves": [
+    {
+      "id": "DAZZLING_GLEAM",
+      "name": "Dazzling Gleam",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_FAIRY",
+        "name": "Fairy"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "PSYCHIC",
+      "name": "Psychic",
+      "power": 95,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 75,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    }
+  ],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm65.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm65.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": true,
+  "megaEvolutions": [
+    {
+      "id": "ALAKAZAM_MEGA",
+      "name": "Mega Alakazam",
+      "stats": {
+        "stamina": 146,
+        "attack": 367,
+        "defense": 207
+      },
+      "primaryType": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "secondaryType": null,
+      "assets": {
+        "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm65.fMEGA.icon.png",
+        "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm65.fMEGA.s.icon.png"
+      }
+    }
+  ]
+}

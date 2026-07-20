@@ -1,0 +1,183 @@
+{
+  "id": "ZAPDOS",
+  "formId": "ZAPDOS",
+  "dexNr": 145,
+  "generation": 1,
+  "name": "Zapdos",
+  "stats": {
+    "stamina": 207,
+    "attack": 253,
+    "defense": 185
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_ELECTRIC",
+    "name": "Electric"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_FLYING",
+    "name": "Flying"
+  },
+  "pokemonClass": "POKEMON_CLASS_LEGENDARY",
+  "quickMoves": [
+    {
+      "id": "CHARGE_BEAM_FAST",
+      "name": "Charge Beam",
+      "power": 7,
+      "energy": 14,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": 11,
+        "power": 5,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "ZAP_CANNON",
+      "name": "Zap Cannon",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -80,
+        "power": 150,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 33,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "THUNDERBOLT",
+      "name": "Thunderbolt",
+      "power": 80,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "THUNDER",
+      "name": "Thunder",
+      "power": 100,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ANCIENT_POWER",
+      "name": "Ancient Power",
+      "power": 70,
+      "energy": -33,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 60,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": 1,
+          "attackerDefenseStatsChange": 1,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "DRILL_PECK",
+      "name": "Drill Peck",
+      "power": 70,
+      "energy": -33,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HEAT_WAVE",
+      "name": "Heat Wave",
+      "power": 95,
+      "energy": -100,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 75,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [
+    {
+      "id": "THUNDER_SHOCK_FAST",
+      "name": "Thunder Shock",
+      "power": 4,
+      "energy": 7,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 4,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm145.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm145.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

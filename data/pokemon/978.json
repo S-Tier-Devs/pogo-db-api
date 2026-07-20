@@ -1,0 +1,142 @@
+{
+  "id": "TATSUGIRI",
+  "formId": "TATSUGIRI",
+  "dexNr": 978,
+  "generation": 9,
+  "name": "Tatsugiri",
+  "stats": {
+    "stamina": 169,
+    "attack": 226,
+    "defense": 166
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_DRAGON",
+    "name": "Dragon"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "TAKE_DOWN_FAST",
+      "name": "Take Down",
+      "power": 7,
+      "energy": 8,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WATER_GUN_FAST",
+      "name": "Water Gun",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "OUTRAGE",
+      "name": "Outrage",
+      "power": 110,
+      "energy": -50,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SURF",
+      "name": "Surf",
+      "power": 60,
+      "energy": -50,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 75,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HYDRO_PUMP",
+      "name": "Hydro Pump",
+      "power": 135,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 130,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "MUDDY_WATER",
+      "name": "Muddy Water",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 35,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 30,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm978.fCURLY.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm978.fCURLY.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

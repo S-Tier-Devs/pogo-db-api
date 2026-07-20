@@ -1,0 +1,165 @@
+{
+  "id": "LAIRON",
+  "formId": "LAIRON",
+  "dexNr": 305,
+  "generation": 3,
+  "name": "Lairon",
+  "stats": {
+    "stamina": 155,
+    "attack": 158,
+    "defense": 198
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_STEEL",
+    "name": "Steel"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_ROCK",
+    "name": "Rock"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "METAL_CLAW_FAST",
+      "name": "Metal Claw",
+      "power": 6,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": 7,
+        "power": 5,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "IRON_TAIL_FAST",
+      "name": "Iron Tail",
+      "power": 14,
+      "energy": 6,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": 7,
+        "power": 10,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "METAL_SOUND_FAST",
+      "name": "Metal Sound",
+      "power": 4,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "BODY_SLAM",
+      "name": "Body Slam",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ROCK_SLIDE",
+      "name": "Rock Slide",
+      "power": 75,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 75,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HEAVY_SLAM",
+      "name": "Heavy Slam",
+      "power": 70,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ROCK_TOMB",
+      "name": "Rock Tomb",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 75,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm305.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm305.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "AGGRON",
+      "formId": "AGGRON_NORMAL",
+      "candies": 100
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

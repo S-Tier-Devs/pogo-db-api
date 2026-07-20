@@ -1,0 +1,139 @@
+{
+  "id": "TORKOAL",
+  "formId": "TORKOAL",
+  "dexNr": 324,
+  "generation": 3,
+  "name": "Torkoal",
+  "stats": {
+    "stamina": 172,
+    "attack": 151,
+    "defense": 203
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_FIRE",
+    "name": "Fire"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "FIRE_SPIN_FAST",
+      "name": "Fire Spin",
+      "power": 13,
+      "energy": 9,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 11,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "EMBER_FAST",
+      "name": "Ember",
+      "power": 10,
+      "energy": 10,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 4,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "OVERHEAT",
+      "name": "Overheat",
+      "power": 160,
+      "energy": -100,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 130,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": -2,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "SOLAR_BEAM",
+      "name": "Solar Beam",
+      "power": 180,
+      "energy": -100,
+      "durationMs": 5000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -80,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "EARTHQUAKE",
+      "name": "Earthquake",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -65,
+        "power": 120,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FLAME_WHEEL",
+      "name": "Flame Wheel",
+      "power": 55,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm324.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm324.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

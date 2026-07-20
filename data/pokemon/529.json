@@ -1,0 +1,128 @@
+{
+  "id": "DRILBUR",
+  "formId": "DRILBUR",
+  "dexNr": 529,
+  "generation": 5,
+  "name": "Drilbur",
+  "stats": {
+    "stamina": 155,
+    "attack": 154,
+    "defense": 85
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GROUND",
+    "name": "Ground"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "SCRATCH_FAST",
+      "name": "Scratch",
+      "power": 6,
+      "energy": 4,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 2,
+        "power": 4,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "MUD_SLAP_FAST",
+      "name": "Mud-Slap",
+      "power": 19,
+      "energy": 13,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 11,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "ROCK_TOMB",
+      "name": "Rock Tomb",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 75,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "DIG",
+      "name": "Dig",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 4500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "DRILL_RUN",
+      "name": "Drill Run",
+      "power": 85,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm529.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm529.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "EXCADRILL",
+      "formId": "EXCADRILL_NORMAL",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

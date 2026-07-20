@@ -1,0 +1,142 @@
+{
+  "id": "APPLETUN",
+  "formId": "APPLETUN",
+  "dexNr": 842,
+  "generation": 8,
+  "name": "Appletun",
+  "stats": {
+    "stamina": 242,
+    "attack": 178,
+    "defense": 146
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GRASS",
+    "name": "Grass"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_DRAGON",
+    "name": "Dragon"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "BULLET_SEED_FAST",
+      "name": "Bullet Seed",
+      "power": 7,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 13,
+        "power": 5,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ASTONISH_FAST",
+      "name": "Astonish",
+      "power": 7,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 12,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "DRAGON_PULSE",
+      "name": "Dragon Pulse",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ENERGY_BALL",
+      "name": "Energy Ball",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 80,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "OUTRAGE",
+      "name": "Outrage",
+      "power": 110,
+      "energy": -50,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SEED_BOMB",
+      "name": "Seed Bomb",
+      "power": 55,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm842.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm842.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

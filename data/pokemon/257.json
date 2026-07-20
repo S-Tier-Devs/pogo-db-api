@@ -1,0 +1,239 @@
+{
+  "id": "BLAZIKEN",
+  "formId": "BLAZIKEN",
+  "dexNr": 257,
+  "generation": 3,
+  "name": "Blaziken",
+  "stats": {
+    "stamina": 190,
+    "attack": 240,
+    "defense": 141
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_FIRE",
+    "name": "Fire"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_FIGHTING",
+    "name": "Fighting"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "COUNTER_FAST",
+      "name": "Counter",
+      "power": 13,
+      "energy": 9,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": 6,
+        "power": 8,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FIRE_SPIN_FAST",
+      "name": "Fire Spin",
+      "power": 13,
+      "energy": 9,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 11,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "EMBER_FAST",
+      "name": "Ember",
+      "power": 10,
+      "energy": 10,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 4,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "FOCUS_BLAST",
+      "name": "Focus Blast",
+      "power": 140,
+      "energy": -100,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "OVERHEAT",
+      "name": "Overheat",
+      "power": 160,
+      "energy": -100,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 130,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": -2,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "BRAVE_BIRD",
+      "name": "Brave Bird",
+      "power": 130,
+      "energy": -100,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FLYING",
+        "name": "Flying"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 130,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": -3,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "BLAZE_KICK",
+      "name": "Blaze Kick",
+      "power": 40,
+      "energy": -33,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "AURA_SPHERE",
+      "name": "Aura Sphere",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [
+    {
+      "id": "BLAST_BURN",
+      "name": "Blast Burn",
+      "power": 120,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "STONE_EDGE",
+      "name": "Stone Edge",
+      "power": 105,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm257.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm257.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": true,
+  "megaEvolutions": [
+    {
+      "id": "BLAZIKEN_MEGA",
+      "name": "Mega Blaziken",
+      "stats": {
+        "stamina": 190,
+        "attack": 329,
+        "defense": 168
+      },
+      "primaryType": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "secondaryType": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "assets": {
+        "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm257.fMEGA.icon.png",
+        "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm257.fMEGA.s.icon.png"
+      }
+    }
+  ]
+}

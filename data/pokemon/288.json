@@ -1,0 +1,151 @@
+{
+  "id": "VIGOROTH",
+  "formId": "VIGOROTH",
+  "dexNr": 288,
+  "generation": 3,
+  "name": "Vigoroth",
+  "stats": {
+    "stamina": 190,
+    "attack": 159,
+    "defense": 145
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_NORMAL",
+    "name": "Normal"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "SCRATCH_FAST",
+      "name": "Scratch",
+      "power": 6,
+      "energy": 4,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 2,
+        "power": 4,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "COUNTER_FAST",
+      "name": "Counter",
+      "power": 13,
+      "energy": 9,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": 6,
+        "power": 8,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "BODY_SLAM",
+      "name": "Body Slam",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BULLDOZE",
+      "name": "Bulldoze",
+      "power": 80,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 45,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 50,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "BRICK_BREAK",
+      "name": "Brick Break",
+      "power": 40,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 50,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "ROCK_SLIDE",
+      "name": "Rock Slide",
+      "power": 75,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 75,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm288.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm288.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "SLAKING",
+      "formId": "SLAKING",
+      "candies": 100
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

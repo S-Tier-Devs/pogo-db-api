@@ -1,0 +1,137 @@
+{
+  "id": "SHROODLE",
+  "formId": "SHROODLE",
+  "dexNr": 944,
+  "generation": 9,
+  "name": "Shroodle",
+  "stats": {
+    "stamina": 120,
+    "attack": 124,
+    "defense": 70
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_POISON",
+    "name": "Poison"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_NORMAL",
+    "name": "Normal"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "MUD_SLAP_FAST",
+      "name": "Mud-Slap",
+      "power": 19,
+      "energy": 13,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 11,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "POISON_JAB_FAST",
+      "name": "Poison Jab",
+      "power": 13,
+      "energy": 9,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": 7,
+        "power": 7,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "ACID_SPRAY",
+      "name": "Acid Spray",
+      "power": 20,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 20,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -2
+        }
+      }
+    },
+    {
+      "id": "POISON_FANG",
+      "name": "Poison Fang",
+      "power": 30,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 45,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "SLUDGE_BOMB",
+      "name": "Sludge Bomb",
+      "power": 85,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm944.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm944.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "GRAFAIAI",
+      "formId": "GRAFAIAI",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

@@ -1,0 +1,125 @@
+{
+  "id": "MARSHTOMP",
+  "formId": "MARSHTOMP",
+  "dexNr": 259,
+  "generation": 3,
+  "name": "Marshtomp",
+  "stats": {
+    "stamina": 172,
+    "attack": 156,
+    "defense": 133
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_WATER",
+    "name": "Water"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_GROUND",
+    "name": "Ground"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "MUD_SHOT_FAST",
+      "name": "Mud Shot",
+      "power": 4,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 3,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WATER_GUN_FAST",
+      "name": "Water Gun",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "MUD_BOMB",
+      "name": "Mud Bomb",
+      "power": 60,
+      "energy": -33,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_GROUND",
+        "name": "Ground"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 65,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SLUDGE",
+      "name": "Sludge",
+      "power": 50,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SURF",
+      "name": "Surf",
+      "power": 60,
+      "energy": -50,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 75,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm259.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm259.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "SWAMPERT",
+      "formId": "SWAMPERT_NORMAL",
+      "candies": 100
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

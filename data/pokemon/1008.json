@@ -1,0 +1,133 @@
+{
+  "id": "MIRAIDON",
+  "formId": "MIRAIDON",
+  "dexNr": 1008,
+  "generation": 9,
+  "name": "Miraidon",
+  "stats": {
+    "stamina": 205,
+    "attack": 263,
+    "defense": 223
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_ELECTRIC",
+    "name": "Electric"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_DRAGON",
+    "name": "Dragon"
+  },
+  "pokemonClass": "POKEMON_CLASS_LEGENDARY",
+  "quickMoves": [
+    {
+      "id": "THUNDER_SHOCK_FAST",
+      "name": "Thunder Shock",
+      "power": 4,
+      "energy": 7,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": 9,
+        "power": 4,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "DRAGON_BREATH_FAST",
+      "name": "Dragon Breath",
+      "power": 6,
+      "energy": 4,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": 4,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "HYPER_BEAM",
+      "name": "Hyper Beam",
+      "power": 150,
+      "energy": -100,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -80,
+        "power": 150,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "DRAGON_PULSE",
+      "name": "Dragon Pulse",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "THUNDER",
+      "name": "Thunder",
+      "power": 100,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ELECTRIC",
+        "name": "Electric"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "OUTRAGE",
+      "name": "Outrage",
+      "power": 110,
+      "energy": -50,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": null,
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

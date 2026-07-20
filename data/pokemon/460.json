@@ -1,0 +1,204 @@
+{
+  "id": "ABOMASNOW",
+  "formId": "ABOMASNOW",
+  "dexNr": 460,
+  "generation": 4,
+  "name": "Abomasnow",
+  "stats": {
+    "stamina": 207,
+    "attack": 178,
+    "defense": 158
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GRASS",
+    "name": "Grass"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_ICE",
+    "name": "Ice"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "POWDER_SNOW_FAST",
+      "name": "Powder Snow",
+      "power": 6,
+      "energy": 15,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 6,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "RAZOR_LEAF_FAST",
+      "name": "Razor Leaf",
+      "power": 13,
+      "energy": 7,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 4,
+        "power": 9,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "LEAFAGE_FAST",
+      "name": "Leafage",
+      "power": 6,
+      "energy": 4,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 6,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "BLIZZARD",
+      "name": "Blizzard",
+      "power": 130,
+      "energy": -100,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 140,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ENERGY_BALL",
+      "name": "Energy Ball",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 80,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 10,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "OUTRAGE",
+      "name": "Outrage",
+      "power": 110,
+      "energy": -50,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "WEATHER_BALL_ICE",
+      "name": "Weather Ball",
+      "power": 55,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 60,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ICY_WIND",
+      "name": "Icy Wind",
+      "power": 65,
+      "energy": -33,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 60,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm460.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm460.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": true,
+  "megaEvolutions": [
+    {
+      "id": "ABOMASNOW_MEGA",
+      "name": "Mega Abomasnow",
+      "stats": {
+        "stamina": 207,
+        "attack": 240,
+        "defense": 191
+      },
+      "primaryType": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "secondaryType": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "assets": {
+        "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm460.fMEGA.icon.png",
+        "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm460.fMEGA.s.icon.png"
+      }
+    }
+  ]
+}

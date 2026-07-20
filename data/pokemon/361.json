@@ -1,0 +1,133 @@
+{
+  "id": "SNORUNT",
+  "formId": "SNORUNT",
+  "dexNr": 361,
+  "generation": 3,
+  "name": "Snorunt",
+  "stats": {
+    "stamina": 137,
+    "attack": 95,
+    "defense": 95
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_ICE",
+    "name": "Ice"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "POWDER_SNOW_FAST",
+      "name": "Powder Snow",
+      "power": 6,
+      "energy": 15,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 6,
+        "turns": 2,
+        "buffs": null
+      }
+    },
+    {
+      "id": "HEX_FAST",
+      "name": "Hex",
+      "power": 8,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 13,
+        "power": 7,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "AVALANCHE",
+      "name": "Avalanche",
+      "power": 85,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "ICY_WIND",
+      "name": "Icy Wind",
+      "power": 65,
+      "energy": -33,
+      "durationMs": 3500,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 60,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "SHADOW_BALL",
+      "name": "Shadow Ball",
+      "power": 100,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 100,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm361.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm361.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "FROSLASS",
+      "formId": "FROSLASS",
+      "candies": 100
+    },
+    {
+      "id": "GLALIE",
+      "formId": "GLALIE",
+      "candies": 100
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

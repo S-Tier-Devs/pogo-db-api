@@ -1,0 +1,122 @@
+{
+  "id": "CHIYU",
+  "formId": "CHIYU",
+  "dexNr": 1004,
+  "generation": 9,
+  "name": "Chi-Yu",
+  "stats": {
+    "stamina": 146,
+    "attack": 269,
+    "defense": 221
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_DARK",
+    "name": "Dark"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_FIRE",
+    "name": "Fire"
+  },
+  "pokemonClass": "POKEMON_CLASS_LEGENDARY",
+  "quickMoves": [
+    {
+      "id": "INCINERATE_FAST",
+      "name": "Incinerate",
+      "power": 32,
+      "energy": 22,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": 20,
+        "power": 20,
+        "turns": 5,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SNARL_FAST",
+      "name": "Snarl",
+      "power": 11,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": 13,
+        "power": 5,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "DARK_PULSE",
+      "name": "Dark Pulse",
+      "power": 80,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_DARK",
+        "name": "Dark"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "FLAME_CHARGE",
+      "name": "Flame Charge",
+      "power": 70,
+      "energy": -33,
+      "durationMs": 4000,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 65,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": 1,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "FLAME_WHEEL",
+      "name": "Flame Wheel",
+      "power": 55,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_FIRE",
+        "name": "Fire"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 80,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": null,
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

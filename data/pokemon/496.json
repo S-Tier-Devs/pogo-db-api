@@ -1,0 +1,134 @@
+{
+  "id": "SERVINE",
+  "formId": "SERVINE",
+  "dexNr": 496,
+  "generation": 5,
+  "name": "Servine",
+  "stats": {
+    "stamina": 155,
+    "attack": 122,
+    "defense": 152
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GRASS",
+    "name": "Grass"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "IRON_TAIL_FAST",
+      "name": "Iron Tail",
+      "power": 14,
+      "energy": 6,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "combat": {
+        "energy": 7,
+        "power": 10,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "VINE_WHIP_FAST",
+      "name": "Vine Whip",
+      "power": 6,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": 8,
+        "power": 5,
+        "turns": 2,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "GRASS_KNOT",
+      "name": "Grass Knot",
+      "power": 90,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -50,
+        "power": 90,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "LEAF_TORNADO",
+      "name": "Leaf Tornado",
+      "power": 45,
+      "energy": -33,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_GRASS",
+        "name": "Grass"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 45,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 50,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -2,
+          "targetDefenseStatsChange": null
+        }
+      }
+    },
+    {
+      "id": "WRAP",
+      "name": "Wrap",
+      "power": 60,
+      "energy": -33,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 70,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm496.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm496.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "SERPERIOR",
+      "formId": "SERPERIOR",
+      "candies": 100
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

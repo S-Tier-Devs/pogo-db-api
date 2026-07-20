@@ -1,0 +1,138 @@
+{
+  "id": "TYROGUE",
+  "formId": "TYROGUE",
+  "dexNr": 236,
+  "generation": 2,
+  "name": "Tyrogue",
+  "stats": {
+    "stamina": 111,
+    "attack": 64,
+    "defense": 64
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_FIGHTING",
+    "name": "Fighting"
+  },
+  "secondaryType": null,
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "ROCK_SMASH_FAST",
+      "name": "Rock Smash",
+      "power": 17,
+      "energy": 12,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": 7,
+        "power": 9,
+        "turns": 3,
+        "buffs": null
+      }
+    },
+    {
+      "id": "TACKLE_FAST",
+      "name": "Tackle",
+      "power": 5,
+      "energy": 5,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 3,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "BRICK_BREAK",
+      "name": "Brick Break",
+      "power": 40,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 50,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "ROCK_SLIDE",
+      "name": "Rock Slide",
+      "power": 75,
+      "energy": -50,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_ROCK",
+        "name": "Rock"
+      },
+      "combat": {
+        "energy": -45,
+        "power": 75,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "LOW_SWEEP",
+      "name": "Low Sweep",
+      "power": 40,
+      "energy": -33,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 40,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm236.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm236.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "HITMONLEE",
+      "formId": "HITMONLEE",
+      "candies": 25
+    },
+    {
+      "id": "HITMONCHAN",
+      "formId": "HITMONCHAN",
+      "candies": 25
+    },
+    {
+      "id": "HITMONTOP",
+      "formId": "HITMONTOP",
+      "candies": 25
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

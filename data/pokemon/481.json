@@ -1,0 +1,116 @@
+{
+  "id": "MESPRIT",
+  "formId": "MESPRIT",
+  "dexNr": 481,
+  "generation": 4,
+  "name": "Mesprit",
+  "stats": {
+    "stamina": 190,
+    "attack": 212,
+    "defense": 212
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_PSYCHIC",
+    "name": "Psychic"
+  },
+  "secondaryType": null,
+  "pokemonClass": "POKEMON_CLASS_LEGENDARY",
+  "quickMoves": [
+    {
+      "id": "CONFUSION_FAST",
+      "name": "Confusion",
+      "power": 19,
+      "energy": 14,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": 14,
+        "power": 16,
+        "turns": 4,
+        "buffs": null
+      }
+    },
+    {
+      "id": "EXTRASENSORY_FAST",
+      "name": "Extrasensory",
+      "power": 11,
+      "energy": 11,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 8,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "FUTURESIGHT",
+      "name": "Future Sight",
+      "power": 115,
+      "energy": -100,
+      "durationMs": 2500,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": -65,
+        "power": 110,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SWIFT",
+      "name": "Swift",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -35,
+        "power": 55,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "BLIZZARD",
+      "name": "Blizzard",
+      "power": 130,
+      "energy": -100,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "combat": {
+        "energy": -75,
+        "power": 140,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm481.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm481.s.icon.png"
+  },
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

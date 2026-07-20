@@ -1,0 +1,137 @@
+{
+  "id": "VENONAT",
+  "formId": "VENONAT",
+  "dexNr": 48,
+  "generation": 1,
+  "name": "Venonat",
+  "stats": {
+    "stamina": 155,
+    "attack": 100,
+    "defense": 100
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_BUG",
+    "name": "Bug"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_POISON",
+    "name": "Poison"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "BUG_BITE_FAST",
+      "name": "Bug Bite",
+      "power": 5,
+      "energy": 6,
+      "durationMs": 500,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": 3,
+        "power": 4,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "CONFUSION_FAST",
+      "name": "Confusion",
+      "power": 19,
+      "energy": 14,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": 14,
+        "power": 16,
+        "turns": 4,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "POISON_FANG",
+      "name": "Poison Fang",
+      "power": 30,
+      "energy": -33,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_POISON",
+        "name": "Poison"
+      },
+      "combat": {
+        "energy": -40,
+        "power": 45,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 100,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": null,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    },
+    {
+      "id": "PSYBEAM",
+      "name": "Psybeam",
+      "power": 65,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_PSYCHIC",
+        "name": "Psychic"
+      },
+      "combat": {
+        "energy": -60,
+        "power": 70,
+        "turns": 1,
+        "buffs": null
+      }
+    },
+    {
+      "id": "SIGNAL_BEAM",
+      "name": "Signal Beam",
+      "power": 75,
+      "energy": -50,
+      "durationMs": 3000,
+      "type": {
+        "type": "POKEMON_TYPE_BUG",
+        "name": "Bug"
+      },
+      "combat": {
+        "energy": -55,
+        "power": 75,
+        "turns": 1,
+        "buffs": {
+          "activationChance": 20,
+          "attackerAttackStatsChange": null,
+          "attackerDefenseStatsChange": null,
+          "targetAttackStatsChange": -1,
+          "targetDefenseStatsChange": -1
+        }
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm48.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm48.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "VENOMOTH",
+      "formId": "VENOMOTH_NORMAL",
+      "candies": 50
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

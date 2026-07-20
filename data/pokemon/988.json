@@ -1,0 +1,65 @@
+{
+  "id": "SLITHERWING",
+  "formId": "SLITHERWING",
+  "dexNr": 988,
+  "generation": 9,
+  "name": "Slither Wing",
+  "stats": {
+    "stamina": 198,
+    "attack": 261,
+    "defense": 193
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_BUG",
+    "name": "Bug"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_FIGHTING",
+    "name": "Fighting"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "SPLASH_FAST",
+      "name": "Splash",
+      "power": 0,
+      "energy": 17,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 12,
+        "power": 0,
+        "turns": 4,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "STRUGGLE",
+      "name": "Struggle",
+      "power": 35,
+      "energy": 0,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -100,
+        "power": 35,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": null,
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

@@ -1,0 +1,84 @@
+{
+  "id": "APPLIN",
+  "formId": "APPLIN",
+  "dexNr": 840,
+  "generation": 8,
+  "name": "Applin",
+  "stats": {
+    "stamina": 120,
+    "attack": 71,
+    "defense": 116
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GRASS",
+    "name": "Grass"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_DRAGON",
+    "name": "Dragon"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "ASTONISH_FAST",
+      "name": "Astonish",
+      "power": 7,
+      "energy": 13,
+      "durationMs": 1000,
+      "type": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "combat": {
+        "energy": 10,
+        "power": 12,
+        "turns": 3,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "STRUGGLE",
+      "name": "Struggle",
+      "power": 35,
+      "energy": 0,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -100,
+        "power": 35,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": {
+    "image": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm840.icon.png",
+    "shinyImage": "https://raw.githubusercontent.com/pokemon-go-api/assets/main/Pokemon/pm840.s.icon.png"
+  },
+  "evolutions": [
+    {
+      "id": "APPLETUN",
+      "formId": "APPLETUN_NORMAL",
+      "candies": 200
+    },
+    {
+      "id": "FLAPPLE",
+      "formId": "FLAPPLE_NORMAL",
+      "candies": 200
+    },
+    {
+      "id": "DIPPLIN",
+      "formId": "DIPPLIN_NORMAL",
+      "candies": 200
+    }
+  ],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}

@@ -1,0 +1,65 @@
+{
+  "id": "IRONTREADS",
+  "formId": "IRONTREADS",
+  "dexNr": 990,
+  "generation": 9,
+  "name": "Iron Treads",
+  "stats": {
+    "stamina": 207,
+    "attack": 227,
+    "defense": 216
+  },
+  "primaryType": {
+    "type": "POKEMON_TYPE_GROUND",
+    "name": "Ground"
+  },
+  "secondaryType": {
+    "type": "POKEMON_TYPE_STEEL",
+    "name": "Steel"
+  },
+  "pokemonClass": null,
+  "quickMoves": [
+    {
+      "id": "SPLASH_FAST",
+      "name": "Splash",
+      "power": 0,
+      "energy": 17,
+      "durationMs": 1500,
+      "type": {
+        "type": "POKEMON_TYPE_WATER",
+        "name": "Water"
+      },
+      "combat": {
+        "energy": 12,
+        "power": 0,
+        "turns": 4,
+        "buffs": null
+      }
+    }
+  ],
+  "cinematicMoves": [
+    {
+      "id": "STRUGGLE",
+      "name": "Struggle",
+      "power": 35,
+      "energy": 0,
+      "durationMs": 2000,
+      "type": {
+        "type": "POKEMON_TYPE_NORMAL",
+        "name": "Normal"
+      },
+      "combat": {
+        "energy": -100,
+        "power": 35,
+        "turns": 1,
+        "buffs": null
+      }
+    }
+  ],
+  "eliteQuickMoves": [],
+  "eliteCinematicMoves": [],
+  "assets": null,
+  "evolutions": [],
+  "hasMegaEvolution": false,
+  "megaEvolutions": []
+}
