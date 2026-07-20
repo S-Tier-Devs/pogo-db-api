@@ -62,6 +62,34 @@ export interface MegaEvolution {
   assets: Assets;
 }
 
+/** Real stats at Level 50, 15/15/15 IVs */
+export interface PokemonRealStats {
+  atkReal: number;
+  defReal: number;
+  hpReal: number;
+}
+
+/** A single fast + charge move combination with computed TDO values */
+export interface MovesetCombo {
+  quickMove: string;
+  cinematicMove: string;
+  comboDps: number;
+  comboDpsAtk: number;
+  tdo: number;
+}
+
+/** Ranked moveset combinations, separated by availability */
+export interface MovesetRankings {
+  regular: MovesetCombo[];
+  elite: MovesetCombo[];
+}
+
+/** Pokemon-level computed stats (calculated at build time) */
+export interface PokemonComputed {
+  pokemon: PokemonRealStats;
+  movesets: MovesetRankings;
+}
+
 export interface Pokemon {
   id: string;
   formId: string;
@@ -80,6 +108,7 @@ export interface Pokemon {
   evolutions: Evolution[];
   hasMegaEvolution: boolean;
   megaEvolutions: MegaEvolution[];
+  computed: PokemonComputed | null;
 }
 
 /** Stored data types (local database files in data/pokemon/) */

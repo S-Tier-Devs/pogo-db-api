@@ -107,6 +107,7 @@ export function transformPokemon(raw: RawUpstreamPokemon): Pokemon {
     evolutions: (raw.evolutions ?? []).map(transformEvolution),
     hasMegaEvolution: raw.hasMegaEvolution,
     megaEvolutions: Object.values(raw.megaEvolutions ?? {}).map(transformMegaEvolution),
+    computed: null,
   };
 }
 

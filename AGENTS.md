@@ -28,9 +28,11 @@ data/pokemon/*.json (committed) → read → compute → write → GitHub Pages
 | `src/fetcher.ts` | HTTP fetch with retry (used by seed only) |
 | `src/transformer.ts` | Raw upstream → trimmed English (used by seed only) |
 | `src/calculators/index.ts` | Calculator interface + pipeline runner |
-| `src/calculators/dps.ts` | DPS and STAB DPS computation |
-| `src/writer.ts` | JSON file output to public/api/ |
-| `public/index.html` | API documentation landing page |
+| `src/calculators/dps.ts` | DPS and STAB DPS computation (per-move) |
+| `src/calculators/tdo.ts` | TDO computation (moveset combos, real stats, rankings) |
+| `src/writer.ts` | JSON file output to public/api/pokemon/ |
+| `src/rankings-writer.ts` | Per-type TDO ranking files to public/api/rankings/ |
+| `public/index.html` | API documentation + methodology page (with sidebar nav) |
 
 ## Commands
 

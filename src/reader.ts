@@ -38,6 +38,7 @@ export function toPokemon(stored: StoredPokemon): Pokemon {
     evolutions: stored.evolutions,
     hasMegaEvolution: stored.hasMegaEvolution,
     megaEvolutions: stored.megaEvolutions,
+    computed: null,
   };
 }
 
