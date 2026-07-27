@@ -76,7 +76,7 @@ describe("parseEventsPage", () => {
 
     it("counts correct number of events per section", () => {
       expect(result.sections[0].events).toHaveLength(2); // Ends Today
-      expect(result.sections[1].events).toHaveLength(2); // Ends Tomorrow
+      expect(result.sections[1].events).toHaveLength(1); // Ends Tomorrow
       expect(result.sections[2].events).toHaveLength(2); // Ends Next Week
       expect(result.sections[3].events).toHaveLength(1); // Starts Tomorrow
       expect(result.sections[4].events).toHaveLength(3); // Starts Next Week
@@ -91,19 +91,24 @@ describe("parseEventsPage", () => {
 
     it("handles missing fields gracefully", () => {
       const html = `
-        <div class="events-pokemon-go-section" id="happeningNow">
-          <h2 class="section-header">Happening Now</h2>
-          <div class="events-pokemon-go-sub-pokemon-section">
-            <h5 class="pokemon-section-header">ENDS TODAY</h5>
-            <div class="events-pokemon-go-list">
-              <a href="/events/test/" class="event-pokemon-card">
-                <div class="pokemon-card-content">
-                  <span class="event-pokemon-card-pokemon-type-event"></span>
-                  <h2 class="pokemon-card-title">Test Event</h2>
-                  <p class="pokemon-card-time"></p>
+        <div class="events-section events-section-live">
+          <div class="events-list current-events">
+            <h5 class="event-section-divider">ENDS TODAY</h5>
+            <span class="event-header-item-wrapper">
+              <a class="event-item-link" href="/events/test/">
+                <div class="event-item-wrapper">
+                  <div class="event-item">
+                    <div class="event-text-container">
+                      <div class="event-text">
+                        <span class="event-tag-badge"></span>
+                        <h2>Test Event</h2>
+                        <p></p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </a>
-            </div>
+            </span>
           </div>
         </div>
       `;
@@ -117,19 +122,24 @@ describe("parseEventsPage", () => {
 
     it("skips cards with no name", () => {
       const html = `
-        <div class="events-pokemon-go-section" id="happeningNow">
-          <h2 class="section-header">Happening Now</h2>
-          <div class="events-pokemon-go-sub-pokemon-section">
-            <h5 class="pokemon-section-header">ENDS TODAY</h5>
-            <div class="events-pokemon-go-list">
-              <a href="/events/empty/" class="event-pokemon-card">
-                <div class="pokemon-card-content">
-                  <span class="event-pokemon-card-pokemon-type-event">Event</span>
-                  <h2 class="pokemon-card-title"></h2>
-                  <p class="pokemon-card-time">Mon, Jul 27</p>
+        <div class="events-section events-section-live">
+          <div class="events-list current-events">
+            <h5 class="event-section-divider">ENDS TODAY</h5>
+            <span class="event-header-item-wrapper">
+              <a class="event-item-link" href="/events/empty/">
+                <div class="event-item-wrapper">
+                  <div class="event-item">
+                    <div class="event-text-container">
+                      <div class="event-text">
+                        <span class="event-tag-badge">Event</span>
+                        <h2></h2>
+                        <p>Mon, Jul 27</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </a>
-            </div>
+            </span>
           </div>
         </div>
       `;
@@ -139,11 +149,9 @@ describe("parseEventsPage", () => {
 
     it("skips sections with no valid events", () => {
       const html = `
-        <div class="events-pokemon-go-section" id="happeningNow">
-          <h2 class="section-header">Happening Now</h2>
-          <div class="events-pokemon-go-sub-pokemon-section">
-            <h5 class="pokemon-section-header">ENDS TODAY</h5>
-            <div class="events-pokemon-go-list"></div>
+        <div class="events-section events-section-live">
+          <div class="events-list current-events">
+            <h5 class="event-section-divider">ENDS TODAY</h5>
           </div>
         </div>
       `;
