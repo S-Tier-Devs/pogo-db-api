@@ -139,5 +139,147 @@
   },
   "evolutions": [],
   "hasMegaEvolution": false,
-  "megaEvolutions": []
+  "megaEvolutions": [],
+  "forms": [
+    {
+      "id": "GIRATINA_ORIGIN",
+      "formId": "GIRATINA_ORIGIN",
+      "dexNr": 487,
+      "generation": 4,
+      "name": "Giratina (Origin Forme)",
+      "stats": {
+        "stamina": 284,
+        "attack": 225,
+        "defense": 187
+      },
+      "primaryType": {
+        "type": "POKEMON_TYPE_GHOST",
+        "name": "Ghost"
+      },
+      "secondaryType": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "pokemonClass": "POKEMON_CLASS_LEGENDARY",
+      "quickMoves": [
+        {
+          "id": "SHADOW_CLAW_FAST",
+          "name": "Shadow Claw",
+          "power": 6,
+          "energy": 4,
+          "durationMs": 500,
+          "type": {
+            "type": "POKEMON_TYPE_GHOST",
+            "name": "Ghost"
+          },
+          "combat": {
+            "energy": 8,
+            "power": 6,
+            "turns": 2,
+            "buffs": null
+          }
+        },
+        {
+          "id": "DRAGON_TAIL_FAST",
+          "name": "Dragon Tail",
+          "power": 14,
+          "energy": 8,
+          "durationMs": 1000,
+          "type": {
+            "type": "POKEMON_TYPE_DRAGON",
+            "name": "Dragon"
+          },
+          "combat": {
+            "energy": 12,
+            "power": 9,
+            "turns": 3,
+            "buffs": null
+          }
+        }
+      ],
+      "cinematicMoves": [
+        {
+          "id": "SHADOW_BALL",
+          "name": "Shadow Ball",
+          "power": 100,
+          "energy": -50,
+          "durationMs": 3000,
+          "type": {
+            "type": "POKEMON_TYPE_GHOST",
+            "name": "Ghost"
+          },
+          "combat": {
+            "energy": -55,
+            "power": 100,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "DRAGON_PULSE",
+          "name": "Dragon Pulse",
+          "power": 90,
+          "energy": -50,
+          "durationMs": 3500,
+          "type": {
+            "type": "POKEMON_TYPE_DRAGON",
+            "name": "Dragon"
+          },
+          "combat": {
+            "energy": -50,
+            "power": 90,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "OMINOUS_WIND",
+          "name": "Ominous Wind",
+          "power": 55,
+          "energy": -33,
+          "durationMs": 2500,
+          "type": {
+            "type": "POKEMON_TYPE_GHOST",
+            "name": "Ghost"
+          },
+          "combat": {
+            "energy": -45,
+            "power": 60,
+            "turns": 1,
+            "buffs": {
+              "activationChance": 10,
+              "attackerAttackStatsChange": 1,
+              "attackerDefenseStatsChange": 1,
+              "targetAttackStatsChange": null,
+              "targetDefenseStatsChange": null
+            }
+          }
+        }
+      ],
+      "eliteQuickMoves": [],
+      "eliteCinematicMoves": [
+        {
+          "id": "SHADOW_FORCE",
+          "name": "Shadow Force",
+          "power": 140,
+          "energy": -100,
+          "durationMs": 2000,
+          "type": {
+            "type": "POKEMON_TYPE_GHOST",
+            "name": "Ghost"
+          },
+          "combat": {
+            "energy": -90,
+            "power": 120,
+            "turns": 1,
+            "buffs": null
+          }
+        }
+      ],
+      "assets": null,
+      "evolutions": [],
+      "hasMegaEvolution": false,
+      "megaEvolutions": []
+    }
+  ]
 }
