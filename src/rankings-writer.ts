@@ -16,6 +16,8 @@ export interface TypeRankingEntry {
   comboDpsAtk: number;
   tdo: number;
   isElite: boolean;
+  variant: "shadow" | "mega" | null;
+  variantName: string | null;
 }
 
 /** The full type ranking file structure */
@@ -125,6 +127,8 @@ export function generateTypeRankings(
           comboDpsAtk: result.combo.comboDpsAtk,
           tdo: result.combo.tdo,
           isElite: result.isElite,
+          variant: p.variant ?? null,
+          variantName: p.variantName ?? null,
         });
       }
     }
