@@ -74,13 +74,27 @@ export function createMegaVariant(pokemon: Pokemon, mega: MegaEvolution): Pokemo
 
 /**
  * Checks if a Pokemon matches a shadow entry.
- * For base forms (empty form field), matches by dexNr alone.
- * For alternate forms, would match by dexNr + form suffix (future support).
+ * For base forms (empty form field in CSV), matches only the base form of that dexNr
+ * (i.e., where the Pokemon's id matches its formId AND has no form suffix).
+ * Alternate forms (Origin, Alolan, etc.) are NOT matched by empty-form entries.
+ * For entries with a specific form, would match by dexNr + form suffix (future support).
  */
 export function isShadowEligible(pokemon: Pokemon, shadowList: ShadowEntry[]): boolean {
-  return shadowList.some(entry =>
-    entry.dexNr === pokemon.dexNr && entry.form === ''
-  );
+  return shadowList.some(entry => {
+    if (entry.dexNr !== pokemon.dexNr) return false;
+
+    if (entry.form === '') {
+      // Empty form = only match the base form (no _ORIGIN, _ALOLA suffix etc.)
+      // Base forms have an id that matches the simple uppercase name pattern
+      // e.g., "DIALGA" matches but "DIALGA_ORIGIN" does not
+      return pokemon.id === pokemon.formId && !pokemon.formId.includes('_ORIGIN') &&
+        !pokemon.formId.includes('_ALOLA') && !pokemon.formId.includes('_GALARIAN') &&
+        !pokemon.formId.includes('_HISUIAN') && !pokemon.formId.includes('_PALDEAN');
+    }
+
+    // Future: match specific forms by form name
+    return false;
+  });
 }
 
 /**

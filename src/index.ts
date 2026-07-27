@@ -4,6 +4,7 @@ import { dpsCalculator } from "./calculators/dps.js";
 import { tdoCalculator } from "./calculators/tdo.js";
 import { writePokedex } from "./writer.js";
 import { writeRankings } from "./rankings-writer.js";
+import { writeCounters } from "./counters-writer.js";
 import { writeRaids } from "./raids-writer.js";
 import { writeEvents } from "./events-writer.js";
 import { readShadowList } from "./shadow.js";
@@ -54,7 +55,14 @@ async function main(): Promise<void> {
     `🏆 Wrote ${rankingsWritten} ranking files in ${elapsed(rankingsStart)}`
   );
 
-  // Step 6: Fetch and write current raid bosses
+  // Step 6: Write per-Pokémon counters
+  const countersStart = performance.now();
+  const countersWritten = await writeCounters(computed);
+  console.log(
+    `🎯 Wrote ${countersWritten} counter files in ${elapsed(countersStart)}`
+  );
+
+  // Step 7: Fetch and write current raid bosses
   const raidsStart = performance.now();
   const raidsWritten = await writeRaids();
   if (raidsWritten) {
@@ -63,7 +71,7 @@ async function main(): Promise<void> {
     console.log(`🥊 Skipped raid bosses (fetch unavailable) in ${elapsed(raidsStart)}`);
   }
 
-  // Step 7: Fetch and write current events
+  // Step 8: Fetch and write current events
   const eventsStart = performance.now();
   const eventsWritten = await writeEvents();
   if (eventsWritten) {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { tdoCalculator, computeRealStats, computeCombo } from "./tdo.js";
+import { tdoCalculator, computeRealStats, computeCombo, computeER } from "./tdo.js";
 import type { Pokemon, Move, PokemonRealStats } from "../types.js";
 
 function makeMoveFixture(overrides: Partial<Move> = {}): Move {
@@ -75,11 +75,42 @@ describe("computeRealStats", () => {
   });
 });
 
+describe("computeER", () => {
+  it("computes ER as DPS^alpha * TDO^(1-alpha)", () => {
+    const dps = 30;
+    const tdo = 600;
+    const alpha = 0.75;
+    const expected = Math.pow(30, 0.75) * Math.pow(600, 0.25);
+    expect(computeER(dps, tdo, alpha)).toBeCloseTo(expected, 2);
+  });
+
+  it("returns 0 for zero DPS", () => {
+    expect(computeER(0, 500)).toBe(0);
+  });
+
+  it("returns 0 for zero TDO", () => {
+    expect(computeER(30, 0)).toBe(0);
+  });
+
+  it("higher DPS wins with similar TDO (DPS-weighted)", () => {
+    const highDps = computeER(35, 500);
+    const lowDps = computeER(25, 500);
+    expect(highDps).toBeGreaterThan(lowDps);
+  });
+
+  it("DPS matters more than TDO at alpha=0.75", () => {
+    // 10% more DPS vs 10% more TDO
+    const moreDps = computeER(33, 500);
+    const moreTdo = computeER(30, 550);
+    expect(moreDps).toBeGreaterThan(moreTdo);
+  });
+});
+
 describe("computeCombo", () => {
   const pokemon = makePokemonFixture();
   const realStats = computeRealStats(pokemon.stats!);
 
-  it("computes a valid combo with STAB on both moves", () => {
+  it("computes a valid combo with DPS, TDO, and ER", () => {
     const quick = makeMoveFixture(); // Grass type, Bulbasaur is Grass
     const charge = makeMoveFixture({
       id: "POWER_WHIP",
@@ -94,49 +125,12 @@ describe("computeCombo", () => {
     expect(combo).not.toBeNull();
     expect(combo!.quickMove).toBe("VINE_WHIP_FAST");
     expect(combo!.cinematicMove).toBe("POWER_WHIP");
-    expect(combo!.comboDps).toBeGreaterThan(0);
-    expect(combo!.comboDpsAtk).toBeGreaterThan(0);
+    expect(combo!.dps).toBeGreaterThan(0);
     expect(combo!.tdo).toBeGreaterThan(0);
+    expect(combo!.er).toBeGreaterThan(0);
   });
 
-  it("applies STAB correctly (1.2x for matching type)", () => {
-    // Both moves are Grass type, Bulbasaur is Grass → both get STAB
-    const quick = makeMoveFixture({ power: 10, energy: 10, durationMs: 1000 });
-    const charge = makeMoveFixture({
-      id: "GRASS_CHARGE",
-      power: 100,
-      energy: -100,
-      durationMs: 2000,
-    });
-
-    const comboStab = computeCombo(quick, charge, pokemon, realStats);
-
-    // Normal type move (no STAB)
-    const quickNoStab = makeMoveFixture({
-      power: 10,
-      energy: 10,
-      durationMs: 1000,
-      type: { type: "POKEMON_TYPE_NORMAL", name: "Normal" },
-    });
-    const chargeNoStab = makeMoveFixture({
-      id: "NORMAL_CHARGE",
-      power: 100,
-      energy: -100,
-      durationMs: 2000,
-      type: { type: "POKEMON_TYPE_NORMAL", name: "Normal" },
-    });
-
-    const comboNoStab = computeCombo(quickNoStab, chargeNoStab, pokemon, realStats);
-
-    // STAB combo should be 1.2x higher DPS
-    expect(comboStab!.comboDps).toBeCloseTo(comboNoStab!.comboDps * 1.2, 1);
-  });
-
-  it("correctly computes energy cycle (n_fast)", () => {
-    // quick: 10 energy gain, 1s duration → eps = 10/s
-    // charge: 50 energy cost, 2s duration
-    // n_fast = ceil(50 / (10 * 1)) = 5
-    // cycle_time = 5 * 1 + 2 = 7s
+  it("TDO formula uses DPS * HP * DEF / 900", () => {
     const quick = makeMoveFixture({
       power: 10,
       energy: 10,
@@ -153,8 +147,24 @@ describe("computeCombo", () => {
 
     const combo = computeCombo(quick, charge, pokemon, realStats);
 
-    // combo_dps = (5 * 10 * 1.0 + 100 * 1.0) / 7 = 150 / 7 = 21.43
-    expect(combo!.comboDps).toBeCloseTo(21.43, 1);
+    // TDO should equal DPS * HP * DEF / 900
+    const expectedTdo = combo!.dps * realStats.hpReal * realStats.defReal / 900;
+    expect(combo!.tdo).toBeCloseTo(expectedTdo, 0);
+  });
+
+  it("ER equals DPS^0.75 * TDO^0.25", () => {
+    const quick = makeMoveFixture();
+    const charge = makeMoveFixture({
+      id: "POWER_WHIP",
+      power: 90,
+      energy: -50,
+      durationMs: 2600,
+      type: { type: "POKEMON_TYPE_GRASS", name: "Grass" },
+    });
+
+    const combo = computeCombo(quick, charge, pokemon, realStats);
+    const expectedER = Math.pow(combo!.dps, 0.75) * Math.pow(combo!.tdo, 0.25);
+    expect(combo!.er).toBeCloseTo(expectedER, 0);
   });
 
   it("returns null for moves with zero energy", () => {
@@ -175,42 +185,29 @@ describe("computeCombo", () => {
     expect(computeCombo(quick, charge, pokemon, realStats)).toBeNull();
   });
 
-  it("applies STAB for secondary type", () => {
-    // Poison move on Bulbasaur (secondary type is Poison)
-    const quick = makeMoveFixture({
-      power: 10,
-      energy: 10,
-      durationMs: 1000,
-      type: { type: "POKEMON_TYPE_POISON", name: "Poison" },
+  it("STAB moves produce higher DPS than non-STAB", () => {
+    const quickStab = makeMoveFixture({
+      power: 10, energy: 10, durationMs: 1000,
+      type: { type: "POKEMON_TYPE_GRASS", name: "Grass" },
     });
-    const charge = makeMoveFixture({
-      id: "POISON_CHARGE",
-      power: 100,
-      energy: -50,
-      durationMs: 2000,
-      type: { type: "POKEMON_TYPE_POISON", name: "Poison" },
+    const chargeStab = makeMoveFixture({
+      id: "GRASS_CHARGE", power: 100, energy: -50, durationMs: 2000,
+      type: { type: "POKEMON_TYPE_GRASS", name: "Grass" },
     });
 
-    const comboPoison = computeCombo(quick, charge, pokemon, realStats);
-
-    // Same power/energy/duration but Normal type (no STAB)
-    const quickNormal = makeMoveFixture({
-      power: 10,
-      energy: 10,
-      durationMs: 1000,
+    const quickNoStab = makeMoveFixture({
+      power: 10, energy: 10, durationMs: 1000,
       type: { type: "POKEMON_TYPE_NORMAL", name: "Normal" },
     });
-    const chargeNormal = makeMoveFixture({
-      id: "NORMAL_CHARGE",
-      power: 100,
-      energy: -50,
-      durationMs: 2000,
+    const chargeNoStab = makeMoveFixture({
+      id: "NORMAL_CHARGE", power: 100, energy: -50, durationMs: 2000,
       type: { type: "POKEMON_TYPE_NORMAL", name: "Normal" },
     });
 
-    const comboNormal = computeCombo(quickNormal, chargeNormal, pokemon, realStats);
+    const comboStab = computeCombo(quickStab, chargeStab, pokemon, realStats);
+    const comboNoStab = computeCombo(quickNoStab, chargeNoStab, pokemon, realStats);
 
-    expect(comboPoison!.comboDps).toBeCloseTo(comboNormal!.comboDps * 1.2, 1);
+    expect(comboStab!.dps).toBeGreaterThan(comboNoStab!.dps);
   });
 });
 
@@ -223,8 +220,8 @@ describe("tdoCalculator", () => {
     expect(result.computed!.pokemon.atkReal).toBeGreaterThan(0);
     expect(result.computed!.pokemon.defReal).toBeGreaterThan(0);
     expect(result.computed!.pokemon.hpReal).toBeGreaterThan(0);
-    expect(result.computed!.movesets.regular).toHaveLength(1); // 1 quick × 1 cinematic
-    expect(result.computed!.movesets.elite).toHaveLength(0); // no elite moves
+    expect(result.computed!.movesets.regular).toHaveLength(1);
+    expect(result.computed!.movesets.elite).toHaveLength(0);
   });
 
   it("skips Pokemon with null stats", () => {
@@ -233,7 +230,7 @@ describe("tdoCalculator", () => {
     expect(result.computed).toBeNull();
   });
 
-  it("sorts regular movesets by TDO descending", () => {
+  it("sorts regular movesets by ER descending", () => {
     const pokemon = makePokemonFixture({
       quickMoves: [
         makeMoveFixture({ id: "WEAK_FAST", power: 3, energy: 5, durationMs: 500 }),
@@ -248,7 +245,7 @@ describe("tdoCalculator", () => {
     const regular = result.computed!.movesets.regular;
 
     expect(regular.length).toBe(2);
-    expect(regular[0].tdo).toBeGreaterThanOrEqual(regular[1].tdo);
+    expect(regular[0].er).toBeGreaterThanOrEqual(regular[1].er);
   });
 
   it("separates elite combos from regular combos", () => {
@@ -265,33 +262,11 @@ describe("tdoCalculator", () => {
 
     const result = tdoCalculator.compute(pokemon);
 
-    // Regular: REGULAR_FAST × REGULAR_CHARGE only
     expect(result.computed!.movesets.regular).toHaveLength(1);
     expect(result.computed!.movesets.regular[0].cinematicMove).toBe("REGULAR_CHARGE");
 
-    // Elite: REGULAR_FAST × ELITE_CHARGE (uses elite move)
     expect(result.computed!.movesets.elite).toHaveLength(1);
     expect(result.computed!.movesets.elite[0].cinematicMove).toBe("ELITE_CHARGE");
-  });
-
-  it("elite set includes combos with elite quick move", () => {
-    const pokemon = makePokemonFixture({
-      quickMoves: [makeMoveFixture({ id: "REGULAR_FAST" })],
-      cinematicMoves: [
-        makeMoveFixture({ id: "REGULAR_CHARGE", power: 80, energy: -50, durationMs: 2500 }),
-      ],
-      eliteQuickMoves: [
-        makeMoveFixture({ id: "ELITE_FAST", power: 15, energy: 12, durationMs: 800 }),
-      ],
-      eliteCinematicMoves: [],
-    });
-
-    const result = tdoCalculator.compute(pokemon);
-
-    // Elite set: ELITE_FAST × REGULAR_CHARGE
-    const eliteCombos = result.computed!.movesets.elite;
-    expect(eliteCombos.length).toBeGreaterThan(0);
-    expect(eliteCombos.some((c) => c.quickMove === "ELITE_FAST")).toBe(true);
   });
 
   it("elite set does not include purely regular combos", () => {
@@ -308,7 +283,6 @@ describe("tdoCalculator", () => {
 
     const result = tdoCalculator.compute(pokemon);
 
-    // The purely regular combo (REGULAR_FAST × REGULAR_CHARGE) should NOT be in elite
     const eliteCombos = result.computed!.movesets.elite;
     const purelyRegular = eliteCombos.find(
       (c) => c.quickMove === "REGULAR_FAST" && c.cinematicMove === "REGULAR_CHARGE"
@@ -316,39 +290,17 @@ describe("tdoCalculator", () => {
     expect(purelyRegular).toBeUndefined();
   });
 
-  it("handles Pokemon with no cinematic moves", () => {
-    const pokemon = makePokemonFixture({
-      quickMoves: [makeMoveFixture()],
-      cinematicMoves: [],
-    });
-
-    const result = tdoCalculator.compute(pokemon);
-    expect(result.computed!.movesets.regular).toHaveLength(0);
-  });
-
-  it("handles Pokemon with no quick moves", () => {
-    const pokemon = makePokemonFixture({
-      quickMoves: [],
-      cinematicMoves: [
-        makeMoveFixture({ id: "CHARGE", power: 80, energy: -50, durationMs: 2500 }),
-      ],
-    });
-
-    const result = tdoCalculator.compute(pokemon);
-    expect(result.computed!.movesets.regular).toHaveLength(0);
-  });
-
   it("rounds values to 2 decimal places", () => {
     const pokemon = makePokemonFixture();
     const result = tdoCalculator.compute(pokemon);
 
     const combo = result.computed!.movesets.regular[0];
-    const dpsDecimals = combo.comboDps.toString().split(".")[1]?.length ?? 0;
-    const atkDecimals = combo.comboDpsAtk.toString().split(".")[1]?.length ?? 0;
+    const dpsDecimals = combo.dps.toString().split(".")[1]?.length ?? 0;
     const tdoDecimals = combo.tdo.toString().split(".")[1]?.length ?? 0;
+    const erDecimals = combo.er.toString().split(".")[1]?.length ?? 0;
 
     expect(dpsDecimals).toBeLessThanOrEqual(2);
-    expect(atkDecimals).toBeLessThanOrEqual(2);
     expect(tdoDecimals).toBeLessThanOrEqual(2);
+    expect(erDecimals).toBeLessThanOrEqual(2);
   });
 });

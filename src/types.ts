@@ -69,13 +69,16 @@ export interface PokemonRealStats {
   hpReal: number;
 }
 
-/** A single fast + charge move combination with computed TDO values */
+/** A single fast + charge move combination with computed values */
 export interface MovesetCombo {
   quickMove: string;
   cinematicMove: string;
-  comboDps: number;
-  comboDpsAtk: number;
+  /** Comprehensive DPS (damage per second, accounting for energy/STAB) */
+  dps: number;
+  /** Total Damage Output (DPS × HP × DEF / 900) — damage dealt before fainting */
   tdo: number;
+  /** Equivalent Rating composite score (DPS^α × TDO^(1-α)) */
+  er: number;
 }
 
 /** Ranked moveset combinations, separated by availability */

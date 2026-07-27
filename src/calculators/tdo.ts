@@ -7,6 +7,7 @@ import type {
   MovesetCombo,
   PokemonComputed,
 } from "../types.js";
+import { ER_ALPHA } from "../config.js";
 
 /** CPM at Level 50 (max non-Best-Buddy level) */
 const CPM_50 = 0.84029999;
@@ -16,6 +17,13 @@ const IV = 15;
 
 /** Same-type attack bonus multiplier */
 const STAB_MULTIPLIER = 1.2;
+
+/**
+ * Neutral enemy DPS approximation constant.
+ * Standard Gamepress assumption: enemy_DPS = 900 / DEF_real
+ * This means TDO = DPS × HP_real × DEF_real / 900
+ */
+const ENEMY_DPS_CONSTANT = 900;
 
 /**
  * Computes real stats at Level 50 with 15/15/15 IVs.
@@ -39,7 +47,33 @@ function isStab(move: Move, pokemon: Pokemon): boolean {
 }
 
 /**
- * Computes TDO for a single fast + charge move combination.
+ * Computes the Equivalent Rating (ER) composite score.
+ * ER = DPS^α × TDO^(1-α)
+ *
+ * This balances raw DPS (how fast damage is dealt) with survivability (how long
+ * the Pokemon lasts). With α = 0.75, DPS is weighted 3× more than TDO.
+ */
+export function computeER(dps: number, tdo: number, alpha: number = ER_ALPHA): number {
+  if (dps <= 0 || tdo <= 0) return 0;
+  return Math.pow(dps, alpha) * Math.pow(tdo, 1 - alpha);
+}
+
+/**
+ * Computes comprehensive DPS for a single fast + charge move combination.
+ *
+ * Uses the Gamepress comprehensive DPS formula with neutral enemy assumptions:
+ * - Enemy DPS (y) = 900 / DEF_real
+ * - Wasted energy (x) = 0.5 * CE + 0.5 * FE
+ *
+ * Formula:
+ *   DPS0 = (FDPS * CEPS + CDPS * FEPS) / (CEPS + FEPS)
+ *   DPS  = DPS0 + (CDPS - FDPS) / (CEPS + FEPS) * (0.5 - x/HP) * y
+ *
+ * Then multiplied by ATK_real to get actual damage output rate.
+ *
+ * TDO = DPS * HP_real * DEF_real / 900
+ * ER  = DPS^α * TDO^(1-α)
+ *
  * Returns null if the combo is invalid (e.g., zero energy/duration).
  */
 export function computeCombo(
@@ -59,43 +93,57 @@ export function computeCombo(
   const chargeDuration = cinematicMove.durationMs / 1000;
   if (chargeDuration < 0) return null;
 
-  // Energy per second from fast move
-  const eps = quickMove.energy / fastDuration;
-
-  // Number of fast moves needed to charge one charge move
-  const nFast = Math.ceil(energyCost / (eps * fastDuration));
-
-  // Total cycle time: n fast moves + 1 charge move
-  const cycleTime = nFast * fastDuration + chargeDuration;
-  if (cycleTime <= 0) return null;
-
   // STAB bonuses
   const fastStab = isStab(quickMove, pokemon) ? STAB_MULTIPLIER : 1.0;
   const chargeStab = isStab(cinematicMove, pokemon) ? STAB_MULTIPLIER : 1.0;
 
-  // Cycle-average DPS (without Attack stat)
-  const comboDps =
-    (nFast * quickMove.power * fastStab +
-      cinematicMove.power * chargeStab) /
-    cycleTime;
+  // Fast move DPS and EPS (energy per second)
+  const fdps = (quickMove.power * fastStab) / fastDuration;
+  const feps = quickMove.energy / fastDuration;
 
-  // DPS × real Attack
-  const comboDpsAtk = comboDps * realStats.atkReal;
+  // Charge move DPS and EPS (energy cost per second of charge move duration)
+  const cdps = (cinematicMove.power * chargeStab) / chargeDuration;
+  const ceps = energyCost / chargeDuration;
 
-  // TDO = combo_dps_atk × HP × Defense
-  const tdo = comboDpsAtk * realStats.hpReal * realStats.defReal;
+  // Guard against zero denominator
+  if (ceps + feps <= 0) return null;
+
+  // Simple cycle DPS (DPS0) — Gamepress formula
+  const dps0 = (fdps * ceps + cdps * feps) / (ceps + feps);
+
+  // Neutral enemy assumptions
+  const y = ENEMY_DPS_CONSTANT / realStats.defReal; // enemy DPS
+  const x = 0.5 * energyCost + 0.5 * quickMove.energy; // expected wasted energy
+  const hp = realStats.hpReal;
+
+  // Comprehensive DPS adjustment
+  const energyEfficiency = (cdps - fdps) / (ceps + feps);
+  const survivalFactor = (0.5 - x / hp) * y;
+  let comprehensiveDps = dps0 + energyEfficiency * survivalFactor;
+
+  // Floor at fast move DPS (minimum useful output)
+  if (comprehensiveDps < fdps) comprehensiveDps = fdps;
+
+  // Apply Attack stat for actual damage output rate
+  const dps = comprehensiveDps * realStats.atkReal;
+
+  // TDO = DPS × HP × DEF / 900 (total damage before fainting)
+  const tdo = dps * hp * realStats.defReal / ENEMY_DPS_CONSTANT;
+
+  // ER composite score
+  const er = computeER(dps, tdo);
 
   return {
     quickMove: quickMove.id,
     cinematicMove: cinematicMove.id,
-    comboDps: Math.round(comboDps * 100) / 100,
-    comboDpsAtk: Math.round(comboDpsAtk * 100) / 100,
+    dps: Math.round(dps * 100) / 100,
     tdo: Math.round(tdo * 100) / 100,
+    er: Math.round(er * 100) / 100,
   };
 }
 
 /**
- * Brute-forces all fast × charge combinations and returns them sorted by TDO descending.
+ * Brute-forces all fast × charge combinations and returns them sorted by ER descending.
  */
 function rankCombos(
   quickMoves: Move[],
@@ -114,13 +162,22 @@ function rankCombos(
     }
   }
 
-  // Sort by TDO descending
-  combos.sort((a, b) => b.tdo - a.tdo);
+  // Sort by ER descending
+  combos.sort((a, b) => b.er - a.er);
   return combos;
 }
 
 /**
  * TDO Calculator — computes ranked moveset combinations for each Pokemon.
+ *
+ * Uses the Gamepress Comprehensive DPS formula with:
+ * - Standard TDO: DPS × HP × DEF / 900
+ * - ER composite: DPS^0.75 × TDO^0.25
+ *
+ * Credits:
+ * - Gamepress: Comprehensive DPS formula
+ * - u/Elastic_Space: ER (Equivalent Rating) metric
+ * - u/Flyfunner, u/bmenrigh: New raid system research
  *
  * Produces two rankings:
  * - regular: only regularly available moves
