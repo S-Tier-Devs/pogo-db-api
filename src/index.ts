@@ -5,6 +5,7 @@ import { tdoCalculator } from "./calculators/tdo.js";
 import { writePokedex } from "./writer.js";
 import { writeRankings } from "./rankings-writer.js";
 import { writeRaids } from "./raids-writer.js";
+import { writeEvents } from "./events-writer.js";
 
 function elapsed(start: number): string {
   return ((performance.now() - start) / 1000).toFixed(2) + "s";
@@ -48,6 +49,15 @@ async function main(): Promise<void> {
     console.log(`🥊 Wrote raid bosses in ${elapsed(raidsStart)}`);
   } else {
     console.log(`🥊 Skipped raid bosses (fetch unavailable) in ${elapsed(raidsStart)}`);
+  }
+
+  // Step 6: Fetch and write current events
+  const eventsStart = performance.now();
+  const eventsWritten = await writeEvents();
+  if (eventsWritten) {
+    console.log(`📅 Wrote events in ${elapsed(eventsStart)}`);
+  } else {
+    console.log(`📅 Skipped events (fetch unavailable) in ${elapsed(eventsStart)}`);
   }
 
   console.log(`✅ Build complete in ${elapsed(buildStart)}`);

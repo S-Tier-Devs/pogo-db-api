@@ -36,6 +36,9 @@ data/pokemon/*.json (committed) → read → compute → write → GitHub Pages
 | `src/raids/fetcher.ts` | Fetches Leek Duck HTML (with timeout, silent fail) |
 | `src/raids/parser.ts` | Cheerio-based HTML parser for raid boss data |
 | `src/raids/matcher.ts` | Name matcher: display names → dexNr |
+| `src/events-writer.ts` | Orchestrates events fetch → parse → write |
+| `src/events/fetcher.ts` | Fetches Leek Duck events HTML (with timeout, silent fail) |
+| `src/events/parser.ts` | Cheerio-based HTML parser for event data |
 | `public/index.html` | API documentation + methodology page (with sidebar nav) |
 
 ## Commands
