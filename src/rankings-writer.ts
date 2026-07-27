@@ -2,7 +2,6 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import type { Pokemon, MovesetCombo, Move } from "./types.js";
 import { computeRealStats, computeER } from "./calculators/tdo.js";
-import { ER_ALPHA } from "./config.js";
 
 const OUTPUT_DIR = "public/api/rankings";
 
@@ -57,15 +56,16 @@ const STAB_MULTIPLIER = 1.2;
 const ENEMY_DPS_CONSTANT = 900;
 
 /**
- * Computes type-specific DPS for a moveset combo targeting a specific type.
+ * Computes type-specific DPS for a moveset combo.
  *
- * For type-specific rankings, DPS counts only the charge move's damage of the
- * target type. The fast move contributes energy generation but its off-type
- * damage does not count toward the type DPS.
+ * Only damage from moves matching the target type contributes to DPS.
+ * Off-type fast moves still contribute energy generation (enabling charge moves)
+ * but their damage is not counted toward the type DPS.
  *
- * Type DPS = (charge_damage_per_cycle / cycle_time) × ATK_real
- * Type TDO = Type DPS × HP × DEF / 900
- * Type ER  = Type_DPS^α × Type_TDO^(1-α)
+ * TDO is based on full DPS (all damage counts — the Pokemon deals total damage
+ * while alive regardless of type).
+ *
+ * ER = type_DPS^α × TDO^(1-α)
  */
 function computeTypeSpecificER(
   pokemon: Pokemon,
@@ -75,7 +75,6 @@ function computeTypeSpecificER(
 ): { dps: number; tdo: number; er: number } | null {
   if (!pokemon.stats) return null;
 
-  // Find the actual move objects
   const allQuick = [...pokemon.quickMoves, ...pokemon.eliteQuickMoves];
   const allCinematic = [...pokemon.cinematicMoves, ...pokemon.eliteCinematicMoves];
 
@@ -93,9 +92,6 @@ function computeTypeSpecificER(
 
   const chargeDuration = cinematicMove.durationMs / 1000;
 
-  // Energy per fast move use
-  const feps = quickMove.energy / fastDuration;
-
   // Number of fast moves to charge one charge move
   const nFast = Math.ceil(energyCost / quickMove.energy);
 
@@ -103,40 +99,35 @@ function computeTypeSpecificER(
   const cycleTime = nFast * fastDuration + chargeDuration;
   if (cycleTime <= 0) return null;
 
-  // STAB on charge move (if Pokemon's type matches the charge move type)
+  // STAB bonuses (based on Pokemon's types, not target type)
+  const fastStab =
+    quickMove.type.type === pokemon.primaryType.type ||
+    quickMove.type.type === pokemon.secondaryType?.type
+      ? STAB_MULTIPLIER
+      : 1.0;
   const chargeStab =
     cinematicMove.type.type === pokemon.primaryType.type ||
     cinematicMove.type.type === pokemon.secondaryType?.type
       ? STAB_MULTIPLIER
       : 1.0;
 
-  // Fast move STAB (for total DPS calculation — fast move damage counts for TDO)
-  const fastStab =
-    quickMove.type.type === pokemon.primaryType.type ||
-    quickMove.type.type === pokemon.secondaryType?.type
-      ? STAB_MULTIPLIER
-      : 1.0;
+  // Type-specific DPS: only count damage from moves matching target type
+  const fastTypeDmg = quickMove.type.type === targetType
+    ? nFast * quickMove.power * fastStab
+    : 0;
+  const chargeTypeDmg = cinematicMove.type.type === targetType
+    ? cinematicMove.power * chargeStab
+    : 0;
 
-  // Type-specific DPS: only charge move damage of target type counts
-  // But fast move damage of target type also counts if it matches
-  const fastTypeMultiplier = quickMove.type.type === targetType ? 1.0 : 0.0;
-  const chargeTypeMultiplier = cinematicMove.type.type === targetType ? 1.0 : 0.0;
+  const typeDps = ((fastTypeDmg + chargeTypeDmg) / cycleTime) * realStats.atkReal;
+  if (typeDps <= 0) return null;
 
-  const typeDmgPerCycle =
-    nFast * quickMove.power * fastStab * fastTypeMultiplier +
-    cinematicMove.power * chargeStab * chargeTypeMultiplier;
+  // TDO uses full DPS (all damage counts for survivability calculation)
+  const fullDmgPerCycle = nFast * quickMove.power * fastStab + cinematicMove.power * chargeStab;
+  const fullDps = (fullDmgPerCycle / cycleTime) * realStats.atkReal;
+  const tdo = fullDps * realStats.hpReal * realStats.defReal / ENEMY_DPS_CONSTANT;
 
-  const typeDps = (typeDmgPerCycle / cycleTime) * realStats.atkReal;
-
-  // TDO uses the FULL comprehensive DPS (all damage types) for survivability
-  // because the Pokemon deals total damage while alive
-  const totalDmgPerCycle =
-    nFast * quickMove.power * fastStab +
-    cinematicMove.power * chargeStab;
-  const totalDps = (totalDmgPerCycle / cycleTime) * realStats.atkReal;
-  const tdo = totalDps * realStats.hpReal * realStats.defReal / ENEMY_DPS_CONSTANT;
-
-  // ER uses type-specific DPS (rewards fire specialists) but full TDO (rewards bulk)
+  // ER uses type-specific DPS but full TDO
   const er = computeER(typeDps, tdo);
 
   return {
@@ -148,7 +139,7 @@ function computeTypeSpecificER(
 
 /**
  * Finds the best combo for a Pokemon where the charge move matches the target type.
- * Computes type-specific ER for ranking purposes.
+ * Uses type-specific DPS (only target-type damage counts) for ranking.
  * Searches both regular and elite movesets.
  */
 function findBestComboForType(
@@ -157,7 +148,6 @@ function findBestComboForType(
 ): { combo: MovesetCombo; isElite: boolean; typeER: { dps: number; tdo: number; er: number } } | null {
   if (!pokemon.computed) return null;
 
-  // Build a lookup of all cinematic moves by ID (regular + elite) to check type
   const allCinematicMoves = new Map<string, Move>();
   for (const m of pokemon.cinematicMoves) {
     allCinematicMoves.set(m.id, m);
@@ -166,10 +156,6 @@ function findBestComboForType(
     allCinematicMoves.set(m.id, m);
   }
 
-  const regularQuickIds = new Set(pokemon.quickMoves.map((m) => m.id));
-  const regularCinematicIds = new Set(pokemon.cinematicMoves.map((m) => m.id));
-
-  // Collect all type-matching combos with their type-specific ER
   interface Candidate {
     combo: MovesetCombo;
     isElite: boolean;
@@ -178,7 +164,6 @@ function findBestComboForType(
 
   const candidates: Candidate[] = [];
 
-  // Check all combos (regular + elite) that have matching charge move
   const allCombos = [
     ...pokemon.computed.movesets.regular.map((c) => ({ combo: c, isElite: false })),
     ...pokemon.computed.movesets.elite.map((c) => ({ combo: c, isElite: true })),
@@ -194,14 +179,13 @@ function findBestComboForType(
       combo.cinematicMove,
       targetType
     );
-    if (!typeER || typeER.er <= 0) continue;
+    if (!typeER) continue;
 
     candidates.push({ combo, isElite, typeER });
   }
 
   if (candidates.length === 0) return null;
 
-  // Sort by type-specific ER and pick the best
   candidates.sort((a, b) => b.typeER.er - a.typeER.er);
   return candidates[0];
 }
