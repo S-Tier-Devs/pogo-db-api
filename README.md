@@ -16,6 +16,7 @@ Base URL: `https://<username>.github.io/pogo-db-api/api/pokemon/`
 | `api/rankings/{type}.json` | Top attackers for a type (e.g., `api/rankings/fire.json`) |
 | `api/raids/current.json` | Current raid bosses (scraped from Leek Duck, updated daily) |
 | `api/events/current.json` | Current and upcoming events (scraped from Leek Duck, updated daily) |
+| `api/counters/{dexNr}.json` | Top 40 raid counters for a Pokémon (e.g., `api/counters/384.json` for Rayquaza) |
 
 ### Example Response (`api/pokemon/1.json`)
 
@@ -103,6 +104,51 @@ Type rankings (`api/rankings/{type}.json`) also include shadow and mega entries 
 
 - **Shadow** — Base stats × 1.2 ATK / × 0.833 DEF. Eligible Pokémon defined in `shadow_pokemon.csv`.
 - **Mega** — Uses mega evolution stats/types with the base Pokémon's movepool.
+
+### Raid Counters
+
+Each counter file (`api/counters/{dexNr}.json`) contains the top 40 best attackers against that Pokémon as a raid boss:
+
+```json
+{
+  "target": {
+    "dexNr": 384,
+    "name": "Rayquaza",
+    "id": "RAYQUAZA",
+    "primaryType": "POKEMON_TYPE_DRAGON",
+    "secondaryType": "POKEMON_TYPE_FLYING"
+  },
+  "counters": [
+    {
+      "dexNr": 646,
+      "name": "Kyurem (White)",
+      "id": "KYUREM_WHITE",
+      "formId": "KYUREM_WHITE",
+      "quickMove": "ICE_FANG_FAST",
+      "quickMoveName": "Ice Fang",
+      "quickMoveType": "POKEMON_TYPE_ICE",
+      "cinematicMove": "ICE_BURN",
+      "cinematicMoveName": "Ice Burn",
+      "cinematicMoveType": "POKEMON_TYPE_ICE",
+      "dps": 48234.12,
+      "tdo": 583012.45,
+      "er": 47861.27,
+      "isElite": false,
+      "variant": null,
+      "variantName": null
+    }
+  ]
+}
+```
+
+Counters are ranked by **ER** (Equivalent Rating) using **type-effective DPS**:
+
+- **Type effectiveness** — Pokémon GO multipliers (1.6× SE, 0.625× NVE, 0.391× immune) applied per move against the target's dual typing. Ice vs Dragon/Flying = 2.56×.
+- **Mixed movesets** — Any fast + charge combination is evaluated. Off-type fast moves (e.g., Psycho Cut on Mewtwo with Ice Beam) are valid if they provide better energy generation.
+- **STAB** — Applied as normal (1.2× when move type matches attacker's type).
+- **ER scoring** — `DPS^0.75 × TDO^0.25` balances raw damage speed with survivability.
+
+This allows the API to surface results like "Mega Mewtwo Y with Psycho Cut / Ice Beam" as a top Rayquaza counter — something pure type rankings cannot provide.
 
 ## Architecture
 
@@ -194,6 +240,8 @@ src/
 ├── transformer.ts        # Raw → trimmed English (used by seed)
 ├── writer.ts             # JSON file writer for public/api/pokemon/
 ├── rankings-writer.ts    # Per-type TDO rankings writer for public/api/rankings/
+├── counters-writer.ts    # Per-Pokémon raid counter writer for public/api/counters/
+├── type-effectiveness.ts # Pokémon GO type effectiveness chart (18×18 matrix)
 ├── raids-writer.ts       # Orchestrates raid boss fetch → parse → match → write
 ├── events-writer.ts      # Orchestrates events fetch → parse → write
 ├── raids/
@@ -212,6 +260,7 @@ public/
 └── api/                  # Generated output (gitignored)
     ├── pokemon/          # Per-Pokémon JSON files
     ├── rankings/         # Per-type TDO ranking files
+    ├── counters/         # Per-Pokémon raid counter files
     ├── raids/            # Current raid bosses (scraped from Leek Duck)
     └── events/           # Current events (scraped from Leek Duck)
 .github/workflows/

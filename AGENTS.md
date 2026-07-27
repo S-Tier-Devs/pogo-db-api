@@ -36,6 +36,8 @@ data/pokemon/*.json (committed) → read → expand (shadow/mega) → compute �
 | `src/calculators/tdo.ts` | TDO computation (moveset combos, real stats, rankings) |
 | `src/writer.ts` | JSON file output to public/api/pokemon/ |
 | `src/rankings-writer.ts` | Per-type TDO ranking files to public/api/rankings/ |
+| `src/counters-writer.ts` | Per-Pokémon raid counter files to public/api/counters/ |
+| `src/type-effectiveness.ts` | Pokémon GO type effectiveness chart (18×18 matrix) |
 | `src/raids-writer.ts` | Orchestrates raid boss fetch → parse → match → write |
 | `src/raids/fetcher.ts` | Fetches Leek Duck HTML (with timeout, silent fail) |
 | `src/raids/parser.ts` | Cheerio-based HTML parser for raid boss data |
