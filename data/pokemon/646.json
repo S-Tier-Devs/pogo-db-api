@@ -145,5 +145,364 @@
   },
   "evolutions": [],
   "hasMegaEvolution": false,
-  "megaEvolutions": []
+  "megaEvolutions": [],
+  "forms": [
+    {
+      "id": "KYUREM_BLACK",
+      "formId": "KYUREM_BLACK",
+      "dexNr": 646,
+      "generation": 5,
+      "name": "Kyurem (Black)",
+      "stats": {
+        "stamina": 245,
+        "attack": 310,
+        "defense": 183
+      },
+      "primaryType": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "secondaryType": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "pokemonClass": "POKEMON_CLASS_LEGENDARY",
+      "quickMoves": [
+        {
+          "id": "DRAGON_TAIL_FAST",
+          "name": "Dragon Tail",
+          "power": 13,
+          "energy": 9,
+          "durationMs": 1500,
+          "type": {
+            "type": "POKEMON_TYPE_DRAGON",
+            "name": "Dragon"
+          },
+          "combat": {
+            "energy": 10,
+            "power": 13,
+            "turns": 3,
+            "buffs": null
+          }
+        },
+        {
+          "id": "SHADOW_CLAW_FAST",
+          "name": "Shadow Claw",
+          "power": 6,
+          "energy": 4,
+          "durationMs": 500,
+          "type": {
+            "type": "POKEMON_TYPE_GHOST",
+            "name": "Ghost"
+          },
+          "combat": {
+            "energy": 8,
+            "power": 6,
+            "turns": 2,
+            "buffs": null
+          }
+        }
+      ],
+      "cinematicMoves": [
+        {
+          "id": "OUTRAGE",
+          "name": "Outrage",
+          "power": 110,
+          "energy": -50,
+          "durationMs": 4000,
+          "type": {
+            "type": "POKEMON_TYPE_DRAGON",
+            "name": "Dragon"
+          },
+          "combat": {
+            "energy": -60,
+            "power": 110,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "FUSION_BOLT",
+          "name": "Fusion Bolt",
+          "power": 90,
+          "energy": -50,
+          "durationMs": 2500,
+          "type": {
+            "type": "POKEMON_TYPE_ELECTRIC",
+            "name": "Electric"
+          },
+          "combat": {
+            "energy": -45,
+            "power": 90,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "BLIZZARD",
+          "name": "Blizzard",
+          "power": 130,
+          "energy": -100,
+          "durationMs": 3000,
+          "type": {
+            "type": "POKEMON_TYPE_ICE",
+            "name": "Ice"
+          },
+          "combat": {
+            "energy": -75,
+            "power": 140,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "FREEZE_SHOCK",
+          "name": "Freeze Shock",
+          "power": 160,
+          "energy": -100,
+          "durationMs": 1500,
+          "type": {
+            "type": "POKEMON_TYPE_ICE",
+            "name": "Ice"
+          },
+          "combat": {
+            "energy": -80,
+            "power": 160,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "STONE_EDGE",
+          "name": "Stone Edge",
+          "power": 100,
+          "energy": -100,
+          "durationMs": 2300,
+          "type": {
+            "type": "POKEMON_TYPE_ROCK",
+            "name": "Rock"
+          },
+          "combat": {
+            "energy": -55,
+            "power": 100,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "IRON_HEAD",
+          "name": "Iron Head",
+          "power": 60,
+          "energy": -50,
+          "durationMs": 2000,
+          "type": {
+            "type": "POKEMON_TYPE_STEEL",
+            "name": "Steel"
+          },
+          "combat": {
+            "energy": -50,
+            "power": 70,
+            "turns": 1,
+            "buffs": null
+          }
+        }
+      ],
+      "eliteQuickMoves": [],
+      "eliteCinematicMoves": [],
+      "assets": null,
+      "evolutions": [],
+      "hasMegaEvolution": false,
+      "megaEvolutions": []
+    },
+    {
+      "id": "KYUREM_WHITE",
+      "formId": "KYUREM_WHITE",
+      "dexNr": 646,
+      "generation": 5,
+      "name": "Kyurem (White)",
+      "stats": {
+        "stamina": 245,
+        "attack": 310,
+        "defense": 183
+      },
+      "primaryType": {
+        "type": "POKEMON_TYPE_DRAGON",
+        "name": "Dragon"
+      },
+      "secondaryType": {
+        "type": "POKEMON_TYPE_ICE",
+        "name": "Ice"
+      },
+      "pokemonClass": "POKEMON_CLASS_LEGENDARY",
+      "quickMoves": [
+        {
+          "id": "DRAGON_BREATH_FAST",
+          "name": "Dragon Breath",
+          "power": 6,
+          "energy": 4,
+          "durationMs": 500,
+          "type": {
+            "type": "POKEMON_TYPE_DRAGON",
+            "name": "Dragon"
+          },
+          "combat": {
+            "energy": 4,
+            "power": 3,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "ICE_FANG_FAST",
+          "name": "Ice Fang",
+          "power": 12,
+          "energy": 20,
+          "durationMs": 1500,
+          "type": {
+            "type": "POKEMON_TYPE_ICE",
+            "name": "Ice"
+          },
+          "combat": {
+            "energy": 6,
+            "power": 8,
+            "turns": 2,
+            "buffs": null
+          }
+        },
+        {
+          "id": "STEEL_WING_FAST",
+          "name": "Steel Wing",
+          "power": 14,
+          "energy": 8,
+          "durationMs": 1000,
+          "type": {
+            "type": "POKEMON_TYPE_STEEL",
+            "name": "Steel"
+          },
+          "combat": {
+            "energy": 5,
+            "power": 7,
+            "turns": 2,
+            "buffs": null
+          }
+        }
+      ],
+      "cinematicMoves": [
+        {
+          "id": "DRAGON_PULSE",
+          "name": "Dragon Pulse",
+          "power": 90,
+          "energy": -50,
+          "durationMs": 3500,
+          "type": {
+            "type": "POKEMON_TYPE_DRAGON",
+            "name": "Dragon"
+          },
+          "combat": {
+            "energy": -60,
+            "power": 90,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "FUSION_FLARE",
+          "name": "Fusion Flare",
+          "power": 90,
+          "energy": -50,
+          "durationMs": 2500,
+          "type": {
+            "type": "POKEMON_TYPE_FIRE",
+            "name": "Fire"
+          },
+          "combat": {
+            "energy": -45,
+            "power": 90,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "BLIZZARD",
+          "name": "Blizzard",
+          "power": 130,
+          "energy": -100,
+          "durationMs": 3000,
+          "type": {
+            "type": "POKEMON_TYPE_ICE",
+            "name": "Ice"
+          },
+          "combat": {
+            "energy": -75,
+            "power": 140,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "ICE_BURN",
+          "name": "Ice Burn",
+          "power": 90,
+          "energy": -50,
+          "durationMs": 2000,
+          "type": {
+            "type": "POKEMON_TYPE_ICE",
+            "name": "Ice"
+          },
+          "combat": {
+            "energy": -50,
+            "power": 90,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "ANCIENT_POWER",
+          "name": "Ancient Power",
+          "power": 70,
+          "energy": -33,
+          "durationMs": 3500,
+          "type": {
+            "type": "POKEMON_TYPE_ROCK",
+            "name": "Rock"
+          },
+          "combat": {
+            "energy": -45,
+            "power": 60,
+            "turns": 1,
+            "buffs": {
+              "activationChance": 10,
+              "attackerAttackStatsChange": 2,
+              "attackerDefenseStatsChange": 2,
+              "targetAttackStatsChange": null,
+              "targetDefenseStatsChange": null
+            }
+          }
+        },
+        {
+          "id": "FOCUS_BLAST",
+          "name": "Focus Blast",
+          "power": 140,
+          "energy": -100,
+          "durationMs": 3500,
+          "type": {
+            "type": "POKEMON_TYPE_FIGHTING",
+            "name": "Fighting"
+          },
+          "combat": {
+            "energy": -75,
+            "power": 150,
+            "turns": 1,
+            "buffs": null
+          }
+        }
+      ],
+      "eliteQuickMoves": [],
+      "eliteCinematicMoves": [],
+      "assets": null,
+      "evolutions": [],
+      "hasMegaEvolution": false,
+      "megaEvolutions": []
+    }
+  ]
 }

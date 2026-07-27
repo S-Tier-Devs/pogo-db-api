@@ -184,5 +184,152 @@
   },
   "evolutions": [],
   "hasMegaEvolution": false,
-  "megaEvolutions": []
+  "megaEvolutions": [],
+  "forms": [
+    {
+      "id": "ZAMAZENTA_CROWNED_SHIELD",
+      "formId": "ZAMAZENTA_CROWNED_SHIELD",
+      "dexNr": 889,
+      "generation": 8,
+      "name": "Zamazenta (Crowned Shield)",
+      "stats": {
+        "stamina": 192,
+        "attack": 250,
+        "defense": 292
+      },
+      "primaryType": {
+        "type": "POKEMON_TYPE_FIGHTING",
+        "name": "Fighting"
+      },
+      "secondaryType": {
+        "type": "POKEMON_TYPE_STEEL",
+        "name": "Steel"
+      },
+      "pokemonClass": "POKEMON_CLASS_LEGENDARY",
+      "quickMoves": [
+        {
+          "id": "METAL_CLAW_FAST",
+          "name": "Metal Claw",
+          "power": 6,
+          "energy": 5,
+          "durationMs": 500,
+          "type": {
+            "type": "POKEMON_TYPE_STEEL",
+            "name": "Steel"
+          },
+          "combat": {
+            "energy": 7,
+            "power": 5,
+            "turns": 2,
+            "buffs": null
+          }
+        },
+        {
+          "id": "ICE_FANG_FAST",
+          "name": "Ice Fang",
+          "power": 12,
+          "energy": 20,
+          "durationMs": 1500,
+          "type": {
+            "type": "POKEMON_TYPE_ICE",
+            "name": "Ice"
+          },
+          "combat": {
+            "energy": 6,
+            "power": 8,
+            "turns": 2,
+            "buffs": null
+          }
+        }
+      ],
+      "cinematicMoves": [
+        {
+          "id": "MOONBLAST",
+          "name": "Moonblast",
+          "power": 130,
+          "energy": -100,
+          "durationMs": 4000,
+          "type": {
+            "type": "POKEMON_TYPE_FAIRY",
+            "name": "Fairy"
+          },
+          "combat": {
+            "energy": -60,
+            "power": 110,
+            "turns": 1,
+            "buffs": {
+              "activationChance": 10,
+              "attackerAttackStatsChange": null,
+              "attackerDefenseStatsChange": null,
+              "targetAttackStatsChange": -1,
+              "targetDefenseStatsChange": null
+            }
+          }
+        },
+        {
+          "id": "CLOSE_COMBAT",
+          "name": "Close Combat",
+          "power": 105,
+          "energy": -100,
+          "durationMs": 2500,
+          "type": {
+            "type": "POKEMON_TYPE_FIGHTING",
+            "name": "Fighting"
+          },
+          "combat": {
+            "energy": -45,
+            "power": 100,
+            "turns": 1,
+            "buffs": {
+              "activationChance": 100,
+              "attackerAttackStatsChange": null,
+              "attackerDefenseStatsChange": -2,
+              "targetAttackStatsChange": null,
+              "targetDefenseStatsChange": null
+            }
+          }
+        },
+        {
+          "id": "GIGA_IMPACT",
+          "name": "Giga Impact",
+          "power": 200,
+          "energy": -100,
+          "durationMs": 4500,
+          "type": {
+            "type": "POKEMON_TYPE_NORMAL",
+            "name": "Normal"
+          },
+          "combat": {
+            "energy": -80,
+            "power": 150,
+            "turns": 1,
+            "buffs": null
+          }
+        },
+        {
+          "id": "BEHEMOTH_BASH",
+          "name": "Behemoth Bash",
+          "power": 125,
+          "energy": -50,
+          "durationMs": 1500,
+          "type": {
+            "type": "POKEMON_TYPE_STEEL",
+            "name": "Steel"
+          },
+          "combat": {
+            "energy": -45,
+            "power": 80,
+            "turns": 1,
+            "buffs": null
+          }
+        }
+      ],
+      "eliteQuickMoves": [],
+      "eliteCinematicMoves": [],
+      "assets": null,
+      "evolutions": [],
+      "hasMegaEvolution": false,
+      "megaEvolutions": []
+    }
+  ]
 }
