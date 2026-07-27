@@ -53,10 +53,22 @@ Each move includes a `computed` object with:
 Each Pokémon includes a top-level `computed` object (if stats are available) with:
 
 - **pokemon** — Real stats at Level 50, 15/15/15 IVs: `{ atkReal, defReal, hpReal }`
-- **movesets.regular** — All fast × charge combos ranked by TDO (regular moves only)
-- **movesets.elite** — Combos requiring at least one Elite TM move, ranked by TDO
+- **movesets.regular** — All fast × charge combos ranked by ER (regular moves only)
+- **movesets.elite** — Combos requiring at least one Elite TM move, ranked by ER
 
-TDO (Total Damage Output) = `combo_dps_atk × HP_real × DEF_real` — a boss-agnostic composite blending damage output and bulk. See the frontend's Methodology page for the full formula.
+Each moveset combo includes:
+
+- **dps** — Comprehensive DPS: damage output rate incorporating energy efficiency, STAB, and ATK stat (Gamepress formula)
+- **tdo** — Total Damage Output: `DPS × HP_real × DEF_real / 900` — total damage dealt before fainting against a neutral enemy
+- **er** — Equivalent Rating: `DPS^0.75 × TDO^0.25` — composite score balancing damage speed and survivability
+
+Type rankings (`api/rankings/{type}.json`) use **type-specific DPS** where only damage matching the target type contributes to the ranking score. This ensures fire specialists (e.g., Mega Charizard Y) outrank generalists with higher raw stats but off-type moves (e.g., Mega Mewtwo Y).
+
+### Methodology Credits
+
+- **Gamepress** — [Comprehensive DPS formula](https://gamepress.gg/pokemongo/how-calculate-comprehensive-dps)
+- **u/Elastic_Space** — [ER (Equivalent Rating) metric](https://www.reddit.com/r/TheSilphRoad/comments/135nz6o/analysis_improving_pve_overall_theoretical_metric/)
+- **u/Flyfunner, u/bmenrigh** — [New raid system research](https://www.reddit.com/r/TheSilphRoad/comments/1f4wqw8/analysis_everything_you_thought_you_knew_about/)
 
 ### Shadow & Mega Variants
 

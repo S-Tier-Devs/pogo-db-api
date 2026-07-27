@@ -113,6 +113,18 @@ Files in `data/pokemon/` follow the `StoredPokemon` type — same as `Pokemon` b
 - **STAB DPS**: `dps × 1.2` when `move.type.type === pokemon.primaryType.type || move.type.type === pokemon.secondaryType?.type`
 - Results rounded to 2 decimal places
 
+## Ranking Methodology
+
+Rankings use the Gamepress Comprehensive DPS formula with ER (Equivalent Rating):
+
+- **Comprehensive DPS**: `DPS0 + (CDPS - FDPS) / (CEPS + FEPS) × (0.5 - x/HP) × y` where `y = 900/DEF`, `x = 0.5×CE + 0.5×FE`
+- **TDO**: `DPS × HP_real × DEF_real / 900`
+- **ER**: `DPS^0.75 × TDO^0.25` (configurable α in `src/config.ts`)
+
+Type rankings use **type-specific DPS** — only damage from moves matching the target type counts toward the ranking score.
+
+Credits: Gamepress (comprehensive DPS), u/Elastic_Space (ER metric), u/Flyfunner & u/bmenrigh (raid system research).
+
 ## Deployment
 
 GitHub Actions (`.github/workflows/build-and-deploy.yml`):
