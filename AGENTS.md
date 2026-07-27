@@ -7,23 +7,27 @@ A static JSON API for Pokémon GO data. No server runtime — it's a TypeScript 
 ## Architecture
 
 ```
-data/pokemon/*.json (committed) → read → compute → write → GitHub Pages
+data/pokemon/*.json (committed) → read → expand (shadow/mega) → compute → write → GitHub Pages
 ```
 
 - **Store** (`data/pokemon/`): Local database of per-Pokémon JSON files. One file per dexNr, committed to the repo. Contains all base data but no computed fields (those are calculated at build time).
 - **Read** (`src/reader.ts`): Loads all JSON files from `data/pokemon/`, flattens multi-form entries, and initializes `computed` fields to zero for the calculator pipeline.
-- **Compute** (`src/calculators/`): Extensible pipeline. Each calculator implements `{ name: string; compute(pokemon: Pokemon): Pokemon }`. Currently runs DPS + STAB DPS.
-- **Write** (`src/writer.ts`): Outputs `public/api/pokemon/{dexNr}.json` per Pokémon + `public/api/pokemon/index.json` manifest.
-- **Orchestrate** (`src/index.ts`): Wires read → compute → write.
+- **Expand** (`src/expander.ts`): Synthesizes shadow and mega variants from base Pokémon. Shadow eligibility comes from `shadow_pokemon.csv`. Mega variants use the base's movepool with mega stats/types.
+- **Compute** (`src/calculators/`): Extensible pipeline. Each calculator implements `{ name: string; compute(pokemon: Pokemon): Pokemon }`. Currently runs DPS + STAB DPS + TDO.
+- **Write** (`src/writer.ts`): Outputs `public/api/pokemon/{dexNr}.json` per Pokémon (with variants array) + `public/api/pokemon/index.json` manifest.
+- **Orchestrate** (`src/index.ts`): Wires read → expand → compute → write.
 - **Seed** (`src/seed.ts`): One-time/re-runnable script to fetch upstream data and populate `data/pokemon/`. Uses `fetcher.ts` and `transformer.ts`.
 
 ## Key Files
 
 | File | Purpose |
 |------|---------|
-| `src/index.ts` | Build entry point: read → compute → write |
+| `src/index.ts` | Build entry point: read → expand → compute → write |
 | `src/types.ts` | All TypeScript interfaces (Pokemon, StoredPokemon, Move, etc.) |
+| `src/config.ts` | Configurable multipliers (shadow ATK/DEF) |
 | `src/reader.ts` | Reads data/pokemon/*.json into Pokemon[] |
+| `src/expander.ts` | Synthesizes shadow/mega variants from base Pokémon |
+| `src/shadow.ts` | Reads and parses shadow_pokemon.csv |
 | `src/seed.ts` | Seed script: fetch upstream → transform → write data/pokemon/ |
 | `src/fetcher.ts` | HTTP fetch with retry (used by seed only) |
 | `src/transformer.ts` | Raw upstream → trimmed English (used by seed only) |

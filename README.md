@@ -58,19 +58,54 @@ Each Pokémon includes a top-level `computed` object (if stats are available) wi
 
 TDO (Total Damage Output) = `combo_dps_atk × HP_real × DEF_real` — a boss-agnostic composite blending damage output and bulk. See the frontend's Methodology page for the full formula.
 
+### Shadow & Mega Variants
+
+Each Pokémon file includes a `variants` array (when applicable) containing shadow and mega forms with their own computed stats:
+
+```json
+{
+  "variants": [
+    {
+      "variant": "shadow",
+      "variantName": "Shadow Mewtwo",
+      "id": "MEWTWO_SHADOW",
+      "formId": "MEWTWO_SHADOW",
+      "name": "Shadow Mewtwo",
+      "stats": { "stamina": 214, "attack": 360, "defense": 143.33 },
+      "computed": { "pokemon": { ... }, "movesets": { ... } }
+    },
+    {
+      "variant": "mega",
+      "variantName": "Mega Mewtwo Y",
+      "id": "MEWTWO_MEGA_Y",
+      "formId": "MEWTWO_MEGA_Y",
+      "name": "Mega Mewtwo Y",
+      "stats": { "stamina": 214, "attack": 387, "defense": 232 },
+      "computed": { "pokemon": { ... }, "movesets": { ... } }
+    }
+  ]
+}
+```
+
+Type rankings (`api/rankings/{type}.json`) also include shadow and mega entries with `variant` and `variantName` fields for easy filtering.
+
+- **Shadow** — Base stats × 1.2 ATK / × 0.833 DEF. Eligible Pokémon defined in `shadow_pokemon.csv`.
+- **Mega** — Uses mega evolution stats/types with the base Pokémon's movepool.
+
 ## Architecture
 
 ```
-data/pokemon/*.json → read → compute → write → GitHub Pages
+data/pokemon/*.json → read → expand (shadow/mega) → compute → write → GitHub Pages
 ```
 
 | Stage | Module | Description |
 |-------|--------|-------------|
 | Store | `data/pokemon/` | Local database of per-Pokémon JSON files (committed) |
 | Read | `src/reader.ts` | Loads stored data, flattens forms, initializes computed fields |
+| Expand | `src/expander.ts` | Synthesizes shadow/mega variants from base Pokémon + shadow list |
 | Compute | `src/calculators/` | Extensible pipeline of stat calculators |
 | Write | `src/writer.ts` | Outputs individual JSON files per dexNr to `public/api/` |
-| Orchestrate | `src/index.ts` | Wires read → compute → write |
+| Orchestrate | `src/index.ts` | Wires read → expand → compute → write |
 
 ### Adding New Pokémon
 
@@ -134,10 +169,14 @@ The frontend (`public/index.html`) is an interactive API documentation page. It 
 
 ```
 data/pokemon/             # Local database — one JSON file per dexNr (committed)
+shadow_pokemon.csv        # Shadow-eligible Pokémon list (dex_number,name,form,type1,type2)
 src/
-├── index.ts              # Build pipeline: read → compute → write
+├── index.ts              # Build pipeline: read → expand → compute → write
 ├── types.ts              # TypeScript type definitions
+├── config.ts             # Configurable multipliers (shadow ATK/DEF)
 ├── reader.ts             # Reads data/pokemon/ into Pokemon[]
+├── expander.ts           # Synthesizes shadow/mega variants from base Pokémon
+├── shadow.ts             # Reads and parses shadow_pokemon.csv
 ├── seed.ts              # Seed script: fetch upstream → write data/pokemon/
 ├── fetcher.ts            # HTTP fetch from upstream (used by seed)
 ├── transformer.ts        # Raw → trimmed English (used by seed)
