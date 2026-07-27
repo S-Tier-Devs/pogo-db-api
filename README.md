@@ -15,6 +15,7 @@ Base URL: `https://<username>.github.io/pogo-db-api/api/pokemon/`
 | `api/rankings/index.json` | List of available type rankings |
 | `api/rankings/{type}.json` | Top attackers for a type (e.g., `api/rankings/fire.json`) |
 | `api/raids/current.json` | Current raid bosses (scraped from Leek Duck, updated daily) |
+| `api/events/current.json` | Current and upcoming events (scraped from Leek Duck, updated daily) |
 
 ### Example Response (`api/pokemon/1.json`)
 
@@ -143,10 +144,14 @@ src/
 ├── writer.ts             # JSON file writer for public/api/pokemon/
 ├── rankings-writer.ts    # Per-type TDO rankings writer for public/api/rankings/
 ├── raids-writer.ts       # Orchestrates raid boss fetch → parse → match → write
+├── events-writer.ts      # Orchestrates events fetch → parse → write
 ├── raids/
 │   ├── fetcher.ts        # Fetches Leek Duck HTML (with timeout, silent fail)
 │   ├── parser.ts         # Cheerio-based HTML parser for raid boss data
 │   └── matcher.ts        # Name matcher: display names → dexNr
+├── events/
+│   ├── fetcher.ts        # Fetches Leek Duck events HTML (with timeout, silent fail)
+│   └── parser.ts         # Cheerio-based HTML parser for event data
 └── calculators/
     ├── index.ts          # Calculator interface + pipeline runner
     ├── dps.ts            # DPS/STAB computation (per-move)
@@ -156,7 +161,8 @@ public/
 └── api/                  # Generated output (gitignored)
     ├── pokemon/          # Per-Pokémon JSON files
     ├── rankings/         # Per-type TDO ranking files
-    └── raids/            # Current raid bosses (scraped from Leek Duck)
+    ├── raids/            # Current raid bosses (scraped from Leek Duck)
+    └── events/           # Current events (scraped from Leek Duck)
 .github/workflows/
 ├── build-and-deploy.yml  # Build + GitHub Pages deploy (daily cron + push)
 └── ci.yml                # PR/push test runner
