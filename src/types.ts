@@ -109,6 +109,12 @@ export interface Pokemon {
   hasMegaEvolution: boolean;
   megaEvolutions: MegaEvolution[];
   computed: PokemonComputed | null;
+  /** Variant type — undefined for base Pokemon */
+  variant?: 'shadow' | 'mega';
+  /** Display name for the variant (e.g., 'Shadow Charizard', 'Mega Charizard X') */
+  variantName?: string;
+  /** The base form's formId this variant was derived from */
+  baseFormId?: string;
 }
 
 /** Stored data types (local database files in data/pokemon/) */

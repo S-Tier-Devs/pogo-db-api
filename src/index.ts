@@ -6,6 +6,8 @@ import { writePokedex } from "./writer.js";
 import { writeRankings } from "./rankings-writer.js";
 import { writeRaids } from "./raids-writer.js";
 import { writeEvents } from "./events-writer.js";
+import { readShadowList } from "./shadow.js";
+import { expandVariants } from "./expander.js";
 
 function elapsed(start: number): string {
   return ((performance.now() - start) / 1000).toFixed(2) + "s";
@@ -20,29 +22,39 @@ async function main(): Promise<void> {
   const pokemon = await readPokedex();
   console.log(`📖 Read ${pokemon.length} pokemon from data/ in ${elapsed(readStart)}`);
 
-  // Step 2: Compute (extensible calculator pipeline)
+  // Step 2: Load shadow list and expand variants
+  const expandStart = performance.now();
+  const shadowList = await readShadowList();
+  const expanded = expandVariants(pokemon, shadowList);
+  const shadowCount = expanded.filter((p) => p.variant === "shadow").length;
+  const megaCount = expanded.filter((p) => p.variant === "mega").length;
+  console.log(
+    `🔀 Expanded to ${expanded.length} entries (+${shadowCount} shadow, +${megaCount} mega) in ${elapsed(expandStart)}`
+  );
+
+  // Step 3: Compute (extensible calculator pipeline)
   const computeStart = performance.now();
   const calculators = [dpsCalculator, tdoCalculator];
-  const computed = runPipeline(pokemon, calculators);
+  const computed = runPipeline(expanded, calculators);
   console.log(
     `🧮 Ran ${calculators.length} calculator(s) [${calculators.map((c) => c.name).join(", ")}] in ${elapsed(computeStart)}`
   );
 
-  // Step 3: Write API output
+  // Step 4: Write API output
   const writeStart = performance.now();
   const { filesWritten, index } = await writePokedex(computed);
   console.log(
     `💾 Wrote ${filesWritten} files (${index.length} pokemon) in ${elapsed(writeStart)}`
   );
 
-  // Step 4: Write type rankings
+  // Step 5: Write type rankings
   const rankingsStart = performance.now();
   const rankingsWritten = await writeRankings(computed);
   console.log(
     `🏆 Wrote ${rankingsWritten} ranking files in ${elapsed(rankingsStart)}`
   );
 
-  // Step 5: Fetch and write current raid bosses
+  // Step 6: Fetch and write current raid bosses
   const raidsStart = performance.now();
   const raidsWritten = await writeRaids();
   if (raidsWritten) {
@@ -51,7 +63,7 @@ async function main(): Promise<void> {
     console.log(`🥊 Skipped raid bosses (fetch unavailable) in ${elapsed(raidsStart)}`);
   }
 
-  // Step 6: Fetch and write current events
+  // Step 7: Fetch and write current events
   const eventsStart = performance.now();
   const eventsWritten = await writeEvents();
   if (eventsWritten) {

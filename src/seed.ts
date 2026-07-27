@@ -68,8 +68,19 @@ export function toStoredPokemon(pokemon: Pokemon): StoredPokemon {
 }
 
 /**
+ * Determines if a Pokemon entry is the "base" form (no regional/form suffix).
+ * Base forms have formId equal to their id (e.g., CHARIZARD vs CHARIZARD_ALOLA).
+ */
+function isBaseForm(pokemon: Pokemon): boolean {
+  return pokemon.id === pokemon.formId;
+}
+
+/**
  * Groups Pokemon by dexNr. If multiple forms share the same dexNr,
- * the first entry is the primary and the rest become the `forms` array.
+ * the base form (where id === formId) becomes the primary entry and
+ * alternate forms (Alolan, Galarian, Hisuian, etc.) go into the `forms` array.
+ *
+ * If no clear base form is found, the first entry is used as primary.
  */
 export function groupByDexNr(
   pokemon: Pokemon[]
@@ -85,10 +96,17 @@ export function groupByDexNr(
   const result = new Map<number, StoredPokemon>();
 
   for (const [dexNr, forms] of groups) {
-    const primary = toStoredPokemon(forms[0]);
+    // Prefer the base form as primary
+    const baseIndex = forms.findIndex(isBaseForm);
+    const primaryIndex = baseIndex >= 0 ? baseIndex : 0;
 
-    if (forms.length > 1) {
-      primary.forms = forms.slice(1).map(toStoredPokemon);
+    const primaryPokemon = forms[primaryIndex];
+    const alternateForms = forms.filter((_, i) => i !== primaryIndex);
+
+    const primary = toStoredPokemon(primaryPokemon);
+
+    if (alternateForms.length > 0) {
+      primary.forms = alternateForms.map(toStoredPokemon);
     }
 
     result.set(dexNr, primary);
