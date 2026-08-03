@@ -55,10 +55,10 @@ ai-standards/templates/AGENTS.md first, then sync outward. -->
   or reshapes a page, publish a self-contained HTML mockup (representative data
   clearly labeled as mock) and get sign-off on it as part of the brainstorm — the
   approved mockup is referenced in the spec.
-- Model selection — session (main loop): brainstorming, spec writing, and plan
-  writing run on the most capable model; subagent orchestration (executing the plan
-  via subagent-driven-development) runs on Opus. Switch sessions/models at the
-  plan→execution handoff.
+- Model selection — session (main loop), in tiers so it survives model releases:
+  brainstorming, spec writing, and plan writing run on the most capable model;
+  subagent orchestration (executing the plan via subagent-driven-development)
+  likewise. Switch sessions/models at the plan→execution handoff.
 - Model selection — subagent dispatch: cheapest tier when the plan contains the
   complete code (transcription); mid-tier for integration/real-run tasks and all
   reviewers; most capable model for the final whole-branch review. Always specify
