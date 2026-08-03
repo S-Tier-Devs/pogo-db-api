@@ -1,6 +1,22 @@
-node_modules/
-dist/
-public/api/
+# Anchor patterns (leading /) — an unanchored pattern once silently dropped
+# committed source dirs in a sibling project. After committing, sanity-check with:
+#   git status --untracked-files=all
+/node_modules/
+/dist/
+/out/
+/logs/
+
+# Generated API output — rebuilt by `npm run build` on every deploy.
+/public/api/
+
 *.tsbuildinfo
 .DS_Store
 .kiro
+
+.env
+.env.*
+!.env.example
+
+/.claude/settings.local.json
+/.claude/worktrees/
+/.superpowers/
